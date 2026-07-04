@@ -1385,10 +1385,10 @@ document.addEventListener("DOMContentLoaded", async function() {
                 <ul>
                     <li><a href="examination/downloads.html">Downloads</a></li>
                     <li><a href="admissions/admission-process.html">Student Forms</a></li>
-                    <li><a href="academic-section-download/1_Rules-Regulations-2021-22.pdf" target="_blank">Rules & Regulations</a></li>
-                    <li><a href="academic-section-download/2_Notification-Hand-book.pdf" target="_blank">Notification Handbook</a></li>
-                    <li><a href="academic-section-download/3_Academic-calendar-2025-26.pdf" target="_blank">Academic Calendar 2025-26</a></li>
-                    <li><a href="academic-section-download/4_Academic-planner-2025-26.pdf" target="_blank">Academic Planner 2025-26</a></li>
+                    <li><a href="https://files.catbox.moe/j06xdb.pdf" target="_blank">Rules & Regulations</a></li>
+                    <li><a href="https://files.catbox.moe/j06xdb.pdf" target="_blank">Notification Handbook</a></li>
+                    <li><a href="https://files.catbox.moe/j06xdb.pdf" target="_blank">Academic Calendar 2025-26</a></li>
+                    <li><a href="https://files.catbox.moe/j06xdb.pdf" target="_blank">Academic Planner 2025-26</a></li>
                 </ul>
             </div>
 
