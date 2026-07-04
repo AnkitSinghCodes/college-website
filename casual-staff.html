@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casual Staff - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="css/main-bundle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CORE VARIABLES & GLOBAL STYLES --- */
+        :root {
+            --bg-light: #fbfbfd;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-blur: blur(20px) saturate(180%);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --primary-color: #004aAD;
+            --primary-glass: rgba(0, 74, 173, 0.7);
+            --secondary-color: #6c757d;
+            --secondary-glass: rgba(108, 117, 125, 0.1);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --text-light: #f5f5f7;
+            --transition-speed: 0.4s;
+            --white: #ffffff;
+        }
+
+        .page-container {
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            max-width: 1200px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .about-page-wrapper {
+            align-items: flex-start;
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 280px 1fr;
+        }
+
+        .about-sidebar {
+            position: sticky;
+            top: 40px;
+        }
+
+        .sidebar-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 74, 173, 0.1);
+            padding: 25px;
+            backdrop-filter: var(--glass-blur);
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .sidebar-title {
+            border-bottom: 2px solid rgba(0, 74, 173, 0.1);
+            color: var(--primary-color);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar-nav li a {
+            padding: 10px 12px;
+            transition: all 0.3s ease;
+            align-items: center;
+            border-radius: 10px;
+            color: var(--text-dark);
+            display: flex;
+            font-size: 0.9rem;
+            font-weight: 500;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .sidebar-nav li a i {
+            color: var(--primary-color);
+            font-size: 0.95rem;
+            opacity: 0.8;
+            text-align: center;
+            width: 18px;
+        }
+
+        .sidebar-nav li a:hover {
+            background: rgba(0, 74, 173, 0.05);
+            color: var(--primary-color);
+        }
+
+        .sidebar-nav li a.active {
+            background: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0, 74, 173, 0.2);
+            color: var(--white);
+        }
+
+        .sidebar-nav li a.active i {
+            color: var(--white);
+            opacity: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+            border-bottom: 2px solid rgba(0, 74, 173, 0.1);
+            padding-bottom: 15px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+        }
+
+        .section-header p {
+            color: var(--text-dim);
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* --- STAFF CARDS STYLES --- */
+        .staff-grid {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: 1fr;
+            padding: 10px 0;
+        }
+
+        .staff-profile-card {
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(0, 74, 173, 0.08);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .staff-profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(0, 74, 173, 0.15);
+        }
+
+        .staff-header-section {
+            align-items: center;
+            display: flex;
+            gap: 25px;
+        }
+
+        .staff-img {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 74, 173, 0.12);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
+            height: 160px;
+            overflow: hidden;
+            width: 130px;
+        }
+
+        .staff-img img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .staff-info {
+            flex: 1;
+        }
+
+        .staff-info h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 4px 0;
+        }
+
+        .staff-info .staff-designation {
+            color: var(--secondary-color);
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .staff-info .staff-designation i {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .staff-details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            background: rgba(0, 74, 173, 0.02);
+            border: 1px solid rgba(0, 74, 173, 0.05);
+            padding: 15px 20px;
+            border-radius: 10px;
+        }
+
+        .detail-item {
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .detail-item strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .detail-item i {
+            color: var(--primary-color);
+            margin-right: 6px;
+            width: 14px;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 992px) {
+            .about-page-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .about-sidebar {
+                position: static;
+                margin-bottom: 20px;
+            }
+            .sidebar-nav {
+                display: grid;
+                gap: 10px;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+            .sidebar-nav li {
+                margin-bottom: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .staff-header-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .staff-details-grid {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+            .glass-card {
+                padding: 25px;
+            }
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="page-staff">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <h1 class="page-title">Institutional Staff</h1>
+                <p>The backbone of Government Polytechnic College Ziro</p>
+            </div>
+        </section>
+
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar Navigation -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Staff Portal</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="staff.html"><i class="fas fa-users"></i> All Staff Sections</a></li>
+                            <li><a href="contingency-staff.html"><i class="fas fa-people-carry"></i> Contingency Staff</a></li>
+                            <li><a href="casual-staff.html" class="active"><i class="fas fa-user-clock"></i> Casual Staff</a></li>
+                            <li><a href="facilities/library.html#library-staff"><i class="fas fa-book"></i> Library Staff</a></li>
+                            <li><a href="about/administration.html"><i class="fas fa-user-tie"></i> Administration</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                        <div class="section-header">
+                            <h2>Casual Staff Profiles</h2>
+                            <p>Meet our casual staff members supporting academic and operational systems at the college.</p>
+                        </div>
+
+                        <div class="staff-grid">
+                            <!-- Staff 1: Tallo Tada -->
+                            <div class="staff-profile-card">
+                                <div class="staff-header-section">
+                                    <div class="staff-img">
+                                        <img src="images/casual-staff.jpeg" alt="Sh. Tallo Tada">
+                                    </div>
+                                    <div class="staff-info">
+                                        <h3>Sh. Tallo Tada</h3>
+                                        <p class="staff-designation"><i class="fas fa-user-clock"></i> Casual staff</p>
+                                        
+                                        <div class="staff-details-grid">
+                                            <div class="detail-item">
+                                                <i class="fas fa-graduation-cap"></i> <strong>Qualification:</strong> Bachelor of Engineering in Civil Engineering
+                                            </div>
+                                            <div class="detail-item">
+                                                <i class="fas fa-calendar-alt"></i> <strong>Date of Joining:</strong> 01-Sept-2025
+                                            </div>
+                                            <div class="detail-item">
+                                                <i class="fas fa-envelope"></i> <strong>Email:</strong> talloabel57@gmail.com
+                                            </div>
+                                            <div class="detail-item">
+                                                <i class="fas fa-phone-alt"></i> <strong>Mobile:</strong> 8794681229
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .staff-profile-card');
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: "0px 0px -20px 0px"
+            });
+
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

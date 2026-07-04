@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-facilities">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Hostel</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Facilities</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="library.html"><i class="fas fa-book"></i> Library</a></li>
+                            <li><a href="hostel.html" class="active"><i class="fas fa-hotel"></i> Hostel</a></li>
+                            <li><a href="laboratory.html"><i class="fas fa-flask"></i> Laboratory</a></li>
+                            <li><a href="sports.html"><i class="fas fa-running"></i> Sports</a></li>
+                            <li><a href="canteen.html"><i class="fas fa-utensils"></i> Canteen</a></li>
+                            <li><a href="medical-facility.html"><i class="fas fa-hand-holding-medical"></i> Medical
+                                    Facility</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                        <div class="about-content">
+                            <h2 class="section-title">Hostel Facilities</h2>
+
+                            <div class="facility-intro">
+                                <p class="text-lead">
+                                    The institute has separate hostel facility for Boys and Girls with spacious room
+                                    equipped with study table, chair and a cot.
+                                </p>
+                                <p class="text-body">
+                                    All weather drinking water facility is provided for the students. The mess and
+                                    kitchen are managed with a professional service provider.
+                                </p>
+                            </div>
+
+                            <div class="facility-grid" style="margin-top: 30px;">
+                                <div class="facility-info-block">
+                                    <h3><i class="fas fa-hotel"></i> Separate Hostels</h3>
+                                    <p>Independent hostel facilities are available for both Boys and Girls, ensuring
+                                        privacy and comfort.</p>
+                                </div>
+                                <div class="facility-info-block">
+                                    <h3><i class="fas fa-bed"></i> Spacious Rooms</h3>
+                                    <p>Each room is well-furnished with essential furniture including a study table,
+                                        chair, and a cot.</p>
+                                </div>
+                                <div class="facility-info-block">
+                                    <h3><i class="fas fa-tint"></i> Amenities</h3>
+                                    <p>Safe and clean all-weather drinking water facility is accessible to all residents
+                                        throughout the year.</p>
+                                </div>
+                                <div class="facility-info-block">
+                                    <h3><i class="fas fa-utensils"></i> Mess & Kitchen</h3>
+                                    <p>Hygeinic mess and kitchen facilities are managed by professional service
+                                        providers to ensure quality meals.</p>
+                                </div>
+                            </div>
+
+                            <div class="hostel-gallery" style="margin-top: 40px;">
+                                <h3 class="section-subtitle"><i class="fas fa-male"></i> Boys Hostel Gallery</h3>
+                                <div class="gallery-grid">
+                                    <div class="gallery-item">
+                                        <img src="../hostel/1.jpeg" alt="Hostel Room View">
+                                        <p>Spacious Student Room</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/3.jpeg" alt="Hostel Facility">
+                                        <p>Hostel Wing View</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/4.jpeg" alt="Hostel Corridor">
+                                        <p>Well-Lit Corridors</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/5.jpeg" alt="Hostel Common Area">
+                                        <p>Common Recreational Space</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/6.jpeg" alt="Hostel Entrance">
+                                        <p>Main Entrance</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/7.jpeg" alt="Hostel Interior">
+                                        <p>Indoor Living Space</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/8.jpeg" alt="Hostel Dining">
+                                        <p>Dining Facilities</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/9.jpeg" alt="Hostel Kitchen">
+                                        <p>Hygienic Kitchen Area</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/10.jpeg" alt="Hostel Dining Hall">
+                                        <p>Student Mess Hall</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/11.jpeg" alt="Hostel Activity Room">
+                                        <p>Activity & Study Room</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/12.jpeg" alt="Hostel Living Space">
+                                        <p>Modern Living Amenities</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/13.jpeg" alt="Hostel Student Area">
+                                        <p>Student Lounge</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/14.jpeg" alt="Hostel Environment">
+                                        <p>Lush Green Surroundings</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/15.jpeg" alt="Hostel Campus View">
+                                        <p>Hostel Campus Panorama</p>
+                                    </div>
+                                </div>
+
+                                <h3 class="section-subtitle" style="margin-top: 50px;"><i class="fas fa-female"></i> Girls Hostel Gallery</h3>
+                                <div class="gallery-grid">
+                                    <div class="gallery-item">
+                                        <img src="../hostel/girls_hostel_1.jpeg" alt="Girls Hostel - Exterior View">
+                                        <p>Girls Hostel - Exterior View</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/girls_hostel_2.jpeg" alt="Girls Hostel - Entrance">
+                                        <p>Girls Hostel - Secure Entrance</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/girls_hostel_3.jpeg" alt="Girls Hostel - Lounge Area">
+                                        <p>Girls Hostel - Lounge Area</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/girls_hostel_4.jpeg" alt="Girls Hostel - Safe Environment">
+                                        <p>Girls Hostel - Safe Environment</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/girls_hostel_5.jpeg" alt="Girls Hostel - Student Accommodation">
+                                        <p>Girls Hostel - Study Space</p>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../hostel/girls_hostel_6.jpeg" alt="Girls Hostel - Modern Facilities">
+                                        <p>Girls Hostel - Modern Amenities</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="video-highlights" style="margin-top: 40px;">
+                                <h3><i class="fas fa-video"></i> Hostel Video Highlights</h3>
+                                <div class="gallery-grid">
+                                    <div class="video-container"
+                                        style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm);">
+                                        <video controls style="width: 100%; display: block;">
+                                            <source src="../hostel/v1.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                    <div class="video-container"
+                                        style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm);">
+                                        <video controls style="width: 100%; display: block;">
+                                            <source src="../hostel/v2.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .facility-intro, .facility-grid, .hostel-gallery, .video-highlights');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+

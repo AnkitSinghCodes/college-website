@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civil Engineering Faculty - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../../css/main-bundle.css">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CORE VARIABLES & GLOBAL STYLES --- */
+        :root {
+            --bg-light: #fbfbfd;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-blur: blur(20px) saturate(180%);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --primary-color: #004aAD;
+            --primary-glass: rgba(0, 74, 173, 0.7);
+            --secondary-color: #6c757d;
+            --secondary-glass: rgba(108, 117, 125, 0.1);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --text-light: #f5f5f7;
+            --transition-speed: 0.4s;
+            --white: #ffffff;
+        }
+
+        .page-container {
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            max-width: 1200px;
+        }
+
+        .about-page-wrapper {
+            align-items: flex-start;
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 280px 1fr;
+        }
+
+        .about-sidebar {
+            position: sticky;
+            top: 40px;
+        }
+
+        .sidebar-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-title {
+            border-bottom: 2px solid rgba(0, 74, 173, 0.1);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-nav li a {
+            border-left: 4px solid transparent;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+            align-items: center;
+            border-radius: 12px;
+            color: var(--text-dark);
+            display: flex;
+            font-size: 0.95rem;
+            font-weight: 500;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .sidebar-nav li a i {
+            color: var(--primary-color);
+            font-size: 1rem;
+            opacity: 0.7;
+            text-align: center;
+            width: 20px;
+        }
+
+        .sidebar-nav li a:hover {
+            background: rgba(0, 74, 173, 0.05);
+            color: var(--primary-color);
+            padding-left: 20px;
+        }
+
+        .sidebar-nav li a.active {
+            background: var(--primary-color);
+            border-left-color: #c5a059;
+            box-shadow: 0 8px 15px rgba(0, 74, 173, 0.2);
+            color: var(--white);
+        }
+
+        .sidebar-nav li a.active i {
+            color: var(--white);
+            opacity: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        .dept-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .dept-header h2 {
+            color: #1a4a8e;
+            font-size: 2.5rem;
+        }
+
+        .dept-header p {
+            color: var(--text-dim);
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        /* --- COMMON DEPARTMENT LAYOUT STYLES --- */
+        .faculty-grid {
+            padding: 20px 0;
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 1fr;
+        }
+
+        .faculty-card {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .faculty-header {
+            align-items: flex-start;
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .faculty-img {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+            height: 200px;
+            overflow: hidden;
+            width: 160px;
+        }
+
+        .faculty-img img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .faculty-basic-info {
+            flex: 1;
+        }
+
+        .faculty-basic-info h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .faculty-basic-info .designation {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .faculty-contact {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 20px;
+            border-radius: 10px;
+            color: #444;
+            font-size: 0.95rem;
+            margin-top: 15px;
+        }
+
+        .faculty-contact p {
+            align-items: center;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .faculty-contact i {
+            color: var(--primary-color);
+            text-align: center;
+            width: 20px;
+        }
+
+        .faculty-detail-section {
+            margin-top: 35px;
+        }
+
+        .faculty-detail-section h4 {
+            border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Faculty Tables - Shared across CE, EEE, SH */
+        .faculty-table {
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-collapse: separate;
+            border-radius: 10px;
+            border-spacing: 0;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .faculty-table th, 
+        .faculty-table td {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 15px 20px;
+            text-align: left;
+        }
+
+        .faculty-table th {
+            background: rgba(26, 74, 142, 0.05);
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .faculty-table tr:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .faculty-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Faculty Lists */
+        .faculty-detail-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .faculty-detail-list li {
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .faculty-detail-list li::before {
+            color: var(--primary-color);
+            content: "\f105";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            left: 0;
+            position: absolute;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 992px) {
+            .about-page-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .about-sidebar {
+                margin-bottom: 30px;
+                position: static;
+            }
+            .sidebar-nav {
+                display: grid;
+                gap: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .sidebar-nav li {
+                margin-bottom: 0;
+            }
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 20px;
+            }
+            .faculty-header {
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+            }
+            .faculty-contact {
+                text-align: left;
+            }
+            .faculty-contact p {
+                justify-content: center;
+            }
+            .table-responsive {
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-departments-ce">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                <h1 class="page-title">Civil Engineering Faculty</h1>
+            </div>
+            </div>
+        </section>
+
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Civil Engineering</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="profile.html"><i class="fas fa-info-circle"></i> Department Profile</a></li>
+                            <li><a href="labs.html"><i class="fas fa-flask"></i> Laboratories</a></li>
+                            <li><a href="faculties.html" class="active"><i class="fas fa-chalkboard-teacher"></i> Our Faculty</a></li>
+                            <li><a href="staff.html"><i class="fas fa-cogs"></i> Technical Staff</a></li>
+                            <li><a href="students.html"><i class="fas fa-user-graduate"></i> Students</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                <div class="dept-header" style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="color: #1a4a8e; font-size: 2.5rem;">Our Faculty</h2>
+                    <p>Civil Engineering</p>
+                </div>
+
+                <div class="faculty-grid">
+                    <div class="faculty-card">
+                        <div class="faculty-header">
+                            <div class="faculty-img">
+                                <img src="images/getu toka_CE.jpeg" alt="Mr. Getu Yoka">
+                            </div>
+                            <div class="faculty-basic-info">
+                                <h3>Mr. Getu Yoka</h3>
+                                <p class="designation">Head of Department (HoD) (I/c)</p>
+                                <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">
+                                    <strong>Specialization:</strong>
+                                    Environmental Engineering
+                                </p>
+                                <div class="faculty-contact">
+                                    <p><i class="fas fa-envelope"></i> getuyoka@gmail.com</p>
+                                    <p><i class="fas fa-phone"></i> +91 9402018449</p>
+                                    <p><strong>Joining:</strong> 3rd July 2025</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faculty-detail-section">
+                            <h4>Educational Qualification</h4>
+                            <table class="faculty-table">
+                                <thead>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Degree</th>
+                                        <th>Subject / Specialization</th>
+                                        <th>University</th>
+                                        <th>Year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Ph.D (Pursuing)</td>
+                                        <td>Environmental Engineering</td>
+                                        <td>North Eastern Regional Institute of Science and Technology (NERIST), Nirjuli
+                                        </td>
+                                        <td>Pursuing</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>M. Tech</td>
+                                        <td>Environmental Engineering</td>
+                                        <td>North Eastern Regional Institute of Science and Technology (NERIST), Nirjuli
+                                        </td>
+                                        <td>2015</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>B. Tech</td>
+                                        <td>Civil Engineering</td>
+                                        <td>Visvesvaraya Technological University (VTU), Belgaum</td>
+                                        <td>2013</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <div class="faculty-detail-section">
+                            <h4>Teaching-Learning Engagement</h4>
+                            <div class="table-responsive">
+                                <table class="faculty-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>Sr. No.</th>
+                                            <th>Course Code</th>
+                                            <th>Course Title</th>
+                                            <th>Department</th>
+                                            <th>Year</th>
+                                            <th>Semester</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>ES101</td>
+                                            <td>Engineering Graphics</td>
+                                            <td>Common</td>
+                                            <td>1st</td>
+                                            <td>I</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>ES103</td>
+                                            <td>Engineering Workshop Practice</td>
+                                            <td>Common</td>
+                                            <td>1st</td>
+                                            <td>I</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>ES106</td>
+                                            <td>Engineering Mechanics</td>
+                                            <td>Common</td>
+                                            <td>1st</td>
+                                            <td>II</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>CEPC 201</td>
+                                            <td>Construction Materials &amp; Lab</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>III</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>CEPC 203</td>
+                                            <td>Basic Surveying &amp; Lab</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>III</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>CEPC 205</td>
+                                            <td>Mechanics of Materials &amp; Lab</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>III</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>CEPC 207</td>
+                                            <td>Building Construction</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>III</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>CEPC 209</td>
+                                            <td>Concrete Technology &amp; Lab</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>III</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>CEPC 211</td>
+                                            <td>Geotechnical Engineering &amp; Lab</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>III</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>SI 201</td>
+                                            <td>Summer Internship-I</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>III</td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td>CEPC 202</td>
+                                            <td>Hydraulics &amp; Lab</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>IV</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>CEPC 204</td>
+                                            <td>Advanced Surveying &amp; Lab</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>IV</td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</td>
+                                            <td>CEPC 206</td>
+                                            <td>Theory of Structure</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>IV</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14</td>
+                                            <td>CEPC 208</td>
+                                            <td>Building Planning and Drawing</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>IV</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15</td>
+                                            <td>CEPC 210</td>
+                                            <td>Water Resource Engineering &amp; Lab</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>IV</td>
+                                        </tr>
+                                        <tr>
+                                            <td>16</td>
+                                            <td>CEPC 212</td>
+                                            <td>Transportation Engineering &amp; Lab</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>IV</td>
+                                        </tr>
+                                        <tr>
+                                            <td>17</td>
+                                            <td>CEPE 206</td>
+                                            <td>Rural Construction Technology</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>IV</td>
+                                        </tr>
+                                        <tr>
+                                            <td>18</td>
+                                            <td>PR 202</td>
+                                            <td>Minor Project</td>
+                                            <td>CE</td>
+                                            <td>2nd</td>
+                                            <td>IV</td>
+                                        </tr>
+                                        <tr>
+                                            <td>19</td>
+                                            <td>CEPC 301</td>
+                                            <td>Design of Steel and RCC &amp; Lab</td>
+                                            <td>CE</td>
+                                            <td>3rd</td>
+                                            <td>V</td>
+                                        </tr>
+                                        <tr>
+                                            <td>20</td>
+                                            <td>CEPC 303</td>
+                                            <td>Estimating Costing and Valuation &amp; Lab</td>
+                                            <td>CE</td>
+                                            <td>3rd</td>
+                                            <td>V</td>
+                                        </tr>
+                                        <tr>
+                                            <td>21</td>
+                                            <td>CEPE 303</td>
+                                            <td>Solid Waste Management</td>
+                                            <td>CE</td>
+                                            <td>3rd</td>
+                                            <td>V</td>
+                                        </tr>
+                                        <tr>
+                                            <td>22</td>
+                                            <td>SI 301</td>
+                                            <td>Summer Internship-II</td>
+                                            <td>CE</td>
+                                            <td>3rd</td>
+                                            <td>V</td>
+                                        </tr>
+                                        <tr>
+                                            <td>23</td>
+                                            <td>PR 302</td>
+                                            <td>Major Project</td>
+                                            <td>CE</td>
+                                            <td>3rd</td>
+                                            <td>V</td>
+                                        </tr>
+                                        <tr>
+                                            <td>24</td>
+                                            <td>CEPC 302</td>
+                                            <td>Public Health Engineering &amp; Lab</td>
+                                            <td>CE</td>
+                                            <td>3rd</td>
+                                            <td>VI</td>
+                                        </tr>
+                                        <tr>
+                                            <td>25</td>
+                                            <td>PR 302</td>
+                                            <td>Major Project (Phase 2)</td>
+                                            <td>CE</td>
+                                            <td>3rd</td>
+                                            <td>VI</td>
+                                        </tr>
+                                        <tr>
+                                            <td>26</td>
+                                            <td>SE 302</td>
+                                            <td>Technical Seminar</td>
+                                            <td>CE</td>
+                                            <td>3rd</td>
+                                            <td>VI</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="faculty-detail-section">
+                            <h4>Professional Background</h4>
+                            <table class="faculty-table">
+                                <thead>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Designation</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                        <th>Organization</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Lecturer (Senior Scale)</td>
+                                        <td>02-07-2025</td>
+                                        <td>Till Now</td>
+                                        <td>GPC Ziro</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Lecturer (Senior Scale)</td>
+                                        <td>08-08-2021</td>
+                                        <td>02-07-2025</td>
+                                        <td>RGGPC Itanagar</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Lecturer</td>
+                                        <td>08-08-2016</td>
+                                        <td>08-08-2021</td>
+                                        <td>RGGPC Itanagar</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="faculty-detail-section">
+                            <h4>Administrative Experience</h4>
+                            <table class="faculty-table">
+                                <thead>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Admin Experience</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                        <th>Organization</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>HOD, Civil Engineering</td>
+                                        <td>03-07-2025</td>
+                                        <td>Till Date</td>
+                                        <td>GPC Ziro</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>HOD, Civil Engineering</td>
+                                        <td>13-01-2023</td>
+                                        <td>02-07-2025</td>
+                                        <td>RGGPC Itanagar</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>HOD, Civil Engineering</td>
+                                        <td>12-09-2016</td>
+                                        <td>12-09-2019</td>
+                                        <td>RGGPC Itanagar</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="faculty-detail-section">
+                            <h4>Other Activities / Responsibilities</h4>
+                            <ul class="faculty-detail-list" style="font-size: 0.85rem;">
+                                <li>Coordinator &quot;AICTE&quot; Govt. Polytechnic College, Ziro (from 3rd July 2025 to
+                                    till date).</li>
+                                <li>Coordinator &quot;IQAC&quot; Govt. Polytechnic College, Ziro (from 3rd July 2025 to
+                                    till date).</li>
+                                <li>Coordinator &quot;AICTE&quot; Rajiv Gandhi Govt. Polytechnic College, Itanagar (from
+                                    12th Sept. 2019 to 2nd July 2025).</li>
+                                <li>Coordinator &quot;National Board of Accreditation (NBA)&quot; Rajiv Gandhi Govt.
+                                    Polytechnic Itanagar (from 12th Sept. 2019 to 2nd July 2025).</li>
+                                <li>Executive Member &quot;National Board of Accreditation (NBA)&quot; Rajiv Gandhi
+                                    Govt. Polytechnic Itanagar (from 30th Jan 2018 to 12th Sept. 2019).</li>
+                                <li>Project coordinator (Civil Engineering Department) from 12th August 2016 &ndash;
+                                    12th August 2019.</li>
+                                <li>Lab In Charge (Civil Engineering Department) from 12th August 2016 &ndash; 12th
+                                    August 2023.</li>
+                                <li>Trainer, Jal Urja Mitra Skill Development Programme (JUMSDP) for Small Hydro Power
+                                    Projects sponsored by MNRE, Government of India.</li>
+                                <li>Co-coordinator, Jal Urja Mitra Skill Development Programme (JUMSDP) sponsored by
+                                    MNRE, implemented by IIT Roorkee (2022&ndash;26).</li>
+                                <li>Coordinator &quot;Unnat Bharat Abhiyan (UBA 2.0)&quot;, Flagship Programme of MHRD
+                                    (from 6th August 2019 to 2nd July 2025).</li>
+                                <li>Nodal Officer Disaster Preparedness, Dept. of Disaster Management, Govt. of
+                                    Arunachal Pradesh (from 28th May 2018 to 2nd July 2025).</li>
+                                <li>Chief Coordinator &quot;Innovation Cell&quot; Rajiv Gandhi Govt. Polytechnic
+                                    Itanagar (from 30th Jan 2017 to 2nd July 2025).</li>
+                                <li>Chief Coordinator &quot;Knowledge to Village Programme&quot; RGGPC (from 30th Jan
+                                    2017 to 12th Sept. 2019).</li>
+                                <li>Member &quot;International Standard Organization (ISO)&quot; RGGPC (from 30th Jan
+                                    2017 to 2nd July 2025).</li>
+                                <li>Member &quot;General Grievances &amp; Redressal Forum&quot; RGGPC (from 30th Jan
+                                    2017 to till date).</li>
+                                <li>Member &quot;Professional Activity Committee&quot; RGGPC (from 30th Jan 2017 to 12th
+                                    Sept. 2019).</li>
+                                <li>Member &quot;Anti-Ragging Squad Committee&quot; RGGPC (from 30th Jan 2017 to 2nd
+                                    July 2025).</li>
+                                <li>Asst. Campus In-charge &quot;Campus Safety and Security&quot; RGGPC (from 30th Jan
+                                    2018 to 2nd July 2025).</li>
+                                <li>Member &quot;Student Grievances &amp; Redressal Committee&quot; RGGPC (from 30th Jan
+                                    2017 to 2nd July 2025).</li>
+                                <li>Member &quot;Committee for SC/ST&quot; RGGPC (from 30th Jan 2017 to 12th Sept.
+                                    2019).</li>
+                                <li>Security I/C, office of the security cell, RGGPC, Itanagar (from 30th Jan 2019 to
+                                    2nd July 2025).</li>
+                                <li>Centre Superintendent, Arunachal Pradesh Staff Selection Board (APSSB) Itanagar.
+                                </li>
+                                <li>Observer, Arunachal Pradesh State Council of Technical Education (APSCTE).</li>
+                                <li>Club Secretary &quot;National Digital Library of India (NDLI) &amp; NDLI CLUB&quot;
+                                    RGGPC.</li>
+                                <li>Member, Local Purchasing Committee, Indira Gandhi National Open University (IGNOU),
+                                    Regional Centre: Itanagar.</li>
+                                <li>Chairman, Curriculum Review Committee, Civil Engineering, APSCTE.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+

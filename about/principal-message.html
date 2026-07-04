@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal's Message - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #004aAD;
+            --white: #ffffff;
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+        }
+
+        .text-lead,
+        .text-body {
+            text-align: justify;
+        }
+
+        /* Container and Layout */
+        .container { margin: 0 auto; padding: 0 15px; max-width: 1400px; }
+        .page-container { margin: 0 auto; padding: 0 20px 80px; max-width: 1200px; }
+        
+        .about-page-wrapper { 
+            align-items: flex-start; 
+            display: grid; 
+            gap: 40px; 
+            grid-template-columns: 280px 1fr; 
+        }
+        
+        @media (max-width: 992px) { 
+            .about-page-wrapper { grid-template-columns: 1fr; } 
+        }
+
+        /* Sidebar Styles */
+        .about-sidebar { position: sticky; top: 20px; }
+        .sidebar-card { 
+            background: var(--white); 
+            border-radius: 12px; 
+            padding: 1.5rem; 
+            box-shadow: var(--shadow-md); 
+        }
+        .sidebar-title { 
+            font-size: 1.25rem; 
+            font-weight: 600; 
+            margin-bottom: 1rem; 
+            border-bottom: 2px solid #e5e7eb; 
+            padding-bottom: 0.5rem; 
+            color: var(--text-dark); 
+        }
+        .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin-bottom: 0.5rem; }
+        .sidebar-nav a { 
+            text-decoration: none; 
+            color: var(--text-dim); 
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem; 
+            padding: 0.75rem; 
+            border-radius: 8px; 
+            transition: all 0.3s ease; 
+        }
+        .sidebar-nav a:hover, .sidebar-nav a.active { 
+            background: rgba(0, 74, 173, 0.05); 
+            color: var(--primary-color); 
+        }
+
+        /* Main Content Layout */
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 40px; 
+            backdrop-filter: blur(10px); 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+            width: 100%; 
+        }
+
+        .section-title { 
+            border-bottom: 2px solid #e0e0e0; 
+            color: var(--primary-color); 
+            font-size: 2rem; 
+            margin-bottom: 30px; 
+            padding-bottom: 15px; 
+        }
+
+        /* Principal Page Specific */
+        .page-about .principal-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .principal-profile {
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .profile-frame {
+            border: 6px solid var(--white);
+            margin: 0 auto 15px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            height: 380px; /* Proportionately larger */
+            overflow: hidden;
+            width: 320px; /* Proportionately larger */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .profile-info h3 {
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 10px 0 5px;
+        }
+        
+        .profile-info span {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .details-content {
+            width: 100%;
+        }
+        
+        .quote-icon {
+            color: rgba(0, 74, 173, 0.08);
+            display: block;
+            font-size: 3rem;
+            margin-bottom: -10px;
+        }
+        
+        .signature-block {
+            margin-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 20px;
+        }
+        
+        .sincerely {
+            color: var(--text-dark);
+            font-family: cursive;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 900px) {
+            .profile-frame {
+                width: 280px;
+                height: 330px;
+            }
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+</head>
+
+<body class="page-about">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Principal's Message</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message Content -->
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">About Section</h3>
+
+                        <ul class="sidebar-nav">
+                            <li><a href="about-us.html"><i class="fas fa-university"></i> About Us</a></li>
+                            <li><a href="vision-mission.html"><i class="fas fa-bullseye"></i> Vision & Mission</a></li>
+                            <li><a href="principal-message.html" class="active"><i class="fas fa-user-tie"></i>
+                                    Principal's Message</a></li>
+                            <li><a href="principal-profile.html"><i class="fas fa-id-card"></i> Principal's Profile</a>
+                            </li>
+                            <li><a href="administration.html"><i class="fas fa-sitemap"></i> Administration</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                        <div class="principal-layout">
+                            <!-- Sidebar / Image -->
+                            <div class="principal-profile">
+                                <div class="profile-frame">
+                                    <img src="../images/Principal 2.jpg" alt="Dr. D. Devarasiddappa"
+                                        style="width:100%;height:100%;object-fit:cover;">
+                                </div>
+                                <div class="profile-info">
+                                    <h3>Dr. D. Devarasiddappa</h3>
+                                    <span>Principal (I/c), GPC Ziro</span>
+                                </div>
+                            </div>
+
+                            <!-- Letter Text -->
+                            <div class="details-content">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <h2 class="section-title">Message from the Desk</h2>
+
+                                <p class="text-body">
+                                    Dear Stake Holders,<br>
+                                    Warm Greetings of the Day...!
+                                </p>
+
+                                <p class="text-body">
+                                    Indeed, I am very much delighted to extend warm welcome to you all to the
+                                    Government Polytechnic College in the Ziro valley of Lower Subansiri District,
+                                    Arunachal Pradesh. It is a Diploma level Technical Education institute and
+                                    offers three years full time regular Diploma Engineering Programs in the Civil
+                                    Engineering (CE), Computer Science & Engineering (CSE) and Electrical &
+                                    Electronics Engineering (EEE). The start of the academic activities at GPC Ziro
+                                    from the session Jul-Dec 2025 marks a new and prosperous beginning in the field
+                                    of Technical Education in the state. It would immensely benefit the aspiring
+                                    budding technocrats of the state as Technical Education is now more accessible.
+                                </p>
+
+                                <p class="text-body">
+                                    I feel privileged to lead the institute as the founder Principal (I/c); towards
+                                    achieving excellence in Technical Education aiming to develop technocrats with
+                                    sound technical knowledge equipped with industry-oriented computer/software
+                                    skills.
+                                </p>
+
+                                <p class="text-body">
+                                    In fact, we have just started the academic activities and have numerous
+                                    challenges ahead. We are confident that all the challenges will be meticulously
+                                    managed and overcome as we march ahead with the support of Hon’ble MLA, District
+                                    Adminsitration, Higher Authorities and other stake holders.
+                                </p>
+
+                                <p class="text-body">
+                                    It is our endeavor to nurture the students academically, technically and also
+                                    professionally. We, as a Team GPC Ziro, with the experienced, sincere and
+                                    dedicated faculty and staff members, leave no stone unturned to impart quality
+                                    Technical Education.
+                                </p>
+
+                                <p class="text-body">
+                                    We aim to make the GPC Ziro as the one of the best institutes offering Diploma
+                                    Technical Education in the state/region. We invite the stake holders to share
+                                    their suggestion and feedback on improving quality of Technical Education. The
+                                    Team GPC Ziro encourages all the students to make the best use of their precious
+                                    time at GPCZ engaging themselves in teaching and learning process while
+                                    participating in extra-curricular and technical activities thereby contributing
+                                    to the overall growth of the institute.
+                                </p>
+
+                                <p class="text-body">
+                                    I take this opportunity to extend my best wishes to all the stake holders of the
+                                    GPC Ziro and hope to march together on the path of achieving excellence in
+                                    Technical Education.
+                                </p>
+
+                                <p class="text-body" style="font-weight: 500; font-style: italic;">
+                                    The journey has just begun… We have miles to go … Lots to achieve.<br>
+                                    Jai Hind * Jai Arunachal
+                                </p>
+
+                                <div class="signature-block">
+                                    <p class="sincerely">Respectfully,</p>
+                                    <strong>Dr. D. Devarasiddappa</strong><br>
+                                    <span>Principal I/c</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .principal-profile, .details-content');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

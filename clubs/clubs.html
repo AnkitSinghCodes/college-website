@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clubs - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CORE VARIABLES & GLOBAL STYLES --- */
+        :root {
+            --bg-light: #fbfbfd;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-blur: blur(20px) saturate(180%);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --primary-color: #004aAD;
+            --primary-glass: rgba(0, 74, 173, 0.7);
+            --secondary-color: #6c757d;
+            --secondary-glass: rgba(108, 117, 125, 0.1);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --text-light: #f5f5f7;
+            --transition-speed: 0.4s;
+            --white: #ffffff;
+        }
+
+        .page-container {
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            max-width: 1200px;
+        }
+
+        .about-page-wrapper {
+            align-items: flex-start;
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 280px 1fr;
+        }
+
+        .about-sidebar {
+            position: sticky;
+            top: 40px;
+        }
+
+        .sidebar-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-title {
+            border-bottom: 2px solid rgba(0, 74, 173, 0.1);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-nav li a {
+            border-left: 4px solid transparent;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+            align-items: center;
+            border-radius: 12px;
+            color: var(--text-dark);
+            display: flex;
+            font-size: 0.95rem;
+            font-weight: 500;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .sidebar-nav li a i {
+            color: var(--primary-color);
+            font-size: 1rem;
+            opacity: 0.7;
+            text-align: center;
+            width: 20px;
+        }
+
+        .sidebar-nav li a:hover {
+            background: rgba(0, 74, 173, 0.05);
+            color: var(--primary-color);
+            padding-left: 20px;
+        }
+
+        .sidebar-nav li a.active {
+            background: var(--primary-color);
+            border-left-color: #c5a059;
+            box-shadow: 0 8px 15px rgba(0, 74, 173, 0.2);
+            color: var(--white);
+        }
+
+        .sidebar-nav li a.active i {
+            color: var(--white);
+            opacity: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        .coordinator-table { width: 100%; border-collapse: collapse; margin-top: 0.8rem; font-size: 0.88rem; }
+        .coordinator-table th {
+            background: rgba(0,74,173,0.07); color: var(--primary-color);
+            font-weight: 700; padding: 0.4rem 0.7rem; text-align: left;
+            border: 1px solid rgba(0,74,173,0.12);
+        }
+        .coordinator-table td { padding: 0.4rem 0.7rem; border: 1px solid rgba(0,74,173,0.1); color: #444; }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- CLUBS SPECIFIC STYLES --- */
+        .clubs-grid {
+            display: grid;
+            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            margin-bottom: 50px;
+        }
+
+        .club-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            transition: all var(--transition-speed) ease;
+            backdrop-filter: var(--glass-blur);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .club-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-10px);
+        }
+
+        .club-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .club-header {
+            background: linear-gradient(135deg, var(--primary-color), rgba(0, 74, 173, 0.8));
+            padding: 30px;
+            color: var(--white);
+            position: relative;
+            text-align: center;
+        }
+
+        .club-icon {
+            background: var(--white);
+            margin: 0 auto 15px;
+            align-items: center;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            height: 80px;
+            justify-content: center;
+            width: 80px;
+        }
+
+        .club-icon i {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+        }
+
+        .club-tagline {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .club-description {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .club-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .club-features li {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 10px 0;
+            align-items: center;
+            color: var(--text-dim);
+            display: flex;
+            gap: 12px;
+        }
+
+        .club-features li:last-child {
+            border-bottom: none;
+        }
+
+        .club-features li i {
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        .club-footer {
+            background: rgba(0, 0, 0, 0.02);
+            border-top: 1px solid var(--glass-border);
+            padding: 20px 30px;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .join-btn {
+            background: var(--primary-color);
+            padding: 10px 25px;
+            transition: all 0.3s ease;
+            border-radius: 25px;
+            color: var(--white);
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .join-btn:hover {
+            background: #00337d;
+            transform: scale(1.05);
+        }
+
+        .benefits-section {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            backdrop-filter: var(--glass-blur);
+            border-radius: 12px;
+            margin-bottom: 50px;
+        }
+
+        .benefits-section h2 {
+            color: var(--text-dark);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .benefit-item {
+            background: var(--white);
+            border: 2px solid var(--glass-border);
+            padding: 25px;
+            transition: all var(--transition-speed) ease;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .benefit-item:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .benefit-item i {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .benefit-item h4 {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .benefit-item p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 992px) {
+            .about-page-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .about-sidebar {
+                margin-bottom: 30px;
+                position: static;
+            }
+            .sidebar-nav {
+                display: grid;
+                gap: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .sidebar-nav li {
+                margin-bottom: 0;
+            }
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .clubs-grid, .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 20px;
+            }
+            .club-footer {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-clubs">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Clubs</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clubs Content -->
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Cells</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="nss.html"><i class="fas fa-hands-helping"></i> NSS</a></li>
+                            <li><a href="activities.html"><i class="fas fa-calendar-alt"></i> Activities</a></li>
+                            <li><a href="student-council.html"><i class="fas fa-users-cog"></i> Student Council</a></li>
+                            <li><a href="clubs.html" class="active"><i class="fas fa-puzzle-piece"></i> Clubs</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <!-- Intro -->
+                    <div class="clubs-intro glass-card" style="margin-bottom: 2rem; padding: 2rem;">
+                        <h2>Discover Your Passion</h2>
+                        <p>
+                            Join our vibrant student clubs and explore your interests beyond academics. From technical
+                            innovation to cultural expression, our clubs provide platforms for learning, networking, and
+                            personal growth.
+                        </p>
+                    </div>
+
+                    <!-- Clubs Grid -->
+                    <div class="clubs-grid">
+                        <!-- Technical Club -->
+                        <div class="club-card glass-card">
+                            <div class="club-header">
+                                <div class="club-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3>Technical Club</h3>
+                                <p class="club-tagline">Innovation &amp; Technology</p>
+                            </div>
+                            <div class="club-body">
+                                <p class="club-description">
+                                    Explore cutting-edge technologies, participate in hackathons, and develop innovative
+                                    projects. Perfect for tech enthusiasts and aspiring developers.
+                                </p>
+                                <ul class="club-features">
+                                    <li><i class="fas fa-check"></i> Weekly coding sessions</li>
+                                    <li><i class="fas fa-check"></i> Project development workshops</li>
+                                    <li><i class="fas fa-check"></i> Tech talks &amp; seminars</li>
+                                </ul>
+                                <table class="coordinator-table">
+                                    <tr>
+                                        <th>Faculty Coordinator</th>
+                                        <th>Student Coordinator</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Sh. Getu Yoka, HoD (I/c), CE</td>
+                                        <td>Sh. Tani Nacho, Sem-II, CE</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="club-footer">
+                                <a href="javascript:void(0);" onclick="alert('Coming soon');" class="join-btn">Explore Club Activities (Coming soon)</a>
+                            </div>
+                        </div>
+
+                        <!-- Cultural Club -->
+                        <div id="cultural-club" class="club-card glass-card">
+                            <div class="club-header">
+                                <div class="club-icon">
+                                    <i class="fas fa-theater-masks"></i>
+                                </div>
+                                <h3>Cultural Club</h3>
+                                <p class="club-tagline">Arts &amp; Expression</p>
+                            </div>
+                            <div class="club-body">
+                                <p class="club-description">
+                                    Celebrate diversity through music, dance, drama, and art. Showcase your talents and
+                                    participate in cultural festivals and competitions.
+                                </p>
+                                <ul class="club-features">
+                                    <li><i class="fas fa-check"></i> Dance &amp; music rehearsals</li>
+                                    <li><i class="fas fa-check"></i> Drama &amp; theater productions</li>
+                                    <li><i class="fas fa-check"></i> Cultural event organization</li>
+                                </ul>
+                                <table class="coordinator-table">
+                                    <tr>
+                                        <th>Faculty Coordinator</th>
+                                        <th>Student Coordinator</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Mrs. Seema Pari, Lect (Maths)</td>
+                                        <td>Sh. Phassang Tadey, Sem-II, CE</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="club-footer">
+                                <a href="../gallery/photos.html#cultural-gallery" class="join-btn">Explore Club Activities</a>
+                            </div>
+                        </div>
+
+                        <!-- Sports Club -->
+                        <div class="club-card glass-card">
+                            <div class="club-header">
+                                <div class="club-icon">
+                                    <i class="fas fa-running"></i>
+                                </div>
+                                <h3>Sports Club</h3>
+                                <p class="club-tagline">Fitness &amp; Teamwork</p>
+                            </div>
+                            <div class="club-body">
+                                <p class="club-description">
+                                    Stay fit and active through various sports activities. Participate in tournaments,
+                                    build teamwork skills, and represent the college in inter-college competitions.
+                                </p>
+                                <ul class="club-features">
+                                    <li><i class="fas fa-check"></i> Daily practice sessions</li>
+                                    <li><i class="fas fa-check"></i> Inter-college tournaments</li>
+                                    <li><i class="fas fa-check"></i> Fitness training programs</li>
+                                </ul>
+                                <table class="coordinator-table">
+                                    <tr>
+                                        <th>Faculty Coordinator</th>
+                                        <th>Student Coordinator</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Sh. Nani Chobin, Lect (Physics)</td>
+                                        <td>Sh. Biri Apa, Sem-II, CE</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="club-footer">
+                                <a href="../gallery/photos.html#sports-gallery" class="join-btn">Explore Club Activities</a>
+                            </div>
+                        </div>
+
+                        <!-- Literary Club -->
+                        <div class="club-card glass-card">
+                            <div class="club-header">
+                                <div class="club-icon">
+                                    <i class="fas fa-book-reader"></i>
+                                </div>
+                                <h3>Literary Club</h3>
+                                <p class="club-tagline">Words &amp; Wisdom</p>
+                            </div>
+                            <div class="club-body">
+                                <p class="club-description">
+                                    Express yourself through writing, poetry, and debate. Enhance your communication
+                                    skills and participate in literary competitions and events.
+                                </p>
+                                <ul class="club-features">
+                                    <li><i class="fas fa-check"></i> Creative writing workshops</li>
+                                    <li><i class="fas fa-check"></i> Debate &amp; elocution contests</li>
+                                    <li><i class="fas fa-check"></i> Magazine publication</li>
+                                </ul>
+                                <table class="coordinator-table">
+                                    <tr>
+                                        <th>Faculty Coordinator</th>
+                                        <th>Student Coordinator</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Ms. Millo Aruni, Lect (Comm. Skills)</td>
+                                        <td>Ms. Taba Jirma, Sem-II, CE</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="club-footer">
+                                <a href="javascript:void(0);" onclick="alert('Coming soon');" class="join-btn">Explore Club Activities (Coming soon)</a>
+                            </div>
+                        </div>
+
+                        <!-- Photography Club -->
+                        <div class="club-card glass-card">
+                            <div class="club-header">
+                                <div class="club-icon">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <h3>Photography Club</h3>
+                                <p class="club-tagline">Capture Moments</p>
+                            </div>
+                            <div class="club-body">
+                                <p class="club-description">
+                                    Learn the art of photography and videography. Document college events, create visual
+                                    stories, and showcase your work in exhibitions.
+                                </p>
+                                <ul class="club-features">
+                                    <li><i class="fas fa-check"></i> Photography workshops</li>
+                                    <li><i class="fas fa-check"></i> Event coverage</li>
+                                    <li><i class="fas fa-check"></i> Photo exhibitions</li>
+                                </ul>
+                                <table class="coordinator-table">
+                                    <tr>
+                                        <th>Faculty Coordinator</th>
+                                        <th>Student Coordinator</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Dr. Jitu Sakia, HoD (I/c), S&amp;H</td>
+                                        <td>Ms. Meme Venia, Sem-II, CE</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="club-footer">
+                                <a href="javascript:void(0);" onclick="alert('Coming soon');" class="join-btn">Explore Club Activities (Coming soon)</a>
+                            </div>
+                        </div>
+
+                        <!-- Entrepreneurship Club -->
+                        <div class="club-card glass-card">
+                            <div class="club-header">
+                                <div class="club-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <h3>Entrepreneurship Club</h3>
+                                <p class="club-tagline">Ideas &amp; Innovation</p>
+                            </div>
+                            <div class="club-body">
+                                <p class="club-description">
+                                    Turn your ideas into reality. Learn about startups, business planning, and
+                                    innovation. Network with entrepreneurs and participate in pitch competitions.
+                                </p>
+                                <ul class="club-features">
+                                    <li><i class="fas fa-check"></i> Startup workshops</li>
+                                    <li><i class="fas fa-check"></i> Business plan competitions</li>
+                                    <li><i class="fas fa-check"></i> Mentorship programs</li>
+                                </ul>
+                                <table class="coordinator-table">
+                                    <tr>
+                                        <th>Faculty Coordinator</th>
+                                        <th>Student Coordinator</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Sh. N. Pumbo, HoD (I/c), CSE</td>
+                                        <td>Sh. Taba Bida, Sem-II, CE</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="club-footer">
+                                <a href="javascript:void(0);" onclick="alert('Coming soon');" class="join-btn">Explore Club Activities (Coming soon)</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Benefits Section -->
+                    <div class="benefits-section glass-card" style="margin-top: 2rem; padding: 2rem;">
+                        <h2>Why Join a Club?</h2>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <i class="fas fa-users"></i>
+                                <h4>Network &amp; Connect</h4>
+                                <p>Build lasting friendships and professional connections</p>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-chart-line"></i>
+                                <h4>Skill Development</h4>
+                                <p>Learn new skills and enhance existing talents</p>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-trophy"></i>
+                                <h4>Competitions</h4>
+                                <p>Participate in inter-college and national level events</p>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-certificate"></i>
+                                <h4>Recognition</h4>
+                                <p>Earn certificates and boost your resume</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

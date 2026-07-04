@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EEE Faculty - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../../css/main-bundle.css">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CORE VARIABLES & GLOBAL STYLES --- */
+        :root {
+            --bg-light: #fbfbfd;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-blur: blur(20px) saturate(180%);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --primary-color: #004aAD;
+            --primary-glass: rgba(0, 74, 173, 0.7);
+            --secondary-color: #6c757d;
+            --secondary-glass: rgba(108, 117, 125, 0.1);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --text-light: #f5f5f7;
+            --transition-speed: 0.4s;
+            --white: #ffffff;
+        }
+
+        .page-container {
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            max-width: 1200px;
+        }
+
+        .about-page-wrapper {
+            align-items: flex-start;
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 280px 1fr;
+        }
+
+        .about-sidebar {
+            position: sticky;
+            top: 40px;
+        }
+
+        .sidebar-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-title {
+            border-bottom: 2px solid rgba(0, 74, 173, 0.1);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-nav li a {
+            border-left: 4px solid transparent;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+            align-items: center;
+            border-radius: 12px;
+            color: var(--text-dark);
+            display: flex;
+            font-size: 0.95rem;
+            font-weight: 500;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .sidebar-nav li a i {
+            color: var(--primary-color);
+            font-size: 1rem;
+            opacity: 0.7;
+            text-align: center;
+            width: 20px;
+        }
+
+        .sidebar-nav li a:hover {
+            background: rgba(0, 74, 173, 0.05);
+            color: var(--primary-color);
+            padding-left: 20px;
+        }
+
+        .sidebar-nav li a.active {
+            background: var(--primary-color);
+            border-left-color: #c5a059;
+            box-shadow: 0 8px 15px rgba(0, 74, 173, 0.2);
+            color: var(--white);
+        }
+
+        .sidebar-nav li a.active i {
+            color: var(--white);
+            opacity: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        .dept-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .dept-header h2 {
+            color: #1a4a8e;
+            font-size: 2.5rem;
+        }
+
+        .dept-header p {
+            color: var(--text-dim);
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        /* --- COMMON DEPARTMENT LAYOUT STYLES --- */
+        .faculty-grid {
+            padding: 20px 0;
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 1fr;
+        }
+
+        .faculty-card {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .faculty-header {
+            align-items: flex-start;
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .faculty-img {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+            height: 200px;
+            overflow: hidden;
+            width: 160px;
+        }
+
+        .faculty-img img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .faculty-basic-info {
+            flex: 1;
+        }
+
+        .faculty-basic-info h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .faculty-basic-info .designation {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .faculty-contact {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 20px;
+            border-radius: 10px;
+            color: #444;
+            font-size: 0.95rem;
+            margin-top: 15px;
+        }
+
+        .faculty-contact p {
+            align-items: center;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .faculty-contact i {
+            color: var(--primary-color);
+            text-align: center;
+            width: 20px;
+        }
+
+        .faculty-detail-section {
+            margin-top: 35px;
+        }
+
+        .faculty-detail-section h4 {
+            border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Faculty Tables - Shared across CE, EEE, SH */
+        .faculty-table {
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-collapse: separate;
+            border-radius: 10px;
+            border-spacing: 0;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .faculty-table th, 
+        .faculty-table td {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 15px 20px;
+            text-align: left;
+        }
+
+        .faculty-table th {
+            background: rgba(26, 74, 142, 0.05);
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .faculty-table tr:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .faculty-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Faculty Lists */
+        .faculty-detail-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .faculty-detail-list li {
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .faculty-detail-list li::before {
+            color: var(--primary-color);
+            content: "\f105";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            left: 0;
+            position: absolute;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 992px) {
+            .about-page-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .about-sidebar {
+                margin-bottom: 30px;
+                position: static;
+            }
+            .sidebar-nav {
+                display: grid;
+                gap: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .sidebar-nav li {
+                margin-bottom: 0;
+            }
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 20px;
+            }
+            .faculty-header {
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+            }
+            .faculty-contact {
+                text-align: left;
+            }
+            .faculty-contact p {
+                justify-content: center;
+            }
+            .table-responsive {
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-departments-eee">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <h1 class="page-title">EEE Faculty</h1>
+            </div>
+        </section>
+
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Electrical & Electronics Engineering</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="profile.html"><i class="fas fa-info-circle"></i> Department Profile</a></li>
+                            <li><a href="labs.html"><i class="fas fa-flask"></i> Laboratories</a></li>
+                            <li><a href="faculties.html" class="active"><i class="fas fa-chalkboard-teacher"></i> Our Faculty</a></li>
+                            <li><a href="staff.html"><i class="fas fa-cogs"></i> Technical Staff</a></li>
+                            <li><a href="students.html"><i class="fas fa-user-graduate"></i> Students</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                <div class="dept-header" style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="color: #1a4a8e; font-size: 2.5rem;">Our Faculty</h2>
+                    <p>Electrical and Electronics Engineering</p>
+                </div>
+
+                <div class="faculty-grid">
+                    <div class="faculty-card">
+                        <div class="faculty-header">
+                            <div class="faculty-img">
+                                <img src="images/1_hage kanya.jpeg" alt="Ms. Hage Kanya">
+                            </div>
+                            <div class="faculty-basic-info">
+                                <h3>Ms. Hage Kanya</h3>
+                                <p class="designation">Guest Lecturer (EEE)</p>
+                                <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">
+                                    <strong>Specialization:</strong> Electrical Engineering
+                                </p>
+                                <div class="faculty-contact">
+                                    <p><i class="fas fa-envelope"></i> kanyahage@gmail.com</p>
+                                    <p><i class="fas fa-phone"></i> +91 8257028762</p>
+                                    <p><strong>Date of Joining:</strong> 02-02-2026</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faculty-detail-section">
+                            <h4>Educational Qualification</h4>
+                            <table class="faculty-table">
+                                <thead>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Degree</th>
+                                        <th>Subject / Specialization</th>
+                                        <th>University</th>
+                                        <th>Year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>BE</td>
+                                        <td>Electrical Engineering</td>
+                                        <td>Savitribhai Phule Pune University</td>
+                                        <td>2018</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>M. Tech</td>
+                                        <td>&ndash;</td>
+                                        <td>&ndash;</td>
+                                        <td>&ndash;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Ph.D</td>
+                                        <td>&ndash;</td>
+                                        <td>&ndash;</td>
+                                        <td>&ndash;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="faculty-detail-section">
+                            <h4>Teaching-Learning Engagement</h4>
+                            <div class="table-responsive">
+                                <table class="faculty-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>Sr. No.</th>
+                                            <th>Course Code</th>
+                                            <th>Course Title</th>
+                                            <th>Department</th>
+                                            <th>Year</th>
+                                            <th>Semester</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>ES104</td>
+                                            <td>Fundamentals of Electrical and Electronics Engineering</td>
+                                            <td>CE</td>
+                                            <td>2026</td>
+                                            <td>II</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>ES106</td>
+                                            <td>Engineering Mechanics</td>
+                                            <td>CE</td>
+                                            <td>2026</td>
+                                            <td>II</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="faculty-detail-section">
+                            <h4>Professional Background</h4>
+                            <table class="faculty-table">
+                                <thead>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Designation</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                        <th>Organization</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Guest Lecturer (EEE)</td>
+                                        <td>02-02-2026</td>
+                                        <td>Till date</td>
+                                        <td>GPC Ziro</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+

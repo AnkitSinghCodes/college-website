@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal's Profile - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #004aAD;
+            --white: #ffffff;
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+        }
+
+        .text-lead,
+        .text-body {
+            text-align: justify;
+        }
+
+        /* Container and Layout */
+        .container { margin: 0 auto; padding: 0 15px; max-width: 1400px; }
+        .page-container { margin: 0 auto; padding: 0 20px 80px; max-width: 1200px; }
+        
+        .about-page-wrapper { 
+            align-items: flex-start; 
+            display: grid; 
+            gap: 40px; 
+            grid-template-columns: 280px 1fr; 
+        }
+        
+        @media (max-width: 992px) { 
+            .about-page-wrapper { grid-template-columns: 1fr; } 
+        }
+
+        /* Sidebar Styles */
+        .about-sidebar { position: sticky; top: 20px; }
+        .sidebar-card { 
+            background: var(--white); 
+            border-radius: 12px; 
+            padding: 1.5rem; 
+            box-shadow: var(--shadow-md); 
+        }
+        .sidebar-title { 
+            font-size: 1.25rem; 
+            font-weight: 600; 
+            margin-bottom: 1rem; 
+            border-bottom: 2px solid #e5e7eb; 
+            padding-bottom: 0.5rem; 
+            color: var(--text-dark); 
+        }
+        .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin-bottom: 0.5rem; }
+        .sidebar-nav a { 
+            text-decoration: none; 
+            color: var(--text-dim); 
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem; 
+            padding: 0.75rem; 
+            border-radius: 8px; 
+            transition: all 0.3s ease; 
+        }
+        .sidebar-nav a:hover, .sidebar-nav a.active { 
+            background: rgba(0, 74, 173, 0.05); 
+            color: var(--primary-color); 
+        }
+
+        /* Main Content Layout */
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 40px; 
+            backdrop-filter: blur(10px); 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+            width: 100%; 
+        }
+
+        /* Principal Profile Styles */
+        .profile-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .profile-photo-frame {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(0, 74, 173, 0.07);
+            border: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 74, 173, 0.15);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            text-align: center;
+        }
+
+        .profile-name h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .profile-name span {
+            font-size: 0.88rem;
+            color: var(--text-dim);
+            font-weight: 500;
+        }
+
+        .profile-details {
+            flex: 1;
+            width: 100%;
+            text-align: justify;
+        }
+
+        .profile-details h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(0, 74, 173, 0.1);
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-table tr td {
+            padding: 0.65rem 0.5rem;
+            font-size: 0.92rem;
+            border-bottom: 1px solid rgba(0, 74, 173, 0.06);
+            vertical-align: top;
+        }
+
+        .info-table tr td:first-child {
+            font-weight: 600;
+            color: var(--primary-color);
+            width: 38%;
+            white-space: nowrap;
+        }
+
+        .info-table tr td:last-child {
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: rgba(0, 74, 173, 0.06);
+            border-left: 4px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .qual-list,
+        .exp-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .qual-list li,
+        .exp-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            padding: 0.55rem 0;
+            border-bottom: 1px solid rgba(0, 74, 173, 0.05);
+            font-size: 0.92rem;
+            color: var(--text-dark);
+        }
+
+        .qual-list li i,
+        .exp-list li i {
+            color: var(--primary-color);
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+            font-size: 0.88rem;
+        }
+
+        .data-table th {
+            background: rgba(0, 74, 173, 0.09);
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 0.55rem 0.7rem;
+            text-align: left;
+            border: 1px solid rgba(0, 74, 173, 0.15);
+        }
+
+        .data-table td {
+            padding: 0.5rem 0.7rem;
+            border: 1px solid rgba(0, 74, 173, 0.1);
+            color: var(--text-dark);
+            vertical-align: top;
+        }
+
+        .data-table tr:nth-child(even) td {
+            background: rgba(0, 74, 173, 0.03);
+        }
+
+        .data-table td:first-child {
+            text-align: center;
+            width: 40px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 600px) {
+            .profile-card {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-details {
+                width: 100%;
+            }
+
+            .data-table {
+                font-size: 0.78rem;
+            }
+        }
+
+        /* Collapsible Section Styles */
+        .collapsible-section {
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(0, 74, 173, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 74, 173, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .collapsible-section.active {
+            box-shadow: 0 8px 25px rgba(0, 74, 173, 0.1);
+            border-color: rgba(0, 74, 173, 0.3);
+        }
+
+        .collapsible-header {
+            width: 100%;
+            padding: 1.1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 74, 173, 0.04);
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            transition: background 0.3s ease;
+        }
+
+        .collapsible-header:hover {
+            background: rgba(0, 74, 173, 0.08);
+        }
+
+        .collapsible-header span {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .collapsible-header i.fa-chevron-down {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .collapsible-section.active .collapsible-header i.fa-chevron-down {
+            transform: rotate(180deg);
+            opacity: 1;
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            background: #fff;
+        }
+
+        .collapsible-section.active .collapsible-content {
+            max-height: 5000px; /* Tall enough for longest lists */
+            transition: max-height 0.5s cubic-bezier(1, 0, 1, 0);
+        }
+
+        .collapsible-inner {
+            padding: 1.25rem 1.5rem;
+        }
+
+        .collapsible-inner > *:first-child {
+            margin-top: 0;
+        }
+
+        .collapsible-inner > *:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="page-about">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Principal's Profile</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Content -->
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">About Section</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="about-us.html"><i class="fas fa-university"></i> About Us</a></li>
+                            <li><a href="vision-mission.html"><i class="fas fa-bullseye"></i> Vision & Mission</a></li>
+                            <li><a href="principal-message.html"><i class="fas fa-user-tie"></i> Principal's Message</a>
+                            </li>
+                            <li><a href="principal-profile.html" class="active"><i class="fas fa-id-card"></i>
+                                    Principal's Profile</a></li>
+                            <li><a href="administration.html"><i class="fas fa-sitemap"></i> Administration</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                        <div class="profile-card">
+
+                            <!-- Photo Section -->
+                            <div class="profile-photo-frame">
+                                <div class="profile-photo">
+                                    <img src="../images/principal.jpg" alt="Dr. D. Devarasiddappa">
+                                </div>
+                                <div class="profile-name">
+                                    <h3>Dr. D. Devarasiddappa</h3>
+                                    <span>Principal (I/c), GPC Ziro</span>
+                                </div>
+                            </div>
+
+                            <!-- Details Section -->
+                            <div class="profile-details">
+                                <h2>Principal's Profile</h2>
+
+                                <table class="info-table">
+                                    <tr>
+                                        <td><i class="fas fa-user"></i>&nbsp; Name</td>
+                                        <td>Dr. D. Devarasiddappa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-briefcase"></i>&nbsp; Designation</td>
+                                        <td>Principal (I/c)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-graduation-cap"></i>&nbsp; Qualification</td>
+                                        <td>Ph. D (Mech. Eng.)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-calendar-alt"></i>&nbsp; Date of Joining</td>
+                                        <td>02-06-2025</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-envelope"></i>&nbsp; Email</td>
+                                        <td><a href="mailto:devarasiddppa@gmail.com"
+                                                style="color:var(--primary-color)">devarasiddppa@gmail.com</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-phone"></i>&nbsp; Mobile</td>
+                                        <td>9591301135</td>
+                                    </tr>
+                                </table>
+
+                                <!-- Educational Qualification -->
+                                <div class="collapsible-section">
+                                    <button class="collapsible-header">
+                                        <span><i class="fas fa-graduation-cap"></i> Educational Qualification</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="collapsible-content">
+                                        <div class="collapsible-inner">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sr.No.</th>
+                                                        <th>Degree</th>
+                                                        <th>Subject/Specialization</th>
+                                                        <th>University</th>
+                                                        <th>Year</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Ph D</td>
+                                                        <td>Mechanical Engineering</td>
+                                                        <td>NERIST</td>
+                                                        <td>2021</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>M. Tech</td>
+                                                        <td>Computer Integrated Manufacturing &amp; Automation (CIMA)</td>
+                                                        <td>NERIST</td>
+                                                        <td>2012</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>B. E</td>
+                                                        <td>Automobile Engineering</td>
+                                                        <td>Mysuru University</td>
+                                                        <td>1998</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Professional Background -->
+                                <div class="collapsible-section">
+                                    <button class="collapsible-header">
+                                        <span><i class="fas fa-briefcase"></i> Professional Background</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="collapsible-content">
+                                        <div class="collapsible-inner">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sr.No.</th>
+                                                        <th>Designation</th>
+                                                        <th>From</th>
+                                                        <th>To</th>
+                                                        <th>Organization</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Lecturer</td>
+                                                        <td>2003</td>
+                                                        <td>2009</td>
+                                                        <td>RGGP, Itanagar</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>Lecturer (Sr. Scale)</td>
+                                                        <td>2009</td>
+                                                        <td>2012</td>
+                                                        <td>RGGP, Itanagar</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>Lecturer (Sel. Grade-I/II)</td>
+                                                        <td>2012</td>
+                                                        <td>2015</td>
+                                                        <td>RGGP, Itanagar</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>Principal I/c</td>
+                                                        <td>2025</td>
+                                                        <td>Till date</td>
+                                                        <td>GPC Ziro</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Teaching-Learning Engagement -->
+                                <div class="collapsible-section">
+                                    <button class="collapsible-header">
+                                        <span><i class="fas fa-chalkboard-teacher"></i> Teaching-Learning Engagement</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="collapsible-content">
+                                        <div class="collapsible-inner">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sr.No.</th>
+                                                        <th>Course Code</th>
+                                                        <th>Course Title</th>
+                                                        <th>Dept.</th>
+                                                        <th>Year</th>
+                                                        <th>Sem.</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>G201/ES101</td>
+                                                        <td>Engineering Drawing-I</td>
+                                                        <td>CE/CSE/EEE</td>
+                                                        <td>1st</td>
+                                                        <td>I</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>ES106</td>
+                                                        <td>Engineering Mechanics</td>
+                                                        <td>CE</td>
+                                                        <td>1st</td>
+                                                        <td>II</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>AE411/AEPC302</td>
+                                                        <td>Automobile Chassis &amp; Lab</td>
+                                                        <td>Auto. Eng.</td>
+                                                        <td>3rd</td>
+                                                        <td>V</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>AE506</td>
+                                                        <td>Automobile Electronics &amp; Lab</td>
+                                                        <td>AUE</td>
+                                                        <td>2nd</td>
+                                                        <td>IV</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td>AE407/AEPE301</td>
+                                                        <td>Metrology and Quality Control</td>
+                                                        <td>AUE</td>
+                                                        <td>2nd</td>
+                                                        <td>IV</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>6</td>
+                                                        <td>AE505/AEPC303</td>
+                                                        <td>Automobile Power Train &amp; Lab</td>
+                                                        <td>AUE</td>
+                                                        <td>3rd</td>
+                                                        <td>V</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>7</td>
+                                                        <td>AE502/AEPC304</td>
+                                                        <td>Vehicle Maintenance &amp; Garage Practice</td>
+                                                        <td>AUE</td>
+                                                        <td>3rd</td>
+                                                        <td>V</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>8</td>
+                                                        <td>AE508/AEPE302</td>
+                                                        <td>Auto Body Work Practice</td>
+                                                        <td>AUE</td>
+                                                        <td>3rd</td>
+                                                        <td>VI</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>9</td>
+                                                        <td>AE507</td>
+                                                        <td>Automobile Design &amp; Drawing</td>
+                                                        <td>AUE</td>
+                                                        <td>3rd</td>
+                                                        <td>VI</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>10</td>
+                                                        <td>AE511</td>
+                                                        <td>Technical Seminar</td>
+                                                        <td>AUE</td>
+                                                        <td>3rd</td>
+                                                        <td>VI</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Administrative Experience -->
+                                <div class="collapsible-section">
+                                    <button class="collapsible-header">
+                                        <span><i class="fas fa-sitemap"></i> Administrative Experience</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="collapsible-content">
+                                        <div class="collapsible-inner">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sr.No.</th>
+                                                        <th>Admin Experience</th>
+                                                        <th>From</th>
+                                                        <th>To</th>
+                                                        <th>Institute</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Principal I/c with DDO power (Rajiv Gandhi Govt. Poly)</td>
+                                                        <td>19-12-2020</td>
+                                                        <td>31-01-2021</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>HOD I/c (Auto Eng.)</td>
+                                                        <td>26-05-2003</td>
+                                                        <td>30-04-2005</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>HOD I/c (Auto Eng.)</td>
+                                                        <td>11-08-2014</td>
+                                                        <td>25-04-2025</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>Chief Coordinator (NBA)</td>
+                                                        <td>Aug 2014</td>
+                                                        <td>May 2025</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td>Chief Warden</td>
+                                                        <td>April 2014</td>
+                                                        <td>May 2025</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>6</td>
+                                                        <td>Chief Coordinator (IQAC)</td>
+                                                        <td>March 2019</td>
+                                                        <td>May 2025</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>7</td>
+                                                        <td>Chief Coordinator (ISO)</td>
+                                                        <td>Nov 2021</td>
+                                                        <td>May 2025</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>8</td>
+                                                        <td>Chief Coordinator (AICTE)</td>
+                                                        <td>2011</td>
+                                                        <td>2019</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>9</td>
+                                                        <td>Chief Coordinator (ED Cell)</td>
+                                                        <td>Aug 2014</td>
+                                                        <td>Aug 2016</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>10</td>
+                                                        <td>Warden (Boy's Hostel)</td>
+                                                        <td>Jan 2011</td>
+                                                        <td>Sept 2013</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>11</td>
+                                                        <td>ISTE Coordinator</td>
+                                                        <td>2007</td>
+                                                        <td>-</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>12</td>
+                                                        <td>Assistant Projector Coordinator (ED Cell)</td>
+                                                        <td>Sept 2007</td>
+                                                        <td>Jan 2013</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>13</td>
+                                                        <td>Nodal officer external networking</td>
+                                                        <td>2005</td>
+                                                        <td>2007</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>14</td>
+                                                        <td>Coordinator: Model Exhibition TechXplore 1.0 (IPCM-2024)</td>
+                                                        <td>2024</td>
+                                                        <td>-</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>15</td>
+                                                        <td>Member ISO core committee</td>
+                                                        <td>Aug 2014</td>
+                                                        <td>2021</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>16</td>
+                                                        <td>Member: Institute Induction Program Cell</td>
+                                                        <td>Aug 2019</td>
+                                                        <td>Aug 2022</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>17</td>
+                                                        <td>Member: Parent-Teachers Alumni Interaction Program Committee</td>
+                                                        <td>Nov 2021</td>
+                                                        <td>May 2025</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>18</td>
+                                                        <td>Assistant Superintendent (Exam)</td>
+                                                        <td>2004</td>
+                                                        <td>2008</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>19</td>
+                                                        <td>Member: General Grievances Redressal Committee</td>
+                                                        <td>Aug 2014</td>
+                                                        <td>May 2025</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>20</td>
+                                                        <td>Member: Student Grievances Redressal Committee</td>
+                                                        <td>Aug 2018</td>
+                                                        <td>May 2025</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>21</td>
+                                                        <td>Member: Sexual harassment Redressal Committee</td>
+                                                        <td>Aug 2019</td>
+                                                        <td>Aug 2022</td>
+                                                        <td>RGGPC</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Professional Bodies -->
+                                <div class="collapsible-section">
+                                    <button class="collapsible-header">
+                                        <span><i class="fas fa-users"></i> Association with Professional Bodies</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="collapsible-content">
+                                        <div class="collapsible-inner">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sr.No.</th>
+                                                        <th>Prof. Org/Body</th>
+                                                        <th>Membership</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Indian Society for Technical Education (ISTE)</td>
+                                                        <td>Life Member</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Research Awards -->
+                                <div class="collapsible-section">
+                                    <button class="collapsible-header">
+                                        <span><i class="fas fa-trophy"></i> Research Awards</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="collapsible-content">
+                                        <div class="collapsible-inner">
+                                            <ul class="exp-list">
+                                                <li><i class="fas fa-circle" style="font-size:0.45rem;margin-top:0.35rem;"></i>Best Oral Presentation Award for the research paper "PCA-GRA integrated multi response optimization of wire-cut EDM of Ti-6Al-4V alloy for sustainable production" at IC-RIDME18, NIT Meghalaya, Nov 8-10, 2018.</li>
+                                                <li><i class="fas fa-circle" style="font-size:0.45rem;margin-top:0.35rem;"></i>Second Best Thesis Award for the Ph.D thesis "Wire Electrical Discharge Machining of Titanium Alloys: Machinability, Optimization and Sustainability" at ICECMM-2021, NERIST, Nirjuli, Sept 28-29, 2021.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Achievements -->
+                                <div class="collapsible-section">
+                                    <button class="collapsible-header">
+                                        <span><i class="fas fa-medal"></i> Achievements</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="collapsible-content">
+                                        <div class="collapsible-inner">
+                                            <ul class="exp-list">
+                                                <li><i class="fas fa-circle" style="font-size:0.45rem;margin-top:0.35rem;"></i>Conferred with Outstanding College Teacher's Award for the session 2015-16 on March 28, 2017 by the DH&amp;TE, Govt. of AP.</li>
+                                                <li><i class="fas fa-circle" style="font-size:0.45rem;margin-top:0.35rem;"></i>Nominated as Faculty Advisor to Governing Body of Arunachal Pradesh State Council for Technical Education.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- FDP/STTP Attended -->
+                                <div class="collapsible-section">
+                                    <button class="collapsible-header">
+                                        <span><i class="fas fa-chalkboard"></i> FDP / STTP / STC Attended</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="collapsible-content">
+                                        <div class="collapsible-inner">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>S.No.</th>
+                                                        <th>FDP/STTP/STC</th>
+                                                        <th>Date</th>
+                                                        <th>Organized By</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Next Gen Manufacturing: From Automation to AI</td>
+                                                        <td>Nov 4-11, 2025</td>
+                                                        <td>Aditya University</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>AICTE-Sponsored STTP on "Research Methodology and Data Analysis"</td>
+                                                        <td>Aug 16-21, 2021 (Online)</td>
+                                                        <td>NERIST</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>AICTE-Sponsored STTP on "Advanced Engineering Optimization through Artificial Intelligence"</td>
+                                                        <td>Jul 12-17, 2021 (Online)</td>
+                                                        <td>NERIST</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>MeitY sponsored FDP on "Advanced Optimization Techniques and hands-on with MATLAB/SCILAB"</td>
+                                                        <td>Sept 6-17, 2021 (Online)</td>
+                                                        <td>MNIT Jaipur, NIT Patna, IIITDM Jabalpur, IIT Guwahati</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td>TEQIP-III sponsored webinar on "Machine Learning for Engineering Applications"</td>
+                                                        <td>Jul 27-31, 2020 (Online)</td>
+                                                        <td>Girijananda Chowdhury Inst. of Sci. &amp; Tech. Ghy</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>6</td>
+                                                        <td>TEQIP-III sponsored webinar on "Recent Trends in Tribology"</td>
+                                                        <td>Aug 3-7, 2020 (Online)</td>
+                                                        <td>Girijananda Chowdhury Inst. of Sci. &amp; Tech. Ghy</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>7</td>
+                                                        <td>TEQIP-III sponsored STC on "Aspects of Modern Optimization Techniques in Science and Engineering"</td>
+                                                        <td>Aug 17-21, 2020 (Online)</td>
+                                                        <td>NIT Arunachal Pradesh and Govt. College of Technology, Coimbatore</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>8</td>
+                                                        <td>TEQIP-III sponsored webinar on "Researches in Surface Engineering for Reliable Tribology"</td>
+                                                        <td>Sept 1-5, 2020 (Online)</td>
+                                                        <td>Girijananda Chowdhury Inst. of Sci. &amp; Tech. Ghy</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>9</td>
+                                                        <td>ATAL-FDP on "Sustainability Engineering"</td>
+                                                        <td>Sept 7-11, 2020 (Online)</td>
+                                                        <td>Mangalore Institute of Tech and Eng.</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>10</td>
+                                                        <td>ATAL-FDP on "Artificial Intelligence"</td>
+                                                        <td>Sept 14-18, 2020 (Online)</td>
+                                                        <td>NERIST</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>11</td>
+                                                        <td>Short-Term Course on "Smart Manufacturing Technologies"</td>
+                                                        <td>Dec 23-27, 2020 (Online)</td>
+                                                        <td>Maulana Azad NIT, Bhopal</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>12</td>
+                                                        <td>FDP on "Optimization Techniques and Tools for Mechanical Engineers"</td>
+                                                        <td>June 22-27, 2020 (Online)</td>
+                                                        <td>Sreenidhi Institute of Science &amp; Technology</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>13</td>
+                                                        <td>STTP on "Implementation of Multi Objective Optimization Algorithm (NSGA-II) using MATLAB"</td>
+                                                        <td>Jun 29–Jul 03, 2020 (Online)</td>
+                                                        <td>Rajarambapu Institute of Technology, Islampur</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>14</td>
+                                                        <td>TEQIP-III STC on "Scientific and Technological Evolution of Additive Manufacturing in the Digital World"</td>
+                                                        <td>Jun 15-19, 2020 (Online)</td>
+                                                        <td>NIT Arunachal Pradesh and Govt. College of Tech. Coimbatore</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>15</td>
+                                                        <td>FDP on "Mechatronics Eng. for Industry 4.0 Era"</td>
+                                                        <td>Jun 8-13, 2020 (Online)</td>
+                                                        <td>K.S Rangasamy College of Technology, Chennai</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>16</td>
+                                                        <td>STTP on "Implementation of Advanced Optimization Techniques using MATLAB"</td>
+                                                        <td>June 1-6, 2020 (Online)</td>
+                                                        <td>Rajarambapu Institute of Technology, Islampur</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>17</td>
+                                                        <td>STTP on "Advanced Engineering Optimization through Intelligent Optimization"</td>
+                                                        <td>Nov 25-29, 2019</td>
+                                                        <td>SV-NIT, Surat</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>18</td>
+                                                        <td>STTP on "Design of Expt.-An optimization Tool"</td>
+                                                        <td>Dec 21-25, 2015</td>
+                                                        <td>NIT, Rourkela</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>19</td>
+                                                        <td>AICTE-NEQIP Institutional Management Capacity Enhancement – MATRICES</td>
+                                                        <td>Feb 23-27, 2015</td>
+                                                        <td>Dept. of Management Studies, Pondicherry University</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>20</td>
+                                                        <td>TEQIP sponsored FDP on "CADD Excellence"</td>
+                                                        <td>Jul 30–Aug 8, 2014</td>
+                                                        <td>NERIST, Nirjuli</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>21</td>
+                                                        <td>TEQIP sponsored STC on "Micro-manufacturing"</td>
+                                                        <td>Dec 22-26, 2014</td>
+                                                        <td>IIT, Guwahati</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>22</td>
+                                                        <td>TEQIP sponsored FDP on "Recent Advances in Tribology and Materials for Tribological Applications"</td>
+                                                        <td>May 10-14, 2013</td>
+                                                        <td>NERIST, Nirjuli</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>23</td>
+                                                        <td>Workshop on "Design and Implementation of Diploma Curricula for AP"</td>
+                                                        <td>Jan 07-11, 2013</td>
+                                                        <td>NITTTR, Kolkata</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>24</td>
+                                                        <td>TEQIP sponsored FDP: "Workshop on Engineering Optimization"</td>
+                                                        <td>May 14-18, 2012</td>
+                                                        <td>NERIST, Nirjuli</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>25</td>
+                                                        <td>AICTE-ISTE sponsored FDP on "Recent Advances in Mechanics and their Applications in Nano Engineering &amp; Technology"</td>
+                                                        <td>Aug 1-12, 2011</td>
+                                                        <td>NERIST, Nirjuli</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>26</td>
+                                                        <td>AICTE-ISTE sponsored STTP on "Soft Computing in Engineering Applications"</td>
+                                                        <td>Jan 25–Feb 2, 2010</td>
+                                                        <td>NERIST, Nirjuli</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>27</td>
+                                                        <td>AICTE-ISTE sponsored STTP on "Composite materials: Manufacturing, Mechanics &amp; Applications"</td>
+                                                        <td>Oct 20-24, 2008</td>
+                                                        <td>NERIST, Nirjuli</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>28</td>
+                                                        <td>Industrial Training for Teachers</td>
+                                                        <td>21-12-05 to 18-01-06</td>
+                                                        <td>NITTTR, Bhopal</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>29</td>
+                                                        <td>STTP on Multi Point Entry &amp; Credit System</td>
+                                                        <td>Oct 25-30, 2005</td>
+                                                        <td>BM Polytechnic, Mumbai</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>30</td>
+                                                        <td>Induction Training Program: Phase-II</td>
+                                                        <td>Sept 12-23, 2005</td>
+                                                        <td>NITTTR, Bhopal</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>31</td>
+                                                        <td>STTP on "Maintenance of Automobiles (2 &amp; 4 Wheelers)"</td>
+                                                        <td>Jul 5-16, 2004</td>
+                                                        <td>NITTTR, Bhopal</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>32</td>
+                                                        <td>Induction Training Program: Phase-I</td>
+                                                        <td>June 6-18, 2004</td>
+                                                        <td>NITTTR, Bhopal</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>33</td>
+                                                        <td>Further training in Automotive Technology (Foreign Fellowship – Tech Ed-III Project)</td>
+                                                        <td>Sep 24–Dec 21, 2004 (3 Months)</td>
+                                                        <td>Kassel, Germany</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>34</td>
+                                                        <td>AICTE-ISTE sponsored STTP on "Self-Employment Generation"</td>
+                                                        <td>Mar 22-26, 2004</td>
+                                                        <td>NERIST, Nirjuli</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>35</td>
+                                                        <td>Local study tour under Tech Ed III Project</td>
+                                                        <td>Dec 8-19, 2003</td>
+                                                        <td>TTTI, Kolkata</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>36</td>
+                                                        <td>AICTE-ISTE sponsored STTP on "Bio-medical Imaging"</td>
+                                                        <td>Nov 10-21, 2003</td>
+                                                        <td>NERIST, Nirjuli</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>37</td>
+                                                        <td>STTP on "Entrepreneurship Development"</td>
+                                                        <td>Oct 28–Nov 1, 2003</td>
+                                                        <td>TTTI, Chandigarh</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>38</td>
+                                                        <td>Short Term Course on "Auto CAD"</td>
+                                                        <td>June 16-20, 2003</td>
+                                                        <td>TTTI, Bhopal</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Conferences Attended -->
+                                <div class="collapsible-section">
+                                    <button class="collapsible-header">
+                                        <span><i class="fas fa-users-class"></i> Conferences / Seminars Attended</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="collapsible-content">
+                                        <div class="collapsible-inner">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>S.No.</th>
+                                                        <th>Conference / Seminar</th>
+                                                        <th>Date</th>
+                                                        <th>Organized By</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>4th International Conference on Modeling, Simulation and Optimization (CoMSO-2024)</td>
+                                                        <td>Nov 16-18, 2024</td>
+                                                        <td>NIT, Silchar Assam</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>9th International and 30th All India Manufacturing Technology, Design and Research Conference (AIMTDR-2023)</td>
+                                                        <td>Dec 8-10, 2023</td>
+                                                        <td>IIT-BHU, Varanasi</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>2nd International Conference on Modeling, Simulation and Optimization (CoMSO-2021)</td>
+                                                        <td>Dec 16-18, 2021</td>
+                                                        <td>NIT, Silchar Assam</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>International Conference on Experimental and Computational Methods in Manufacturing (ICECMM-2021) – Received Second-Best Thesis Award</td>
+                                                        <td>Sept 28-29, 2021</td>
+                                                        <td>NERIST, Nirjuli, Arunachal Pradesh</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td>3rd International Conference on Materials, Manufacturing and Mechanical Engineering for Sustainable Developments (ICMSD-2020)</td>
+                                                        <td>Nov 19-20, 2020</td>
+                                                        <td>Sri Sai Ram Inst. of Tech. Tambaram, Chennai</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>6</td>
+                                                        <td>International Conference on Advances in Material Science and Mechanical Engineering (ICAMSME 2020)</td>
+                                                        <td>Feb 7-9, 2020</td>
+                                                        <td>N.B.K.R.I.S. Vidyanagar, Andhra Pradesh</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>7</td>
+                                                        <td>International Conference on Recent Innovations and Developments in Mechanical Engineering (IC-RIDME-2018)</td>
+                                                        <td>Nov 8-10, 2018</td>
+                                                        <td>NIT, Shillong, Meghalaya</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>8</td>
+                                                        <td>International Conference on Materials, Manufacturing and Machining</td>
+                                                        <td>March 8-9, 2019</td>
+                                                        <td>Bannari Amman Inst. of Tech. Sathiyamangalam</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>9</td>
+                                                        <td>International Conference of Materials, Manufacturing and Modeling (ICMMM17)</td>
+                                                        <td>March 9-11, 2017</td>
+                                                        <td>Vellore Inst. of Tech., Vellore, Tamil Nadu</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>10</td>
+                                                        <td>International Conference on Intelligent Manufacturing Systems (ICIMS 2012)</td>
+                                                        <td>Feb 17-18, 2012</td>
+                                                        <td>SASTRA University, Thanjavur, Tamil Nadu</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>11</td>
+                                                        <td>National Conference on Energy, Ecology and Environment (NCEEE18)</td>
+                                                        <td>Aug 2-3, 2018</td>
+                                                        <td>Bannari Amman Inst. of Tech. Sathiyamangalam</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>12</td>
+                                                        <td>National Conference on Recent Trends in Engineering Science, Technology and Management (NCRTESTM)</td>
+                                                        <td>Nov 8-9, 2017</td>
+                                                        <td>Rajiv Gandhi Govt. Polytechnic, Itanagar</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>13</td>
+                                                        <td>National Conference on Advances in Welding Technology</td>
+                                                        <td>May 10-11, 2013</td>
+                                                        <td>NERIST, Nirjuli, AP</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Conferences Organized -->
+                                <div class="collapsible-section">
+                                    <button class="collapsible-header">
+                                        <span><i class="fas fa-calendar-check"></i> Conferences / Organized</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="collapsible-content">
+                                        <div class="collapsible-inner">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>S.No.</th>
+                                                        <th>Conference / Seminar / FDP / STTP / STC</th>
+                                                        <th>Date</th>
+                                                        <th>Sponsored By</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>National Conference on Recent Trends in Engineering Science, Technology and Management (NCRTESTM)</td>
+                                                        <td>Nov 8-9, 2017</td>
+                                                        <td>NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>STTP on "Automotive cum Robotic Technology"</td>
+                                                        <td>Mar 11-22, 2024</td>
+                                                        <td>APSCTE/DHTE</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>Refresher program on "Engineering Applications of Optimization" (Online: Phase-1)</td>
+                                                        <td>Apr 5-10, 2021</td>
+                                                        <td>AICTE-ISTE</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>Refresher program on "Engineering Applications of Optimization" (Online: Phase-2)</td>
+                                                        <td>Apr 19-24, 2021</td>
+                                                        <td>AICTE-ISTE</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td>Refresher program on "Engineering Applications of Optimization" (Online: Phase-3)</td>
+                                                        <td>May 3-8, 2021</td>
+                                                        <td>AICTE-ISTE</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>6</td>
+                                                        <td>Workshop on "Curriculum Review"</td>
+                                                        <td>Oct 31, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>7</td>
+                                                        <td>Awareness program on "Finishing School &amp; Career Guidance"</td>
+                                                        <td>Jan 24, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>8</td>
+                                                        <td>Institutional capacity enhancement training at Goa University</td>
+                                                        <td>Jan 23-28, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>9</td>
+                                                        <td>Workshop on "Accreditation by NBA"</td>
+                                                        <td>Mar 6-7, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>10</td>
+                                                        <td>Finishing school training program on "Auto CAD-CIVIL"</td>
+                                                        <td>Nov 3-12, 2014</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>11</td>
+                                                        <td>Motivational Training Program</td>
+                                                        <td>Oct 26-27, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>12</td>
+                                                        <td>Workshop on "Maintenance and troubleshooting of AC and Power Steering System"</td>
+                                                        <td>April 27, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>13</td>
+                                                        <td>Career guidance program on "Professional Skills and Personality Development"</td>
+                                                        <td>Sept 11-15, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>14</td>
+                                                        <td>Career guidance program on "Professional Skills and Personality Development"</td>
+                                                        <td>Mar 30–Apr 3, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>15</td>
+                                                        <td>Finishing School Training Program on "CATIA"</td>
+                                                        <td>Sept 18-22, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>16</td>
+                                                        <td>Finishing School Training Program on "Auto-CAD"</td>
+                                                        <td>Mar 25-29, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>17</td>
+                                                        <td>Finishing School Training Program on "Website Design &amp; Development"</td>
+                                                        <td>Mar 20-24, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>18</td>
+                                                        <td>Finishing School Training Program on "Graphics using Adobe Photoshop"</td>
+                                                        <td>Sept 11-15, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>19</td>
+                                                        <td>Soft Skill Training Program on "Effective Communication"</td>
+                                                        <td>Sept 4-8, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>20</td>
+                                                        <td>Soft Skill Training Program on "Effective Communication"</td>
+                                                        <td>Mar 15-20, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>21</td>
+                                                        <td>Skill development classes on "Two-Wheeler Repair &amp; Maintenance"</td>
+                                                        <td>Feb 17–Mar 3, 2017</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>22</td>
+                                                        <td>Skill Development and Capacity Building Training on Automobile (Mechanics) under Border Area Development Programme</td>
+                                                        <td>April-May 2016</td>
+                                                        <td>DC, Koloriang, Kurung Kumey</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>23</td>
+                                                        <td>Skill development classes on "Two-Wheeler Repair &amp; Maintenance"</td>
+                                                        <td>April 25-29, 2016</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>24</td>
+                                                        <td>Awareness program on "Accreditation by NBA"</td>
+                                                        <td>Oct 29, 2015</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>25</td>
+                                                        <td>Workshop on Career Development &amp; Innovation</td>
+                                                        <td>Mar 18-20, 2015</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>26</td>
+                                                        <td>Career Guidance Workshop</td>
+                                                        <td>Mar 30–Apr 1, 2015</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>27</td>
+                                                        <td>Management capacity building training program on "Leadership Development", at Pondicherry University</td>
+                                                        <td>Feb 23-27, 2015</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>28</td>
+                                                        <td>Induction training program "Module-I"</td>
+                                                        <td>Jan 29–Feb 2, 2015</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>29</td>
+                                                        <td>Finishing School Training on Tech. Skills: AUTO CAD-CIVIL</td>
+                                                        <td>Nov 3-12, 2014</td>
+                                                        <td>AICTE-NEQIP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>30</td>
+                                                        <td>Free Check-up Camp on Automobile Servicing</td>
+                                                        <td>2009-10</td>
+                                                        <td>Buishiyda Motors</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>31</td>
+                                                        <td>STTP on "Steel Fabrication"</td>
+                                                        <td>2009-10</td>
+                                                        <td>IGNOU</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>32</td>
+                                                        <td>EDP on "Mobile Repairing &amp; Servicing"</td>
+                                                        <td>2008-09</td>
+                                                        <td>SIDBI</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>33</td>
+                                                        <td>STTP on "Library Management and Current Practices"</td>
+                                                        <td>2007</td>
+                                                        <td>AICTE-ISTE</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Invited Lectures -->
+                                <div class="collapsible-section">
+                                    <button class="collapsible-header">
+                                        <span><i class="fas fa-microphone"></i> Invited Lectures / Expert Talks Delivered</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="collapsible-content">
+                                        <div class="collapsible-inner">
+                                            <ul class="exp-list">
+                                                <li><i class="fas fa-circle" style="font-size:0.45rem;margin-top:0.35rem;"></i>AICTE-ISTE sponsored FDP on "NBA Awareness" – Conducted technical sessions on "Introduction to NBA", "CO attainment with illustrative example", "PO attainment with illustrative example". Mizoram Polytechnic, Lunglei. Feb 3-6, 2021.</li>
+                                                <li><i class="fas fa-circle" style="font-size:0.45rem;margin-top:0.35rem;"></i>AICTE-ISTE sponsored FDP on "NBA Awareness" – Conducted a technical session on "CO and PO attainment". Mizoram Polytechnic, Lunglei. Jan 23, 2021.</li>
+                                                <li><i class="fas fa-circle" style="font-size:0.45rem;margin-top:0.35rem;"></i>Judge: State level exhibition and Project Competition under INSPIRE Awards MANAK (Online mode). Jan 24, 2022.</li>
+                                                <li><i class="fas fa-circle" style="font-size:0.45rem;margin-top:0.35rem;"></i>Judge: State Level Science Exhibition 2018 on "Scientific Solutions for Challenges in Life". Directorate of Secondary Education, GoAP. Nov 19, 2018.</li>
+                                                <li><i class="fas fa-circle" style="font-size:0.45rem;margin-top:0.35rem;"></i>Judge: State Level Science Seminar 2018 on "Industrial Revolution 4.0: Are we prepared?". Directorate of Secondary Education, GoAP. Aug 27, 2018.</li>
+                                                <li><i class="fas fa-circle" style="font-size:0.45rem;margin-top:0.35rem;"></i>Session Chair: "Automobile Engineering, Engine Management System, Machining Optimization". NCRTESTM-2017. Nov 8-9, 2017.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Publications in Journals -->
+                                <div class="collapsible-section">
+                                    <button class="collapsible-header">
+                                        <span><i class="fas fa-book-open"></i> Publications in Journals</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="collapsible-content">
+                                        <div class="collapsible-inner">
+                                            <ol style="font-size:0.88rem;color:var(--text-dark);padding-left:1.2rem;line-height:1.7;">
+                                                <li style="margin-bottom:0.6rem;">Dharmeswar Dash, Devarasiddappa D. et al. "Investigation on hybrid optimization approach for minimizing surface roughness in the machining of Mg/TiC metal matrix composites using spark EDM", <em>Scientific Reports</em>, 15, 2025. DOI: 10.1038/s41598-025-18560-3</li>
+                                                <li style="margin-bottom:0.6rem;">Dharmeswar Dash, Devarasiddappa D. et al. "Experimental Investigation and Machining Analysis of Mg/TiC Composites During EDM". <em>Composites, Theory and Practice</em>, 24(1), 2024. DOI: 10.62753/ctp.2024.02.1.1</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M., Palanikumar K. "Taguchi analysis of MRR and PC for sustainable machining of Ti6Al4V alloy using WEDM". <em>Advances in Science and Technology</em>, Vol. 106, Trans Tech Publications.</li>
+                                                <li style="margin-bottom:0.6rem;">Vivek Singh, Chandrasekaran M., Samanta S., Devarasiddappa D., Arunachalam R. "Sustainability assessment of Gas Metal Arc Welding Process of AISI 201LN using AHP-TLBO". <em>Journal of the Brazilian Society of Mechanical Sciences</em>, 43(68), 2021. DOI: 10.1007/s40430-020-02786-5</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M. "Fuzzy logic modelling of sustainable performance measure (MRR) during WEDM of Ti/6Al/4V alloy". <em>Materials Today: Proceedings</em>, 46(9), 2021. DOI: 10.1016/j.matpr.2020.11.487</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M. "Experimental investigation and optimization of sustainable performance measures during WEDM of Ti6Al4V alloy using preference based TLBO algorithm". <em>Materials and Manufacturing Processes</em>, 35(11), 2020. DOI: 10.1080/10426914.2020.1762211</li>
+                                                <li style="margin-bottom:0.6rem;">Bishub Choudhury, Chandrasekaran M., Devarasiddappa D. "Development of ANN modelling for estimation of weld strength and integrated optimization for GTAW of Inconel 825". <em>Journal of the Brazilian Society of Mechanical Sciences</em>, 42(308), 2020. DOI: 10.1007/s40430-020-02390-7</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M., Arunachalam R. "Experimental investigation and parametric optimization for minimizing surface roughness during WEDM of Ti6Al4V alloy using modified TLBO algorithm". <em>Journal of the Brazilian Society of Mechanical Sciences</em>, 42(3), 2020. DOI: 10.1007/s40430-020-2224-7</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M. "Estimation of power consumption and optimization using TLBO algorithm for sustainable WEDM of Ti-6Al-4V alloy". <em>Journal of The Institution of Engineers (India): Series C</em>, 101(2), 2020. DOI: 10.1007/s40032-020-00560-z</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M. "Fuzzy logic-integrated PSO methodology for parameters optimization in end milling of Al/SiCp MMC". <em>Journal of the Brazilian Society of Mechanical Sciences</em>, 41(5), 2019. DOI: 10.1007/s40430-019-1725-8</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M. "Evaluation of power consumption and MRR in WEDM of Ti–6Al–4V alloy and its simultaneous optimization for sustainable production". <em>Journal of the Brazilian Society of Mechanical Sciences</em>, 40(400), 2018. DOI: 10.1007/s40430-018-1318-y</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M., Sambandam M.T. "Multi Performance Optimization in Wire cut EDM of Inconel 825 using Desirability Function coupled with AHP". <em>Materials Today: Proceedings</em>, 5(5), 2018. DOI: 10.1016/j.matpr.2018.02.121</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Jees George, Chandrasekaran M., Nabam Teyi. "Application of Artificial Intelligence Approach in Modeling Surface Quality of Aerospace Alloys in WEDM". <em>Procedia Technology</em>, 25, 2016. DOI: 10.1016/j.protcy.2016.08.239</li>
+                                                <li style="margin-bottom:0.6rem;">Shiv Sharma, Tamang S., Devarasiddappa D., Chandrasekaran M. "Fuzzy Logic Modeling and Multiple Performance Optimization in Turning GFRP Composites". <em>Procedia Materials Science</em>, Vol. 6, 2014. DOI: 10.1016/j.mspro.2014.07.211</li>
+                                                <li style="margin-bottom:0.6rem;">Chandrasekaran M. &amp; Devarasiddappa D. "Artificial Neural Network Modeling for Surface Roughness Prediction in Cylindrical Grinding of Al-SiCp MMC and ANOVA Analysis". <em>APEM</em>, 9(2), 2014. DOI: 10.14743/apem2014.2.176</li>
+                                                <li style="margin-bottom:0.6rem;">Chandrasekaran M. &amp; Devarasiddappa D. "Development of Predictive Model for surface roughness in End Milling of Al-SiCp MMC using Fuzzy Logic". <em>World Academy of Science, Engineering and Technology</em>, 6(7), 2012. DOI: 10.5281/zenodo.1080135</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M. &amp; Amitava Mandal. "Artificial Neural Network Modeling for Predicting Surface Roughness in End Milling of Al-SiCp MMC". <em>Journal of Applied Sciences</em>, 12(10), 2012. DOI: 10.3923/jas.2012.955.962</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Conference Publications -->
+                                <div class="collapsible-section">
+                                    <button class="collapsible-header">
+                                        <span><i class="fas fa-file-alt"></i> Publications / Presentations in Conferences</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="collapsible-content">
+                                        <div class="collapsible-inner">
+                                            <ol style="font-size:0.88rem;color:var(--text-dark);padding-left:1.2rem;line-height:1.7;">
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M., Muralidhar M. "AHP-TOPSIS Integrated Approach for Parameters Selection in WEDM of Titanium Alloy". AIMTDR-2023, IIT-BHU, Dec 8-10, 2023.</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M., Ravikumar M., Sambandam M.T. "Modified TLBO for Maximization of MRR in Wire-cut EDM of Ti6Al4V". AIP Conference Proceedings 2128, 040007, 2019. DOI: 10.1063/1.5117969</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M. and Jees George. "Improvement in Surface Roughness and Dimensional Accuracy in WEDM of Inconel Alloy". AIMTDR-2016, College of Engineering, Pune. ISBN: 978-93-86256-27-0</li>
+                                                <li style="margin-bottom:0.6rem;">Chandrasekaran M. &amp; Devarasiddappa D. "Modeling for Surface Roughness Prediction in Cylindrical Grinding of Al-SiCp MMC Using ANN &amp; ANOVA". RAMPT'13, NEC, Tamilnadu, Jan 7-9, 2013.</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D. &amp; Chandrasekaran M. "Development of Surface Roughness Prediction Model in Machining Al-SiCp MMC". AIMTDR 2012, Jadavpur University, Kolkata.</li>
+                                                <li style="margin-bottom:0.6rem;">Chandrasekaran M. &amp; Devarasiddappa D. "Development of Predictive Model for surface roughness in End Milling of Al-SiCp MMC using Fuzzy Logic". ICAMME 2012, WASET, Kuala Lumpur.</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M. &amp; Amitava Mandal. "ANN Modeling for Predicting Surface Roughness in End Milling of Al-SiCp MMC". ICIMS 2012, SASTRA University, Thanjavur.</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D. and Chandrasekaran M. "ANN Approach for Modeling and Prediction of Performance Measures in a Machining Process". NCRTESTM-2017, Rajiv Gandhi Govt. Polytechnic, Itanagar. ISBN: 978-93-88381-77-2</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D. and Biraj Pangmi. "An Overview of Multi Point Fuel Injection System and Sensor used in Automobiles". NCRTESTM-2017, Rajiv Gandhi Govt. Polytechnic, Itanagar. ISBN: 978-93-88381-77-2</li>
+                                                <li style="margin-bottom:0.6rem;">Sweety Mahanta, Chandrasekaran M., Samanta S., Devarasiddappa D. "ANN Modelling of Tribological Properties for Al-7075 Hybrid Nano MMC". NCRTESTM-2017, Rajiv Gandhi Govt. Polytechnic, Itanagar. ISBN: 978-93-88381-77-2</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D. "Welding Techniques for Automotive Applications-a Review". National Conference on Advances in Welding Technology, NERIST, Nirjuli, May 10-11, 2013.</li>
+                                                <li style="margin-bottom:0.6rem;">Suresh Kumar and Devarasiddappa D. "Bio fuel - Engine Applications". Regional Seminar on Bio Fuels in North East India, NERIST, Nirjuli, March 20-21, 2009.</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Book Chapters -->
+                                <div class="collapsible-section">
+                                    <button class="collapsible-header">
+                                        <span><i class="fas fa-book"></i> Publications of Book Chapters / Books</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="collapsible-content">
+                                        <div class="collapsible-inner">
+                                            <ol style="font-size:0.88rem;color:var(--text-dark);padding-left:1.2rem;line-height:1.7;">
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M. "PCA-GRA Integrated Multi Response Optimization of Wire-Cut EDM of Ti-6Al-4V Alloy for Sustainable Production". In: <em>Advances in Mechanical Engineering</em>, Lecture Notes in Mechanical Engineering, Springer, Singapore, 2020. DOI: 10.1007/978-981-15-0124-1-24</li>
+                                                <li style="margin-bottom:0.6rem;">Devarasiddappa D., Chandrasekaran M., and Mandal K.K. "AHP-GRA Integrated Methodology for Decision-Making in WEDM of Ti-6Al-4V Alloy". In: <em>Modeling, Simulation and Optimization</em>, SIST Vol. 292, Springer, 2022. DOI: 10.1007/978-981-19-0836-1-46</li>
+                                                <li style="margin-bottom:0.6rem;">Proceedings of National Conference on Recent Trends in Engineering Science, Technology and Management (NCRTESTM), Nov 8-9, 2017. Educreation Publishing, December 2018.</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <button id="backToTop" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const collapsibles = document.querySelectorAll('.collapsible-header');
+            collapsibles.forEach(header => {
+                header.addEventListener('click', function() {
+                    const section = this.parentElement;
+                    
+                    // Close other sections (Optional - Toggle for standard accordion behavior)
+                    // collapsibles.forEach(otherHeader => {
+                    //    if(otherHeader !== header) otherHeader.parentElement.classList.remove('active');
+                    // });
+
+                    section.classList.toggle('active');
+                });
+            });
+            
+            // Open first section by default
+            if(collapsibles.length > 0) {
+                collapsibles[0].parentElement.classList.add('active');
+            }
+
+            // Scroll animations
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .profile-photo-frame');
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>

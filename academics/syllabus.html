@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #004aAD;
+            --white: #ffffff;
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+        }
+
+        .text-lead,
+        .text-body {
+            text-align: justify;
+        }
+
+        /* Container and Layout */
+        .container { margin: 0 auto; padding: 0 15px; max-width: 1400px; }
+        .page-container { margin: 0 auto; padding: 0 20px 80px; max-width: 1200px; }
+        
+        .about-page-wrapper { 
+            align-items: flex-start; 
+            display: grid; 
+            gap: 40px; 
+            grid-template-columns: 280px 1fr; 
+        }
+        
+        @media (max-width: 992px) { 
+            .about-page-wrapper { grid-template-columns: 1fr; } 
+        }
+
+        /* Sidebar Styles */
+        .about-sidebar { position: sticky; top: 20px; }
+        .sidebar-card { 
+            background: var(--white); 
+            border-radius: 12px; 
+            padding: 1.5rem; 
+            box-shadow: var(--shadow-md); 
+        }
+        .sidebar-title { 
+            font-size: 1.25rem; 
+            font-weight: 600; 
+            margin-bottom: 1rem; 
+            border-bottom: 2px solid #e5e7eb; 
+            padding-bottom: 0.5rem; 
+            color: var(--text-dark); 
+        }
+        .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin-bottom: 0.5rem; }
+        .sidebar-nav a { 
+            text-decoration: none; 
+            color: var(--text-dim); 
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem; 
+            padding: 0.75rem; 
+            border-radius: 8px; 
+            transition: all 0.3s ease; 
+        }
+        .sidebar-nav a:hover, .sidebar-nav a.active { 
+            background: rgba(0, 74, 173, 0.05); 
+            color: var(--primary-color); 
+        }
+
+        /* Main Content Layout */
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 40px; 
+            backdrop-filter: blur(10px); 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+            width: 100%; 
+        }
+
+        /* Syllabus specific */
+        .syllabus-dept-block { margin-bottom: 2.8rem; }
+        .syllabus-dept-heading {
+            display: flex; align-items: center; gap: 0.6rem;
+            font-size: 1.1rem; font-weight: 700; color: var(--primary-color);
+            padding-bottom: 0.7rem; border-bottom: 2px solid rgba(0,74,173,0.12);
+            margin-bottom: 1.2rem;
+        }
+        .syl-link-grid { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+        .syl-link-item {
+            background: #f4f7ff; border: 1px solid #dde5ff; border-radius: 8px;
+            padding: 0.75rem 1.2rem; display: flex; align-items: center; gap: 0.8rem;
+            font-size: 0.9rem; font-weight: 500; color: var(--text-dark); min-width: 180px;
+        }
+        .syl-link-item i { color: var(--primary-color); }
+        .syl-cs-badge { font-size: 0.72rem; color: #888; font-style: italic; margin-left: auto; }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="page-academics">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Syllabus</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Syllabus Content -->
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Academic Section</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="courses-offered.html"><i class="fas fa-book"></i> Programs Offered</a></li>
+                            <li><a href="academic-calendar.html"><i class="fas fa-calendar-alt"></i> Academic
+                                    Calendar</a></li>
+                            <li><a href="syllabus.html" class="active"><i class="fas fa-file-alt"></i> Syllabus</a></li>
+                            <li><a href="time-table.html"><i class="fas fa-clock"></i> Time Table</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                        <p style="color:var(--text-dim); margin-bottom:1.8rem; font-size:0.95rem;">
+                            Download the syllabus for your department. Syllabi are as prescribed by the
+                            Arunachal Pradesh State Council for Technical Education (APSCTE).
+                        </p>
+
+                        <!-- Civil Engineering -->
+                        <div class="syllabus-dept-block">
+                            <div class="syllabus-dept-heading">
+                                <i class="fas fa-hard-hat"></i> Department of Civil Engineering
+                            </div>
+                            <div class="syl-link-grid">
+                                <a href="../syllabus/1_SYLLABUS-FIRST%20YEAR.pdf" class="syl-link-item" target="_blank" style="text-decoration: none;">
+                                    <i class="fas fa-file-pdf"></i> 1st Year Syllabus (CE)
+                                </a>
+                                <a href="../syllabus/2_SYLLABUS-CE-SECOND%20YEAR-FINAL.pdf" class="syl-link-item" target="_blank" style="text-decoration: none;">
+                                    <i class="fas fa-file-pdf"></i> 2nd Year Syllabus (CE)
+                                </a>
+                                <a href="../syllabus/3_SYLLABUS-CE-THIRD%20YEAR-FINAL.pdf" class="syl-link-item" target="_blank" style="text-decoration: none;">
+                                    <i class="fas fa-file-pdf"></i> 3rd Year Syllabus (CE)
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Computer Science -->
+                        <div class="syllabus-dept-block">
+                            <div class="syllabus-dept-heading">
+                                <i class="fas fa-laptop-code"></i> Department of Computer Science &amp; Engineering
+                            </div>
+                            <div class="syl-link-grid">
+                                <a href="../syllabus/1_SYLLABUS-FIRST%20YEAR.pdf" class="syl-link-item" target="_blank" style="text-decoration: none;">
+                                    <i class="fas fa-file-pdf"></i> 1st Year Syllabus (CSE)
+                                </a>
+                                <div class="syl-link-item"><i class="fas fa-file-pdf"></i> 2nd Year Syllabus (CSE) <span class="syl-cs-badge">Coming Soon</span></div>
+                                <div class="syl-link-item"><i class="fas fa-file-pdf"></i> 3rd Year Syllabus (CSE) <span class="syl-cs-badge">Coming Soon</span></div>
+                            </div>
+                        </div>
+
+                        <!-- EEE -->
+                        <div class="syllabus-dept-block">
+                            <div class="syllabus-dept-heading">
+                                <i class="fas fa-bolt"></i> Department of Electrical &amp; Electronics Engineering
+                            </div>
+                            <div class="syl-link-grid">
+                                <a href="../syllabus/1_SYLLABUS-FIRST%20YEAR.pdf" class="syl-link-item" target="_blank" style="text-decoration: none;">
+                                    <i class="fas fa-file-pdf"></i> 1st Year Syllabus (EEE)
+                                </a>
+                                <div class="syl-link-item"><i class="fas fa-file-pdf"></i> 2nd Year Syllabus (EEE) <span class="syl-cs-badge">Coming Soon</span></div>
+                                <div class="syl-link-item"><i class="fas fa-file-pdf"></i> 3rd Year Syllabus (EEE) <span class="syl-cs-badge">Coming Soon</span></div>
+                            </div>
+                        </div>
+
+
+                        <div style="margin-top:1.5rem; padding:1rem 1.2rem; background:rgba(0,74,173,0.04); border-radius:8px; border:1px dashed var(--primary-color); font-size:0.88rem; color:#555;">
+                            <i class="fas fa-info-circle" style="color:var(--primary-color);"></i>
+                            &nbsp;Syllabus documents are compiled by GPC Ziro as per the revised curriculum of APSCTE, Itanagar. For any queries, please contact the Academic Section.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .syllabus-dept-block');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

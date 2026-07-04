@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSS - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .text-lead, .text-body, .objective-card p, .activity-info p { text-align: justify; }
+        .nss-activity-card {
+            background: #fff; border-radius: 12px; padding: 1.4rem;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 1.2rem;
+        }
+        .nss-activity-card h3 { margin: 0 0 0.4rem; color: var(--primary-color); font-size: 1rem; }
+        .nss-activity-card p { margin: 0 0 0.6rem; color: #555; font-size: 0.92rem; }
+        .activity-date { font-size: 0.8rem; color: #888; font-weight: 600; }
+        .explore-more-btn {
+            display: inline-flex; align-items: center; gap: 6px; margin-top: 0.7rem;
+            font-size: 0.85rem; font-weight: 600; color: var(--primary-color);
+            text-decoration: none; padding: 5px 14px;
+            border: 1.5px solid var(--primary-color); border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+        .explore-more-btn:hover { background: var(--primary-color); color: #fff; }
+        .coming-soon-badge {
+            display: inline-block; font-size: 0.78rem; color: #999;
+            font-style: italic; margin-top: 0.5rem;
+        }
+        .nss-photo-placeholder {
+            width: 100%; border-radius: 12px; background: linear-gradient(135deg, #e8f0fe, #d0e0ff);
+            display: flex; align-items: center; justify-content: center;
+            height: 220px; margin-bottom: 1.5rem; color: #5c7cce; font-size: 1rem; font-weight: 600;
+            gap: 0.5rem;
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-clubs">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">NSS</h1>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Cells</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="nss.html" class="active"><i class="fas fa-hands-helping"></i> NSS</a></li>
+                            <li><a href="activities.html"><i class="fas fa-calendar-alt"></i> Activities</a></li>
+                            <li><a href="student-council.html"><i class="fas fa-users-cog"></i> Student Council</a></li>
+                            <li><a href="clubs.html"><i class="fas fa-puzzle-piece"></i> Clubs</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <div class="about-main-content">
+                    <div class="glass-card">
+
+
+
+                        <!-- About NSS -->
+                        <div class="nss-content-section">
+                            <h2>About NSS</h2>
+                            <p class="text-lead">
+                                The National Service Scheme (NSS) at Government Polytechnic College Ziro is dedicated to
+                                developing students' personality through community service. NSS volunteers work on various
+                                social welfare activities, contributing to nation-building while developing leadership and
+                                organizational skills.
+                            </p>
+                            <p class="text-body">
+                                Our NSS unit actively participates in cleanliness drives, blood donation camps, awareness
+                                campaigns, and rural development programs. Through these activities, students learn the value
+                                of social responsibility and develop a deeper connection with the community.
+                            </p>
+                        </div>
+
+                        <!-- Objectives -->
+                        <div class="nss-content-section">
+                            <h2>Our Objectives</h2>
+                            <div class="nss-objectives">
+                                <div class="objective-card">
+                                    <i class="fas fa-hands-helping"></i>
+                                    <h3>Community Service</h3>
+                                    <p>Engage students in meaningful community service activities to develop social awareness and responsibility.</p>
+                                </div>
+                                <div class="objective-card">
+                                    <i class="fas fa-users"></i>
+                                    <h3>Leadership Development</h3>
+                                    <p>Foster leadership qualities and organizational skills through various NSS programs and initiatives.</p>
+                                </div>
+                                <div class="objective-card">
+                                    <i class="fas fa-seedling"></i>
+                                    <h3>Environmental Awareness</h3>
+                                    <p>Promote environmental consciousness and sustainable living practices through environmental conservation.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- NSS Coordinator -->
+                        <div class="nss-coordinator-section" style="margin-top: 1rem; margin-bottom: 2.5rem; padding: 1.5rem; background: rgba(0,74,173,0.03); border-radius: 12px; border: 1px solid rgba(0,74,173,0.1);">
+                            <h2 style="margin-bottom: 1.2rem; font-size: 1.4rem;">NSS Coordinator</h2>
+                            <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+                                <div style="width: 100px; height: 100px; border-radius: 12px; overflow: hidden; border: 3px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                                    <img src="../images/NSS/50.jpg" alt="Sh. Nani Chobin" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                                <div class="coordinator-info">
+                                    <h3 style="margin: 0; color: var(--primary-color);">Sh. Nani Chobin</h3>
+                                    <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px; font-size: 0.95rem;">
+                                        <span style="display: flex; align-items: center; gap: 10px; color: #444;">
+                                            <i class="fas fa-phone-alt" style="color: var(--primary-color);"></i> Mobile: 6909607393
+                                        </span>
+                                        <span style="display: flex; align-items: center; gap: 10px; color: #444;">
+                                            <i class="fas fa-envelope" style="color: var(--primary-color);"></i> Email: info.gpc.ziro@gmail.com
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activities -->
+                        <div class="nss-content-section">
+                            <h2 style="margin-bottom: 1.5rem;">Recent Activities</h2>
+
+                            <!-- Plantation Drive -->
+                            <div class="nss-activity-card">
+                                <h3><i class="fas fa-tree"></i> Plantation Drive</h3>
+                                <span class="activity-date"><i class="fas fa-calendar"></i> September 2025</span>
+                                <p style="margin-top:0.5rem;">NSS volunteers organized a plantation drive to contribute toward a greener campus and environmental conservation. Saplings were planted in and around the college premises.</p>
+                                <div style="display: flex; gap: 12px; margin-top: 10px;">
+                                    <a href="../gallery/photos.html#nss-plantation" class="explore-more-btn"><i class="fas fa-images"></i> Explore More (Photos)</a>
+                                    <a href="../gallery/videos.html" class="explore-more-btn"><i class="fas fa-video"></i> Explore More (Videos)</a>
+                                </div>
+                            </div>
+
+                            <!-- Drug Awareness Program -->
+                            <div class="nss-activity-card">
+                                <h3><i class="fas fa-shield-alt"></i> Drug Awareness Program</h3>
+                                <span class="activity-date"><i class="fas fa-calendar"></i> August 2025</span>
+                                <p style="margin-top:0.5rem;">A Drug Awareness Program was conducted by NSS volunteers to sensitize students and the local community about the dangers of drug abuse and substance misuse.</p>
+                                <div style="display: flex; gap: 12px; margin-top: 10px;">
+                                    <a href="../gallery/photos.html#nss-drug-awareness" class="explore-more-btn"><i class="fas fa-images"></i> Explore More (Photos)</a>
+                                </div>
+                            </div>
+
+                            <!-- Other upcoming activities -->
+                            <div class="nss-activity-card" style="border-left-color:#aaa;">
+                                <h3><i class="fas fa-clock"></i> More Activities</h3>
+                                <p style="margin-top:0.5rem;">Activity photos and details will be updated here as events are conducted.</p>
+                                <span class="coming-soon-badge"><i class="fas fa-hourglass-half"></i> Coming Soon</span>
+                            </div>
+                        </div>
+
+                        <!-- NSS Gallery Link -->
+                        <div style="text-align:center; margin-top:1.5rem; padding:1.5rem; background:rgba(0,74,173,0.04); border-radius:10px; border:1px dashed var(--primary-color);">
+                            <p style="margin-bottom:0.8rem; color:#555;">View all NSS activity photos in our gallery:</p>
+                            <a href="../gallery/photos.html" class="explore-more-btn" style="padding:8px 20px;">
+                                <i class="fas fa-images"></i> View NSS Photo Gallery
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .nss-content-section, .nss-coordinator-section');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

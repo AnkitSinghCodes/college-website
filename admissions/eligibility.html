@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eligibility Criteria - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #004aAD;
+            --white: #ffffff;
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+        }
+
+        .page-admissions {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fbfbfd;
+        }
+
+        .intro-text,
+        .details p,
+        .criteria-list li,
+        .note-box {
+            text-align: justify;
+        }
+
+        /* Container and Layout */
+        .container { margin: 0 auto; padding: 0 15px; max-width: 1400px; }
+        .page-container { margin: 0 auto; padding: 0 20px 80px; max-width: 1200px; }
+        
+        .about-page-wrapper { 
+            align-items: flex-start; 
+            display: grid; 
+            gap: 40px; 
+            grid-template-columns: 280px 1fr; 
+        }
+        
+        @media (max-width: 992px) { 
+            .about-page-wrapper { grid-template-columns: 1fr; } 
+        }
+
+        /* Sidebar Styles */
+        .about-sidebar { position: sticky; top: 20px; }
+        .sidebar-card { 
+            background: var(--white); 
+            border-radius: 12px; 
+            padding: 1.5rem; 
+            box-shadow: var(--shadow-md); 
+        }
+        .sidebar-title { 
+            font-size: 1.25rem; 
+            font-weight: 600; 
+            margin-bottom: 1rem; 
+            border-bottom: 2px solid #e5e7eb; 
+            padding-bottom: 0.5rem; 
+            color: var(--text-dark); 
+        }
+        .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin-bottom: 0.5rem; }
+        .sidebar-nav a { 
+            text-decoration: none; 
+            color: var(--text-dim); 
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem; 
+            padding: 0.75rem; 
+            border-radius: 8px; 
+            transition: all 0.3s ease; 
+        }
+        .sidebar-nav a:hover, .sidebar-nav a.active { 
+            background: rgba(0, 74, 173, 0.05); 
+            color: var(--primary-color); 
+        }
+
+        /* Main Content Layout */
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 40px; 
+            backdrop-filter: blur(10px); 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+            width: 100%; 
+        }
+
+        /* Eligibility specific styles */
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 2px solid rgba(0, 74, 173, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .qualification-box {
+            background: #fdfdfd;
+            border-left: 5px solid var(--primary-color);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .qualification-box:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .icon-box {
+            background: rgba(0, 74, 173, 0.1);
+            align-items: center;
+            border-radius: 50%;
+            color: var(--primary-color);
+            display: flex;
+            flex-shrink: 0;
+            font-size: 1.5rem;
+            height: 60px;
+            justify-content: center;
+            width: 60px;
+        }
+
+        .details h4 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .details p {
+            color: #555;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .criteria-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0 0;
+        }
+        .criteria-list li {
+            color: #555;
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .criteria-list li::before {
+            color: var(--primary-color);
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            left: 0;
+            position: absolute;
+        }
+
+        .note-box {
+            background: #eef9fe;
+            border: 1px solid #cceeff;
+            padding: 15px;
+            border-radius: 5px;
+            color: #2c3e50;
+            font-size: 0.95rem;
+            margin-top: 2rem;
+        }
+        .note-box strong {
+            color: var(--primary-color);
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .qualification-box {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="page-admissions">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Eligibility Criteria</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Eligibility Details -->
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Admissions Section</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="admission-process.html"><i class="fas fa-info-circle"></i> Admission
+                                    Section</a></li>
+                            <li><a href="eligibility.html" class="active"><i class="fas fa-check-circle"></i>
+                                    Eligibility</a></li>
+                            <li><a href="fee-structure.html"><i class="fas fa-money-bill-wave"></i> Fee Structure</a>
+                            </li>
+                            <li><a href="online-payment.html"><i class="fas fa-credit-card"></i> Online Payment</a></li>
+                            <li><a href="prospectus.html"><i class="fas fa-file-pdf"></i> Prospectus (PDF)</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                        <div class="eligibility-content">
+                            <p class="intro-text">
+                                Admission to Government Polytechnic College Ziro is governed by the rules and
+                                regulations laid
+                                down by the Directorate of Higher & Technical Education (DHTE), Government of
+                                Arunachal
+                                Pradesh.
+                            </p>
+                            <h3 class="section-title">Educational Qualification</h3>
+                            <div class="qualification-box">
+                                <div class="icon-box">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="details">
+                                    <h4>For All Diploma Courses</h4>
+                                    <p>Candidates must have passed Class X (High School Leaving Certificate) or
+                                        equivalent examination from a recognized board.</p>
+                                    <ul class="criteria-list">
+                                        <li>Minimum <strong>35% marks</strong> in aggregate.</li>
+                                        <li>Must have <strong>Mathematics</strong> and <strong>Science</strong> as
+                                            compulsory subjects.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h3 class="section-title">Residential Requirement</h3>
+                            <div class="qualification-box">
+                                <div class="icon-box">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="details">
+                                    <h4>Domicile</h4>
+                                    <p>Preference is given to candidates with Arunachal Pradesh Scheduled Tribe (APST)
+                                        certificate. Non-APST candidates may apply under the open quota subject to
+                                        availability of seats and DHTE norms.</p>
+                                </div>
+                            </div>
+                            <div class="note-box">
+                                <strong><i class="fas fa-info-circle"></i> Note:</strong> Eligibility criteria are
+                                subject to change as per the latest notifications from DHTE. Please verify with the
+                                official brochure.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .qualification-box, .note-box');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+

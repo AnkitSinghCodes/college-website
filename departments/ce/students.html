@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civil Engineering Students - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../../css/main-bundle.css">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CORE VARIABLES & GLOBAL STYLES --- */
+        :root {
+            --bg-light: #fbfbfd;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-blur: blur(20px) saturate(180%);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --primary-color: #004aAD;
+            --primary-glass: rgba(0, 74, 173, 0.7);
+            --secondary-color: #6c757d;
+            --secondary-glass: rgba(108, 117, 125, 0.1);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --text-light: #f5f5f7;
+            --transition-speed: 0.4s;
+            --white: #ffffff;
+        }
+
+        .page-container {
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            max-width: 1200px;
+        }
+
+        .about-page-wrapper {
+            align-items: flex-start;
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 280px 1fr;
+        }
+
+        .about-sidebar {
+            position: sticky;
+            top: 40px;
+        }
+
+        .sidebar-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-title {
+            border-bottom: 2px solid rgba(0, 74, 173, 0.1);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-nav li a {
+            border-left: 4px solid transparent;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+            align-items: center;
+            border-radius: 12px;
+            color: var(--text-dark);
+            display: flex;
+            font-size: 0.95rem;
+            font-weight: 500;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .sidebar-nav li a i {
+            color: var(--primary-color);
+            font-size: 1rem;
+            opacity: 0.7;
+            text-align: center;
+            width: 20px;
+        }
+
+        .sidebar-nav li a:hover {
+            background: rgba(0, 74, 173, 0.05);
+            color: var(--primary-color);
+            padding-left: 20px;
+        }
+
+        .sidebar-nav li a.active {
+            background: var(--primary-color);
+            border-left-color: #c5a059;
+            box-shadow: 0 8px 15px rgba(0, 74, 173, 0.2);
+            color: var(--white);
+        }
+
+        .sidebar-nav li a.active i {
+            color: var(--white);
+            opacity: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        .dept-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .dept-header h2 {
+            color: #1a4a8e;
+            font-size: 2.5rem;
+        }
+
+        .dept-header p {
+            color: var(--text-dim);
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        /* --- STUDENT TABLE STYLES --- */
+        .student-photo {
+            width: 50px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .photo-cell {
+            text-align: center;
+            vertical-align: middle;
+            width: 70px;
+        }
+
+        .reg-no {
+            font-family: monospace;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .gender-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .gender-m {
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .gender-f {
+            background-color: #fce4ec;
+            color: #c2185b;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        /* CE & EEE Student Tables */
+        .page-departments-eee .student-table, 
+        .page-departments-ce .student-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            min-width: 800px;
+            width: 100%;
+        }
+
+        .page-departments-eee .student-table th, 
+        .page-departments-ce .student-table th {
+            background: rgba(26, 74, 142, 0.85);
+            padding: 18px 20px;
+            backdrop-filter: blur(5px);
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-align: left;
+            text-transform: uppercase;
+        }
+
+        .page-departments-eee .student-table td, 
+        .page-departments-ce .student-table td {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 15px 20px;
+            color: #444;
+            font-size: 0.95rem;
+        }
+
+        .page-departments-eee .student-table tr:hover, 
+        .page-departments-ce .student-table tr:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .page-departments-eee .student-table tr:last-child td, 
+        .page-departments-ce .student-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 992px) {
+            .about-page-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .about-sidebar {
+                margin-bottom: 30px;
+                position: static;
+            }
+            .sidebar-nav {
+                display: grid;
+                gap: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .sidebar-nav li {
+                margin-bottom: 0;
+            }
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 20px;
+            }
+            .table-responsive {
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-departments-ce">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                <h1 class="page-title">Civil Engineering Students</h1>
+            </div>
+            </div>
+        </section>
+
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Civil Engineering</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="profile.html"><i class="fas fa-info-circle"></i> Department Profile</a></li>
+                            <li><a href="labs.html"><i class="fas fa-flask"></i> Laboratories</a></li>
+                            <li><a href="faculties.html"><i class="fas fa-chalkboard-teacher"></i> Our Faculty</a></li>
+                            <li><a href="staff.html"><i class="fas fa-cogs"></i> Technical Staff</a></li>
+                            <li><a href="students.html" class="active"><i class="fas fa-user-graduate"></i> Students</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                <div class="dept-header" style="text-align: center; margin-bottom: 20px;">
+                    <h2 style="color: #1a4a8e; font-size: 2.5rem;">Student List</h2>
+                    <p>Department: Civil Engineering (CE) | Academic Year: 2025-26</p>
+                </div>
+
+
+                <div class="table-responsive">
+                    <table class="student-table">
+                        <thead>
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>Photo</th>
+                                <th>Name of the Student</th>
+                                <th>Registration No.</th>
+                                <th>Gender</th>
+                                <th>Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="photo-cell"><img src="images/image10.jpg" alt="SH. BIDA TABA"
+                                        class="student-photo"></td>
+                                <td>SH. BIDA TABA</td>
+                                <td class="reg-no">GPZ/2025/CE/01</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="photo-cell"><img src="images/image12.jpg" alt="SH. BIRI APA"
+                                        class="student-photo"></td>
+                                <td>SH. BIRI APA</td>
+                                <td class="reg-no">GPZ/2025/CE/02</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td class="photo-cell"><img src="images/image11.jpg" alt="SH. MARKEN BAGRA"
+                                        class="student-photo"></td>
+                                <td>SH. MARKEN BAGRA</td>
+                                <td class="reg-no">GPZ/2025/CE/03</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td class="photo-cell"><img src="images/image14.jpg" alt="SH. TANIL GARAM"
+                                        class="student-photo"></td>
+                                <td>SH. TANIL GARAM</td>
+                                <td class="reg-no">GPZ/2025/CE/04</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td class="photo-cell"><img src="images/image13.jpg" alt="SH. KIPA ATU TARISH"
+                                        class="student-photo"></td>
+                                <td>SH. KIPA ATU TARISH</td>
+                                <td class="reg-no">GPZ/2025/CE/05</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td class="photo-cell"><img src="images/image16.jpg" alt="SH. KIPA SAIL"
+                                        class="student-photo"></td>
+                                <td>SH. KIPA SAIL</td>
+                                <td class="reg-no">GPZ/2025/CE/06</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td class="photo-cell"><img src="images/image15.jpg" alt="SH. KIPA SAYA"
+                                        class="student-photo"></td>
+                                <td>SH. KIPA SAYA</td>
+                                <td class="reg-no">GPZ/2025/CE/07</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td class="photo-cell"><img src="images/image18.jpg" alt="SH. GOLE GYADI"
+                                        class="student-photo"></td>
+                                <td>SH. GOLE GYADI</td>
+                                <td class="reg-no">GPZ/2025/CE/08</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td class="photo-cell"><img src="images/image17.jpg" alt="SH. JOHN DADA"
+                                        class="student-photo"></td>
+                                <td>SH. JOHN DADA</td>
+                                <td class="reg-no">GPZ/2025/CE/09</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td class="photo-cell"><img src="images/image21.jpg" alt="SH. TANA HUTO TARA"
+                                        class="student-photo"></td>
+                                <td>SH. TANA HUTO TARA</td>
+                                <td class="reg-no">GPZ/2025/CE/10</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td class="photo-cell"><img src="images/image19.jpg" alt="SH. BAMANG DHAM"
+                                        class="student-photo"></td>
+                                <td>SH. BAMANG DHAM</td>
+                                <td class="reg-no">GPZ/2025/CE/11</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td class="photo-cell"><img src="images/image20.jpg" alt="MS. MEME VENIA"
+                                        class="student-photo"></td>
+                                <td>MS. MEME VENIA</td>
+                                <td class="reg-no">GPZ/2025/CE/12</td>
+                                <td><span class="gender-badge gender-f">F</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td class="photo-cell"><img src="images/image22.jpg" alt="SH. NABAM HARI"
+                                        class="student-photo"></td>
+                                <td>SH. NABAM HARI</td>
+                                <td class="reg-no">GPZ/2025/CE/13</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td class="photo-cell"><img src="images/image23.jpg" alt="SH. PHASSANG TADEY"
+                                        class="student-photo"></td>
+                                <td>SH. PHASSANG TADEY</td>
+                                <td class="reg-no">GPZ/2025/CE/14</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td class="photo-cell"><img src="images/image24.jpg" alt="SH. TAW BULLO"
+                                        class="student-photo"></td>
+                                <td>SH. TAW BULLO</td>
+                                <td class="reg-no">GPZ/2025/CE/15</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td class="photo-cell"><img src="images/image25.jpg" alt="SH. FESHI JOMOH"
+                                        class="student-photo"></td>
+                                <td>SH. FESHI JOMOH</td>
+                                <td class="reg-no">GPZ/2025/CE/16</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td class="photo-cell"><img src="images/image26.jpg" alt="SH. TEM TAKIA"
+                                        class="student-photo"></td>
+                                <td>SH. TEM TAKIA</td>
+                                <td class="reg-no">GPZ/2025/CE/17</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td class="photo-cell"></td>
+                                <td>SH. VINAY DUI</td>
+                                <td class="reg-no">GPZ/2025/CE/18</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td class="photo-cell"><img src="images/image27.jpg" alt="SH. LIKHA AKIN"
+                                        class="student-photo"></td>
+                                <td>SH. LIKHA AKIN</td>
+                                <td class="reg-no">GPZ/2025/CE/19</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td class="photo-cell"><img src="images/image28.jpg" alt="SH. TANI NACHO"
+                                        class="student-photo"></td>
+                                <td>SH. TANI NACHO</td>
+                                <td class="reg-no">GPZ/2025/CE/20</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>21</td>
+                                <td class="photo-cell"><img src="images/image29.jpg" alt="SH. GOLO SARBANG"
+                                        class="student-photo"></td>
+                                <td>SH. GOLO SARBANG</td>
+                                <td class="reg-no">GPZ/2025/CE/21</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>22</td>
+                                <td class="photo-cell"><img src="images/image1.jpg" alt="SH. TECHI PARIO"
+                                        class="student-photo"></td>
+                                <td>SH. TECHI PARIO</td>
+                                <td class="reg-no">GPZ/2025/CE/22</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>23</td>
+                                <td class="photo-cell"><img src="images/image2.jpg" alt="SH. GEM TEJI"
+                                        class="student-photo"></td>
+                                <td>SH. GEM TEJI</td>
+                                <td class="reg-no">GPZ/2025/CE/23</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>24</td>
+                                <td class="photo-cell"><img src="images/image3.jpg" alt="MS. OMOUM TOK"
+                                        class="student-photo"></td>
+                                <td>MS. OMOUM TOK</td>
+                                <td class="reg-no">GPZ/2025/CE/24</td>
+                                <td><span class="gender-badge gender-f">F</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>25</td>
+                                <td class="photo-cell"><img src="images/image4.jpg" alt="MS. BENGIA NYANI"
+                                        class="student-photo"></td>
+                                <td>MS. BENGIA NYANI</td>
+                                <td class="reg-no">GPZ/2025/CE/25</td>
+                                <td><span class="gender-badge gender-f">F</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>26</td>
+                                <td class="photo-cell"><img src="images/image5.jpg" alt="SH. GEM LOKER"
+                                        class="student-photo"></td>
+                                <td>SH. GEM LOKER</td>
+                                <td class="reg-no">GPZ/2025/CE/26</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>27</td>
+                                <td class="photo-cell"><img src="images/image6.jpg" alt="SH. JORAM TUKI"
+                                        class="student-photo"></td>
+                                <td>SH. JORAM TUKI</td>
+                                <td class="reg-no">GPZ/2025/CE/27</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>28</td>
+                                <td class="photo-cell"><img src="images/image7.jpg" alt="SH. MICHI SANGO"
+                                        class="student-photo"></td>
+                                <td>SH. MICHI SANGO</td>
+                                <td class="reg-no">GPZ/2025/CE/28</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>29</td>
+                                <td class="photo-cell"><img src="images/image8.jpg" alt="SH. NANGRAM SOKI"
+                                        class="student-photo"></td>
+                                <td>SH. NANGRAM SOKI</td>
+                                <td class="reg-no">GPZ/2025/CE/29</td>
+                                <td><span class="gender-badge gender-m">M</span></td>
+                                <td>APST</td>
+                            </tr>
+                            <tr>
+                                <td>30</td>
+                                <td class="photo-cell"><img src="images/image9.jpg" alt="MS. TABA JIRMA"
+                                        class="student-photo"></td>
+                                <td>MS. TABA JIRMA</td>
+                                <td class="reg-no">GPZ/2025/CE/30</td>
+                                <td><span class="gender-badge gender-f">F</span></td>
+                                <td>APST</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+

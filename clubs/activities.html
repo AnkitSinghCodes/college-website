@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Events - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .event-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+            border-left: 5px solid var(--primary-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+        }
+        .event-icon-box {
+            width: 56px; height: 56px; min-width: 56px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+        }
+        .event-title { font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin: 0 0 0.3rem; }
+        .event-date-badge {
+            display: inline-flex; align-items: center; gap: 5px;
+            font-size: 0.8rem; color: var(--primary-color); font-weight: 600;
+            background: rgba(0,74,173,0.08); padding: 3px 10px; border-radius: 20px; margin-bottom: 0.5rem;
+        }
+        .event-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-top: 0.7rem; font-size: 0.85rem; font-weight: 600;
+            color: var(--primary-color); text-decoration: none;
+            padding: 5px 14px; border: 1.5px solid var(--primary-color); border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+        .event-link:hover { background: var(--primary-color); color: #fff; }
+        .coming-soon-text { font-size: 0.82rem; color: #999; font-style: italic; margin-top: 0.5rem; }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-clubs">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Recent Events</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Content -->
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Cells</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="nss.html"><i class="fas fa-hands-helping"></i> NSS</a></li>
+                            <li><a href="activities.html" class="active"><i class="fas fa-calendar-alt"></i>
+                                    Activities</a></li>
+                            <li><a href="student-council.html"><i class="fas fa-users-cog"></i> Student Council</a></li>
+                            <li><a href="clubs.html"><i class="fas fa-puzzle-piece"></i> Clubs</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card" style="padding: 2rem;">
+                        <h2 style="color:var(--primary-color); font-weight:700; margin-bottom:1.8rem;">Recent Events</h2>
+
+                        <!-- Republic Day Celebrations -->
+                        <div class="event-card">
+                            <div class="event-icon-box"><i class="fas fa-flag"></i></div>
+                            <div>
+                                <div class="event-date-badge"><i class="fas fa-calendar"></i> 26 January 2026</div>
+                                <h3 class="event-title">Republic Day Celebrations</h3>
+                                <p style="margin:0; color:#555; font-size:0.93rem;">Republic Day was celebrated with patriotic fervour at GPC Ziro with flag hoisting and cultural programs by students and staff.</p>
+                                <a href="../gallery/photos.html" class="event-link"><i class="fas fa-images"></i> View Photos</a>
+                            </div>
+                        </div>
+
+                        <!-- Students Induction Program -->
+                        <div class="event-card">
+                            <div class="event-icon-box"><i class="fas fa-user-graduate"></i></div>
+                            <div>
+                                <div class="event-date-badge"><i class="fas fa-calendar"></i> 2025</div>
+                                <h3 class="event-title">Students Induction Program – 2025</h3>
+                                <p style="margin:0; color:#555; font-size:0.93rem;">The Students Induction Program was organized to welcome new students and orient them to the institute's culture, values, and academic environment.</p>
+                                <a href="../gallery/photos.html" class="event-link"><i class="fas fa-images"></i> View Photos</a>
+                            </div>
+                        </div>
+
+                        <!-- Engineers Day -->
+                        <div class="event-card">
+                            <div class="event-icon-box"><i class="fas fa-cogs"></i></div>
+                            <div>
+                                <div class="event-date-badge"><i class="fas fa-calendar"></i> 15 September 2025</div>
+                                <h3 class="event-title">Engineers Day Celebrations – 2025</h3>
+                                <p style="margin:0; color:#555; font-size:0.93rem;">Engineers Day was celebrated in honour of Sir M. Visvesvaraya with technical events, talks, and activities showcasing innovation and engineering spirit.</p>
+                                <a href="../gallery/photos.html" class="event-link"><i class="fas fa-images"></i> View Photos</a>
+                            </div>
+                        </div>
+
+                        <!-- Independence Day -->
+                        <div class="event-card">
+                            <div class="event-icon-box"><i class="fas fa-star"></i></div>
+                            <div>
+                                <div class="event-date-badge"><i class="fas fa-calendar"></i> 15 August 2025</div>
+                                <h3 class="event-title">Independence Day Celebrations – 2025</h3>
+                                <p style="margin:0; color:#555; font-size:0.93rem;">Independence Day was celebrated with a flag hoisting ceremony, cultural programs, and patriotic activities reflecting national pride.</p>
+                                <a href="../gallery/photos.html" class="event-link"><i class="fas fa-images"></i> View Photos</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .event-card');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

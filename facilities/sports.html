@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-facilities">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Sports</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Facilities</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="library.html"><i class="fas fa-book"></i> Library</a></li>
+                            <li><a href="hostel.html"><i class="fas fa-hotel"></i> Hostel</a></li>
+                            <li><a href="laboratory.html"><i class="fas fa-flask"></i> Laboratory</a></li>
+                            <li><a href="sports.html" class="active"><i class="fas fa-running"></i> Sports</a></li>
+                            <li><a href="canteen.html"><i class="fas fa-utensils"></i> Canteen</a></li>
+                            <li><a href="medical-facility.html"><i class="fas fa-hand-holding-medical"></i> Medical
+                                    Facility</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                        <div class="about-content">
+                            <span class="section-title">Sports Facilities</span>
+
+
+
+                            <p class="text-lead">
+                                Welcome to the Sports section of Government Polytechnic College Ziro.
+                            </p>
+                            <p class="text-body">
+                                Government Polytechnic College Ziro encourages physical fitness and sportsmanship by
+                                providing various indoor and outdoor sports facilities for students.
+                            </p>
+
+                            <!-- Highlights Grid -->
+                            <div class="highlights-grid">
+                                <div class="highlight-item">
+                                    <i class="fas fa-running"></i>
+                                    <span>Athletics</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-table-tennis"></i>
+                                    <span>Indoor Games</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-volleyball-ball"></i>
+                                    <span>Outdoor Sports</span>
+                                </div>
+                            </div>
+
+                            <!-- Explore More -->
+                            <div style="margin-top:2rem; text-align:center;">
+                                <a href="../gallery/photos.html#sports-gallery" style="display:inline-flex; align-items:center; gap:8px; padding:10px 24px; background:var(--primary-color); color:#fff; border-radius:8px; font-weight:600; text-decoration:none; font-size:0.95rem;">
+                                    <i class="fas fa-images"></i> Explore More — Sports Gallery
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+             const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .highlights-grid');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

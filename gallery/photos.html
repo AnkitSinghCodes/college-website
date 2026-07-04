@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-gallery">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Photo Gallery</h1>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-container">
+            <div class="glass-card">
+                <h2 class="section-title" style="margin-top: 60px; margin-bottom: 30px; color: var(--primary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">Campus Life</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/1.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/10.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/11.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/12.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/13.jpeg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/14.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/15.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/16.jpeg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/17.jpeg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/18.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/19.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/2.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/20.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/21.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/22.jpeg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/23.jpeg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/24.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/25.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/26.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/27.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/28.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/3.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/4.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/5.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/6.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/7.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/8.jpg" alt="Campus Life">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/homepage-photos/9.jpg" alt="Campus Life">
+                    </div>
+                </div>
+                <h2 class="section-title" style="margin-top: 60px; margin-bottom: 30px; color: var(--primary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">Visit of Director, H&TE and Team</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_112527-2.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_112547-1.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_112559-1.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_114137.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_114139.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_114141.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_114600.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_114625.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_114805.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_114807.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_114811.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_115502.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_115506.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_115515.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_120159.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_120210.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_120228.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_120545.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_120859.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_120941.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_121420.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_121421.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_121422.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_122118.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_122120.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_122410.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_122930.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_123407.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_124736.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_132854.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/IMG_20250913_132856.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/director%20visit/nitin%20falicitation.jpg" alt="Visit of Director, H&TE and Team">
+                    </div>
+                </div>
+                <h2 class="section-title" style="margin-top: 60px; margin-bottom: 30px; color: var(--primary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">Classes and Class Tests</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="../images/classes-classtest/IMG_20250909_094149.jpg" alt="Classes and Class Tests">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/classes-classtest/IMG_20250909_094206.jpg" alt="Classes and Class Tests">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/classes-classtest/IMG_20250909_094226.jpg" alt="Classes and Class Tests">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/classes-classtest/IMG_20250912_095602.jpg" alt="Classes and Class Tests">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/classes-classtest/IMG_20250912_095717.jpg" alt="Classes and Class Tests">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/classes-classtest/IMG_20250912_095737.jpg" alt="Classes and Class Tests">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/classes-classtest/IMG_20250912_095819.jpg" alt="Classes and Class Tests">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/classes-classtest/IMG_20250912_095923.jpg" alt="Classes and Class Tests">
+                    </div>
+                </div>
+                <h2 class="section-title" style="margin-top: 60px; margin-bottom: 30px; color: var(--primary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">End Semester Exam</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="../images/End%20Semeter%20Exam/IMG_20251127_090621.jpg" alt="End Semester Exam">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/End%20Semeter%20Exam/IMG_20251127_090637.jpg" alt="End Semester Exam">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/End%20Semeter%20Exam/IMG_20251127_090750.jpg" alt="End Semester Exam">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/End%20Semeter%20Exam/IMG_20251129_095127.jpg" alt="End Semester Exam">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/End%20Semeter%20Exam/IMG_20251129_095129.jpg" alt="End Semester Exam">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/End%20Semeter%20Exam/IMG_20251129_100349.jpg" alt="End Semester Exam">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/End%20Semeter%20Exam/IMG_20251129_100352.jpg" alt="End Semester Exam">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/End%20Semeter%20Exam/IMG_20251205_094933.jpg" alt="End Semester Exam">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/End%20Semeter%20Exam/IMG_20251208_093105.jpg" alt="End Semester Exam">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/End%20Semeter%20Exam/IMG_20251208_093209.jpg" alt="End Semester Exam">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/End%20Semeter%20Exam/IMG_20251208_093240.jpg" alt="End Semester Exam">
+                    </div>
+                </div>
+
+                <h2 id="induction-program" class="section-title" style="margin-top: 60px; margin-bottom: 30px; color: var(--primary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">Induction Program</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250918_104334.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250918_104615.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250918_104852.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250918_105047.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250918_105056.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250918_105315.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250918_121203.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250918_121239.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250918_121428.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250918_124518.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250918_125707.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250918_125709.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250919_100552.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250919_101211.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250919_101232.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250919_135041.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250919_135932.jpg" alt="Induction Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/induction-program/IMG_20250919_141808.jpg" alt="Induction Program">
+                    </div>
+                </div>
+                <h2 id="nss-gallery" class="section-title" style="margin-top: 60px; margin-bottom: 20px; color: var(--primary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">NSS Activities</h2>
+                
+                <h3 id="nss-plantation" class="gallery-subtitle" style="margin-top: 40px; margin-bottom: 20px; color: var(--primary-color); font-size: 1.5rem; border-left: 4px solid var(--primary-color); padding-left: 12px; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-tree" style="color: #2e7d32;"></i> Plantation
+                </h3>
+                <div class="gallery-grid">
+                    <!-- Photos 1-6 -->
+                    <div class="gallery-item">
+                        <img src="../images/NSS/11-Plantation%20by%20Dr.%20D.%20Devarasiddappa,%20Principal,%20GPC%20Ziro.jpeg" alt="NSS Activity">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/NSS/12-Plantation%20by%20Dr.%20D.%20Devarasiddappa,%20Principal,%20GPC%20Ziro.jpeg" alt="NSS Activity">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/NSS/13-1-Plantation%20by%20Dr.%20D.%20Devarasiddappa,%20Principal,%20GPC%20Ziro.jpeg" alt="NSS Activity">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/NSS/13-2-Plantation%20by%20Dr.%20D.%20Devarasiddappa,%20Principal,%20GPC%20Ziro.jpeg" alt="NSS Activity">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/NSS/14-Plantation%20by%20Sh.%20%20Nani%20Chobin,%20NSS,%20Coordinator.jpeg" alt="NSS Activity">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/NSS/15-Plantation%20by%20Sh.%20%20Nani%20Chobin,%20NSS,%20Coordinator.jpeg" alt="NSS Activity">
+                    </div>
+                    <!-- Photos 11-12 -->
+                    <div class="gallery-item">
+                        <img src="../images/NSS/nss-volunteers.jpeg" alt="NSS Activity">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/NSS/6_plantation%20by%20RFO%20hapoli.jpg" alt="NSS Activity">
+                    </div>
+                </div>
+
+                <h3 id="nss-drug-awareness" class="gallery-subtitle" style="margin-top: 45px; margin-bottom: 20px; color: var(--primary-color); font-size: 1.5rem; border-left: 4px solid var(--primary-color); padding-left: 12px; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-shield-alt" style="color: #c62828;"></i> Drug Awareness Program
+                </h3>
+                <div class="gallery-grid">
+                    <!-- Photos 7-10 -->
+                    <div class="gallery-item">
+                        <img src="../images/NSS/1_Mrs%20Oli%20Perme,%20DC%20addresing%20the%20gathering.jpeg" alt="NSS Activity">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/NSS/1_range%20forest%20officer%20hapoli.jpg" alt="NSS Activity">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/NSS/2_1_GPC%20Ziro%20students%20participanting%20in%20the%20awareness%20program.jpeg" alt="NSS Activity">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/NSS/3_A%20memorable%20group%20photo.jpeg" alt="NSS Activity">
+                    </div>
+                </div>
+                <h2 id="engineers-day" class="section-title" style="margin-top: 60px; margin-bottom: 30px; color: var(--primary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">Engineer's Day 2025</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="../images/Engineer's%20Day%202025/1_engr%20day%20banner.jpg" alt="Engineer's Day 2025">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/Engineer's%20Day%202025/2_IMG_20250915_114939.jpg" alt="Engineer's Day 2025">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/Engineer's%20Day%202025/3_IMG_20250915_115103.jpg" alt="Engineer's Day 2025">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/Engineer's%20Day%202025/4_IMG_20250915_115054.jpg" alt="Engineer's Day 2025">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/Engineer's%20Day%202025/5_IMG_20250915_115331.jpg" alt="Engineer's Day 2025">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/Engineer's%20Day%202025/6_IMG_20250915_115348.jpg" alt="Engineer's Day 2025">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/Engineer's%20Day%202025/7_IMG_20250915_115532.jpg" alt="Engineer's Day 2025">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/Engineer's%20Day%202025/8_IMG_20250915_115611.jpg" alt="Engineer's Day 2025">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/Engineer's%20Day%202025/10_IMG_20250915_120446.jpg" alt="Engineer's Day 2025">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/Engineer's%20Day%202025/11-IMG_20250915_120858.jpg" alt="Engineer's Day 2025">
+                    </div>
+                </div>
+                <h2 id="independence-day" class="section-title" style="margin-top: 60px; margin-bottom: 30px; color: var(--primary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">Independence Day Celebration</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="../images/independence-day/IMG_20250815_144321.jpg" alt="Independence Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/independence-day/IMG_20250815_144635.jpg" alt="Independence Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/independence-day/WhatsApp%20Image%202025-08-15%20at%2010.49.09%20PM.jpeg" alt="Independence Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/independence-day/WhatsApp%20Image%202025-08-15%20at%2010.49.10%20PM.jpeg" alt="Independence Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/independence-day/WhatsApp%20Image%202025-08-15%20at%2010.49.11%20PM.jpeg" alt="Independence Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/independence-day/WhatsApp%20Image%202025-08-15%20at%2010.49.12%20PM.jpeg" alt="Independence Day Celebration">
+                    </div>
+                </div>
+                <h2 id="republic-day" class="section-title" style="margin-top: 60px; margin-bottom: 30px; color: var(--primary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">Republic Day Celebration</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="../images/republic-day/IMG_20260126_072846.jpg" alt="Republic Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/republic-day/IMG_20260126_073039.jpg" alt="Republic Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/republic-day/IMG_20260126_073824.jpg" alt="Republic Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/republic-day/IMG_20260126_073853.jpg" alt="Republic Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/republic-day/IMG_20260126_073916.jpg" alt="Republic Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/republic-day/IMG_20260126_073950.jpg" alt="Republic Day Celebration">
+                    </div>
+                </div>
+                <h2 id="sports-gallery" class="section-title" style="margin-top: 60px; margin-bottom: 30px; color: var(--primary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">Sports & Athletics</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="../images/sports/WhatsApp%20Image%202026-06-29%20at%208.58.30%20PM.jpeg" alt="Sports & Athletics">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/sports/WhatsApp%20Image%202026-06-29%20at%208.58.48%20PM%20(1).jpeg" alt="Sports & Athletics">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/sports/WhatsApp%20Image%202026-06-29%20at%208.58.48%20PM.jpeg" alt="Sports & Athletics">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/sports/WhatsApp%20Image%202026-06-29%20at%208.58.52%20PM%20(1).jpeg" alt="Sports & Athletics">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/sports/WhatsApp%20Image%202026-06-29%20at%208.58.52%20PM.jpeg" alt="Sports & Athletics">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/sports/WhatsApp%20Image%202026-06-29%20at%208.58.53%20PM%20(1).jpeg" alt="Sports & Athletics">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/sports/WhatsApp%20Image%202026-06-29%20at%208.58.53%20PM%20(2).jpeg" alt="Sports & Athletics">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/sports/WhatsApp%20Image%202026-06-29%20at%208.58.53%20PM%20(3).jpeg" alt="Sports & Athletics">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/sports/WhatsApp%20Image%202026-06-29%20at%208.58.53%20PM%20(4).jpeg" alt="Sports & Athletics">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/sports/WhatsApp%20Image%202026-06-29%20at%208.58.53%20PM%20(5).jpeg" alt="Sports & Athletics">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/sports/WhatsApp%20Image%202026-06-29%20at%208.58.53%20PM%20(6).jpeg" alt="Sports & Athletics">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/sports/WhatsApp%20Image%202026-06-29%20at%208.58.53%20PM.jpeg" alt="Sports & Athletics">
+                    </div>
+                </div>
+                 <h2 id="cafeteria-gallery" class="section-title" style="margin-top: 60px; margin-bottom: 30px; color: var(--primary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">Cafeteria & Canteen</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item coming-soon-placeholder" style="grid-column: 1 / -1; height: 300px; background: #f8f9fa; display: flex; align-items: center; justify-content: center; border-radius: 12px; border: 2px dashed #dee2e6; color: #6c757d; font-weight: 600; font-size: 1.2rem;">
+                        <i class="fas fa-utensils" style="margin-right: 10px;"></i> Cafeteria & Canteen Photo Gallery — Coming Soon
+                    </div>
+                </div>
+                <h2 id="cultural-gallery" class="section-title" style="margin-top: 60px; margin-bottom: 30px; color: var(--primary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">Cultural Activities</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item coming-soon-placeholder" style="grid-column: 1 / -1; height: 300px; background: #f8f9fa; display: flex; align-items: center; justify-content: center; border-radius: 12px; border: 2px dashed #dee2e6; color: #6c757d; font-weight: 600; font-size: 1.2rem;">
+                        <i class="fas fa-music" style="margin-right: 10px;"></i> Cultural Photo Gallery — Coming Soon
+                    </div>
+                </div>
+                <h2 class="section-title" style="margin-top: 60px; margin-bottom: 30px; color: var(--primary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">Teachers Day Celebration</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="../images/teachers%20day/IMG_20250905_080605.jpg" alt="Teachers Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/teachers%20day/IMG_20250905_114957.jpg" alt="Teachers Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/teachers%20day/IMG_20250905_115626.jpg" alt="Teachers Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/teachers%20day/IMG_20250905_120757.jpg" alt="Teachers Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/teachers%20day/IMG_20250905_120801.jpg" alt="Teachers Day Celebration">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/teachers%20day/IMG_20250905_121128.jpg" alt="Teachers Day Celebration">
+                    </div>
+                </div>
+                <h2 class="section-title" style="margin-top: 60px; margin-bottom: 30px; color: var(--primary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">Vande Mataram Day</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="../images/vande-matharam-day/IMG-20251107-WA0009.jpg" alt="Vande Mataram Day">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/vande-matharam-day/IMG-20251107-WA0020.jpg" alt="Vande Mataram Day">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/vande-matharam-day/IMG-20251107-WA0022.jpg" alt="Vande Mataram Day">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/vande-matharam-day/PM%20address-1.jpg" alt="Vande Mataram Day">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/vande-matharam-day/WhatsApp%20Image%202025-11-07%20at%201.28.29%20PM.jpeg" alt="Vande Mataram Day">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/vande-matharam-day/WhatsApp%20Image%202025-11-07%20at%2012.07.11%20PM.jpeg" alt="Vande Mataram Day">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/script.js?v=2.0"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.gallery-item');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.01,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        let autoScrolling = true;
+        
+        // Stop auto-scrolling if the user scrolls manually
+        const stopAutoScroll = () => {
+            if (autoScrolling) {
+                console.log('[HashScroll] User scrolled manually, stopping auto-scroll.');
+                autoScrolling = false;
+                clearInterval(scrollInterval);
+            }
+        };
+
+        window.addEventListener('wheel', stopAutoScroll, { passive: true });
+        window.addEventListener('touchmove', stopAutoScroll, { passive: true });
+        window.addEventListener('keydown', (e) => {
+            const keys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
+            if (keys.includes(e.key)) {
+                stopAutoScroll();
+            }
+        }, { passive: true });
+
+        // Direct scroll to hash target (e.g. #sports-gallery) countering dynamic layout shifts
+        const handleHashScroll = () => {
+            if (autoScrolling && window.location.hash) {
+                const hash = window.location.hash;
+                try {
+                    const target = document.querySelector(hash);
+                    if (target) {
+                        target.scrollIntoView({ block: 'start' });
+                        const navbar = document.querySelector('.main-navbar');
+                        const navbarHeight = navbar ? navbar.offsetHeight : 60;
+                        window.scrollBy(0, -navbarHeight - 20);
+                    }
+                } catch (e) {
+                    console.error('Error scrolling to hash target:', e);
+                }
+            }
+        };
+
+        // Poll for 3 seconds (every 200ms) to counteract image rendering layout shifts
+        let pollCount = 0;
+        const scrollInterval = setInterval(() => {
+            handleHashScroll();
+            pollCount++;
+            if (pollCount >= 15) {
+                clearInterval(scrollInterval);
+            }
+        }, 200);
+
+        window.addEventListener('load', handleHashScroll);
+        // Capture load events from all images as they render to adjust scroll position dynamically
+        window.addEventListener('load', handleHashScroll, true);
+    </script>
+</body>
+
+</html>
+
+

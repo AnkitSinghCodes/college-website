@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science & Humanities - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../../css/main-bundle.css">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CORE VARIABLES & GLOBAL STYLES --- */
+        :root {
+            --bg-light: #fbfbfd;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-blur: blur(20px) saturate(180%);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --primary-color: #004aAD;
+            --primary-glass: rgba(0, 74, 173, 0.7);
+            --secondary-color: #6c757d;
+            --secondary-glass: rgba(108, 117, 125, 0.1);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --text-light: #f5f5f7;
+            --transition-speed: 0.4s;
+            --white: #ffffff;
+        }
+
+        .page-container {
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            max-width: 1200px;
+        }
+
+        .about-page-wrapper {
+            align-items: flex-start;
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 280px 1fr;
+        }
+
+        .about-sidebar {
+            position: sticky;
+            top: 40px;
+        }
+
+        .sidebar-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-title {
+            border-bottom: 2px solid rgba(0, 74, 173, 0.1);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-nav li a {
+            border-left: 4px solid transparent;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+            align-items: center;
+            border-radius: 12px;
+            color: var(--text-dark);
+            display: flex;
+            font-size: 0.95rem;
+            font-weight: 500;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .sidebar-nav li a i {
+            color: var(--primary-color);
+            font-size: 1rem;
+            opacity: 0.7;
+            text-align: center;
+            width: 20px;
+        }
+
+        .sidebar-nav li a:hover {
+            background: rgba(0, 74, 173, 0.05);
+            color: var(--primary-color);
+            padding-left: 20px;
+        }
+
+        .sidebar-nav li a.active {
+            background: var(--primary-color);
+            border-left-color: #c5a059;
+            box-shadow: 0 8px 15px rgba(0, 74, 173, 0.2);
+            color: var(--white);
+        }
+
+        .sidebar-nav li a.active i {
+            color: var(--white);
+            opacity: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        .dept-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .dept-header h2 {
+            color: #1a4a8e;
+            font-size: 2.5rem;
+        }
+
+        .dept-header p {
+            color: var(--text-dim);
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        /* --- PROFILE PAGE SPECIFIC STYLES --- */
+        /* Methodology Box */
+        .methodology-box {
+            background: rgba(255, 255, 255, 0.5);
+            border-left: 5px solid var(--primary-color);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 2rem;
+        }
+        .methodology-box:hover {
+            transform: translateX(5px);
+        }
+        .methodology-box h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .methodology-box p {
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Instruction Box & List (CE) */
+        .instruction-box {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.4) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+        .instruction-box h3 {
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+        }
+        .instruction-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .instruction-list li {
+            color: #444;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .instruction-list li::before {
+            color: var(--secondary-color);
+            content: "\f0a4";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            left: 0;
+            position: absolute;
+        }
+
+        /* Activity Grid & Card (CE) */
+        .activity-grid {
+            display: grid;
+            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            margin-top: 20px;
+        }
+        .activity-card {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 25px;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        .activity-card:hover {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        .activity-card i {
+            color: var(--secondary-color);
+            display: block;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .activity-card p {
+            margin: 0;
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Vision & Mission Box (CSE) */
+        .vision-mission-box {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: 1fr 1fr;
+            margin-top: 40px;
+        }
+        .vision-section,
+        .mission-section {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .vision-mission-box h3 {
+            align-items: center;
+            color: var(--primary-color);
+            display: flex;
+            font-size: 1.4rem;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .vision-mission-box p {
+            color: #555;
+            line-height: 1.7;
+        }
+        .mission-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .mission-section li {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .mission-section li::before {
+            color: var(--secondary-color);
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            left: 0;
+            position: absolute;
+            top: 3px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 992px) {
+            .about-page-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .about-sidebar {
+                margin-bottom: 30px;
+                position: static;
+            }
+            .sidebar-nav {
+                display: grid;
+                gap: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .sidebar-nav li {
+                margin-bottom: 0;
+            }
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 20px;
+            }
+            .vision-mission-box {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-departments-sh">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <h1 class="page-title">Science & Humanities</h1>
+            </div>
+        </section>
+
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Science & Humanities</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="profile.html" class="active"><i class="fas fa-info-circle"></i> Department Profile</a></li>
+                            <li><a href="labs.html"><i class="fas fa-flask"></i> Laboratories</a></li>
+                            <li><a href="faculties.html"><i class="fas fa-chalkboard-teacher"></i> Our Faculty</a></li>
+                            <li><a href="staff.html"><i class="fas fa-cogs"></i> Technical Staff</a></li>
+                            <li><a href="students.html"><i class="fas fa-user-graduate"></i> Students</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+
+                <div class="dept-content">
+                    <div class="dept-text">
+                        <p>The Department of Science and Humanities caters to allied subjects of basic sciences and
+                            communication, including Mathematics, Physics, Chemistry, and English Communication Skills,
+                            along
+                            with audit and open elective courses. It primarily supports the first year of the diploma
+                            programme,
+                            with a strong emphasis on building a solid academic foundation.</p>
+                    </div>
+                </div>
+
+                <div class="methodology-box">
+                    <h3>Teaching Methodology</h3>
+                    <p>Teaching and learning are carried out through a blend of classroom instruction and practical
+                        laboratory
+                        sessions. Interactive methods such as group discussions, role plays, and other participatory
+                        activities
+                        are employed to enhance understanding and communication skills. Field visits and industrial
+                        visits are
+                        also organized to provide students with practical exposure and a better understanding of
+                        concepts and
+                        topics.</p>
+                </div>
+
+                <div class="methodology-box"
+                    style="margin-top: 30px; background: rgba(255, 255, 255, 0.05); border-left-color: #e50914;">
+                    <h3>Facilities Available in the Department</h3>
+                    <p>The department is equipped with well-furnished classrooms and fully functional laboratories to
+                        support
+                        effective teaching and learning. Facilities encourage interactive learning through group
+                        discussions and
+                        role plays. In addition, field visits and industrial visits are facilitated to enrich
+                        studentsÃ¯Â¿Â½
+                        practical knowledge and real-world understanding.</p>
+                </div>
+            </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+

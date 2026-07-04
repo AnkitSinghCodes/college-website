@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules & Regulations - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CORE VARIABLES & GLOBAL STYLES --- */
+        :root {
+            --bg-light: #fbfbfd;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-blur: blur(20px) saturate(180%);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --primary-color: #004aAD;
+            --primary-glass: rgba(0, 74, 173, 0.7);
+            --secondary-color: #6c757d;
+            --secondary-glass: rgba(108, 117, 125, 0.1);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --text-light: #f5f5f7;
+            --transition-speed: 0.4s;
+            --white: #ffffff;
+        }
+
+        body, .page-examination {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fbfbfd;
+        }
+
+        /* Container and Layout */
+        .container { margin: 0 auto; padding: 0 15px; max-width: 1400px; }
+        .page-container { margin: 0 auto; padding: 0 20px 80px; max-width: 1200px; }
+        
+        .about-page-wrapper { 
+            align-items: flex-start; 
+            display: grid; 
+            gap: 40px; 
+            grid-template-columns: 280px 1fr; 
+        }
+
+        /* Sidebar Styles */
+        .about-sidebar { position: sticky; top: 40px; }
+        .sidebar-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 30px; 
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+        }
+        .sidebar-title { 
+            border-bottom: 2px solid rgba(0, 74, 173, 0.1); 
+            color: var(--primary-color); 
+            font-size: 1.2rem; 
+            font-weight: 700; 
+            margin-bottom: 20px; 
+            padding-bottom: 10px; 
+        }
+        .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin-bottom: 10px; }
+        .sidebar-nav li a { 
+            border-left: 4px solid transparent;
+            padding: 12px 15px; 
+            transition: all 0.3s ease; 
+            align-items: center; 
+            border-radius: 12px; 
+            color: var(--text-dark); 
+            display: flex; 
+            font-size: 0.95rem; 
+            font-weight: 500; 
+            gap: 12px; 
+            text-decoration: none; 
+        }
+        .sidebar-nav li a i { 
+            color: var(--primary-color); 
+            font-size: 1rem; 
+            opacity: 0.7; 
+            text-align: center; 
+            width: 20px; 
+        }
+        .sidebar-nav li a:hover { 
+            background: rgba(0, 74, 173, 0.05); 
+            color: var(--primary-color); 
+            padding-left: 20px; 
+        }
+        .sidebar-nav li a.active { 
+            background: var(--primary-color); 
+            border-left-color: #c5a059; 
+            box-shadow: 0 8px 15px rgba(0, 74, 173, 0.2); 
+            color: var(--white); 
+        }
+        .sidebar-nav li a.active i { 
+            color: var(--white); 
+            opacity: 1; 
+        }
+
+        /* Main Content Layout */
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 40px; 
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px); 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+            width: 100%; 
+        }
+
+        /* Rules specific styles */
+        .rules-container {
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .rules-section {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+        }
+
+        .rules-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .rules-section h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 15px;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .rules-section h2::before {
+            background: #e74c3c; /* Accent color */
+            border-radius: 2px;
+            bottom: 5px;
+            content: '';
+            left: 0;
+            position: absolute;
+            top: 5px;
+            width: 4px;
+        }
+
+        .rules-section p {
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .rules-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rules-list li {
+            color: #444;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            text-align: justify;
+        }
+
+        .rules-list li i {
+            color: #28a745;
+            left: 0;
+            position: absolute;
+            top: 4px;
+        }
+
+        .download-section {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .download-section h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-download {
+            background: var(--primary-color);
+            padding: 12px 24px;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            color: #fff;
+            display: inline-block;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .btn-download:hover {
+            background: #c0392b;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .btn-download i {
+            margin-right: 8px;
+        }
+
+        
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 992px) {
+            .about-page-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .about-sidebar {
+                margin-bottom: 30px;
+                position: static;
+            }
+            .sidebar-nav {
+                display: grid;
+                gap: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .sidebar-nav li {
+                margin-bottom: 0;
+            }
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-examination">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Rules & Regulations</h1>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Examination Section</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="rules.html" class="active"><i class="fas fa-info-circle"></i> Rules &
+                                    Regulations</a></li>
+                            <li><a href="schedule.html"><i class="fas fa-calendar-alt"></i> Exam Schedule</a></li>
+                            <li><a href="results.html"><i class="fas fa-poll-h"></i> Results</a></li>
+                            <li><a href="downloads.html"><i class="fas fa-download"></i> Downloads</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                        <div class="rules-container">
+                            <div class="rules-section">
+                                <h2>General Examination Rules</h2>
+                                <ul class="rules-list">
+                                    <li><i class="fas fa-check-circle"></i> Students must carry their Admit Card and
+                                        College ID
+                                        card to the examination hall.</li>
+                                    <li><i class="fas fa-check-circle"></i> Mobile phones, smartwatches, and
+                                        programmable
+                                        calculators are strictly prohibited inside the examination hall.</li>
+                                    <li><i class="fas fa-check-circle"></i> Students should report to the examination
+                                        center at
+                                        least 30 minutes before the scheduled time.</li>
+                                    <li><i class="fas fa-check-circle"></i> No student will be allowed to leave the
+                                        examination hall before completion of one hour of the exam.</li>
+                                </ul>
+                            </div>
+
+                            <div class="rules-section">
+                                <h2>Attendance Requirements</h2>
+                                <ul class="rules-list">
+                                    <li><i class="fas fa-check-circle"></i> A minimum of 75% attendance is mandatory to
+                                        act for
+                                        the End Semester Examination.</li>
+                                    <li><i class="fas fa-check-circle"></i> Condonation of shortage of attendance up to
+                                        15% may
+                                        be granted by the Principal on medical grounds.</li>
+                                </ul>
+                            </div>
+
+                            <div class="rules-section">
+                                <h2>Malpractice & Unfair Means</h2>
+                                <p>Any student found guilty of malpractice or using unfair means during the examination
+                                    shall be
+                                    liable for punishment as per the institute's rules, which may include cancellation
+                                    of the
+                                    examination or debarment from future exams.</p>
+                            </div>
+
+                            <div class="download-section">
+                                <h3>Download Complete Rule Book</h3>
+                                <a href="#" class="btn-download" onclick="alert('Coming Soon'); return false;"><i class="fas fa-file-pdf"></i> Download PDF</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .rules-section');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

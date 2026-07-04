@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision & Mission - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Improved Head to include inner-page.css -->
+    <style>
+        :root {
+            --primary-color: #004aAD;
+            --white: #ffffff;
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+        }
+
+        .text-lead,
+        .mission-list li,
+        .value-card p {
+            text-align: justify;
+        }
+
+        .mission-list {
+            list-style: disc;
+            padding-left: 1.5rem;
+        }
+
+        .mission-list li {
+            padding-left: 0.5rem;
+            margin-bottom: 12px;
+        }
+
+        .mission-list li::before {
+            display: none;
+        }
+        
+        /* Container and Layout */
+        .container { margin: 0 auto; padding: 0 15px; max-width: 1400px; }
+        .page-container { margin: 0 auto; padding: 0 20px 80px; max-width: 1200px; }
+        
+        .about-page-wrapper { 
+            align-items: flex-start; 
+            display: grid; 
+            gap: 40px; 
+            grid-template-columns: 280px 1fr; 
+        }
+        
+        @media (max-width: 992px) { 
+            .about-page-wrapper { grid-template-columns: 1fr; } 
+        }
+
+        /* Sidebar Styles */
+        .about-sidebar { position: sticky; top: 20px; }
+        .sidebar-card { 
+            background: var(--white); 
+            border-radius: 12px; 
+            padding: 1.5rem; 
+            box-shadow: var(--shadow-md); 
+        }
+        .sidebar-title { 
+            font-size: 1.25rem; 
+            font-weight: 600; 
+            margin-bottom: 1rem; 
+            border-bottom: 2px solid #e5e7eb; 
+            padding-bottom: 0.5rem; 
+            color: var(--text-dark); 
+        }
+        .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin-bottom: 0.5rem; }
+        .sidebar-nav a { 
+            text-decoration: none; 
+            color: var(--text-dim); 
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem; 
+            padding: 0.75rem; 
+            border-radius: 8px; 
+            transition: all 0.3s ease; 
+        }
+        .sidebar-nav a:hover, .sidebar-nav a.active { 
+            background: rgba(0, 74, 173, 0.05); 
+            color: var(--primary-color); 
+        }
+
+        /* Vision & Mission Cards */
+        .vm-grid { 
+            display: grid; 
+            gap: 40px; 
+            grid-template-columns: 1fr 1fr; 
+            margin-bottom: 80px; 
+        }
+        
+        @media (max-width: 768px) { 
+            .vm-grid { grid-template-columns: 1fr; } 
+        }
+
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 40px; 
+            backdrop-filter: blur(10px); 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+            width: 100%; 
+        }
+        .vm-box-style { height: 100%; padding-top: 60px; position: relative; }
+        .vm-icon { 
+            background: var(--primary-color); 
+            border: 4px solid var(--white); 
+            align-items: center; 
+            border-radius: 50%; 
+            box-shadow: var(--shadow-md); 
+            color: var(--white); 
+            display: flex; 
+            font-size: 1.5rem; 
+            height: 60px; 
+            justify-content: center; 
+            left: 40px; 
+            position: absolute; 
+            top: -30px; 
+            width: 60px; 
+        }
+        .mission-style .vm-icon { background: #c5a059; }
+
+        .section-title { 
+            border-bottom: 2px solid #e0e0e0; 
+            color: var(--primary-color); 
+            font-size: 2rem; 
+            margin-bottom: 30px; 
+            padding-bottom: 15px; 
+        }
+        .text-center { text-align: center; }
+
+        /* Core Values */
+        .core-values-wrapper { margin-top: 50px; }
+        .values-grid { 
+            display: grid; 
+            gap: 30px; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            margin-top: 40px; 
+        }
+        .value-card { 
+            background: var(--white); 
+            border-top: 4px solid var(--primary-color); 
+            padding: 30px; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            border-radius: 16px; 
+            box-shadow: var(--shadow-sm); 
+            height: 100%; 
+            text-align: center; 
+        }
+        .value-card:hover { 
+            box-shadow: var(--shadow-lg); 
+            transform: translateY(-10px); 
+        }
+        .value-icon { 
+            color: var(--primary-color); 
+            font-size: 2rem; 
+            margin-bottom: 20px; 
+            opacity: 0.8; 
+        }
+        .value-card h3 { 
+            color: var(--text-dark); 
+            font-size: 1.2rem; 
+            font-weight: 700; 
+            margin-bottom: 15px; 
+        }
+        .value-card p { 
+            color: var(--text-dim); 
+            font-size: 0.95rem; 
+            line-height: 1.6; 
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+</head>
+
+<body class="page-about">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Vision & Mission</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Mission Split -->
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">About Section</h3>
+
+                        <ul class="sidebar-nav">
+                            <li><a href="about-us.html"><i class="fas fa-university"></i> About Us</a></li>
+                            <li><a href="vision-mission.html" class="active"><i class="fas fa-bullseye"></i> Vision &
+                                    Mission</a></li>
+                            <li><a href="principal-message.html"><i class="fas fa-user-tie"></i> Principal's Message</a>
+                            </li>
+                            <li><a href="principal-profile.html"><i class="fas fa-id-card"></i> Principal's Profile</a>
+                            </li>
+                            <li><a href="administration.html"><i class="fas fa-sitemap"></i> Administration</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="vm-grid">
+                        <!-- Vision Card -->
+                        <div class="glass-card vm-box-style">
+                            <div class="vm-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h2 class="section-title">Our Vision</h2>
+                            <p class="text-lead" style="font-size: 1.1rem;">
+                                To Become an Institute of Academic Excellence in Diploma Technical Education harnessing
+                                the
+                                overall development of the Budding Technocrats of the state with Professionalism,
+                                entrepreneurial and industry-oriented skills; fostering Sustainable Socio-Economic
+                                Growth of the
+                                Region.
+                            </p>
+                        </div>
+
+                        <!-- Mission Card -->
+                        <div class="glass-card vm-box-style mission-style">
+                            <div class="vm-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h2 class="section-title">Our Mission</h2>
+                            <ul class="mission-list text-body">
+                                <li>Impart quality Diploma Technical Education with hands-on-practice building technical
+                                    competence and problem-solving skills.</li>
+                                <li>Collaborate with Industries/Organizations/Institutions to promote entrepreneurial
+                                    activities, industrial training & interactions and mutual exchange of faculty &
+                                    staff.</li>
+                                <li>Inculcate professionalism with discipline, lifelong learning & creativity amongst
+                                    the
+                                    faculties, staff and students.</li>
+                                <li>Conduct tailored skill-oriented training programs to enhance employability of
+                                    students and
+                                    local youth thereby promoting socio-economic progress.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Core Values -->
+                    <div class="core-values-wrapper">
+                        <h2 class="section-title text-center">Core Values</h2>
+                        <div class="values-grid">
+                            <div class="value-card">
+                                <div class="value-icon"><i class="fas fa-balance-scale"></i></div>
+                                <h3>Integrity and Ethics</h3>
+                                <p>Upholding honesty, transparency, and responsibility in all academic and professional
+                                    activities.</p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-icon"><i class="fas fa-medal"></i></div>
+                                <h3>Excellence in Learning</h3>
+                                <p>Commitment to quality technical education, continuous improvement, and imparting
+                                    practical
+                                    skills.</p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                                <h3>Innovation and Creativity</h3>
+                                <p>Encouraging curiosity, problem-solving, and innovative thinking to address real-world
+                                    challenges.</p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-icon"><i class="fas fa-users"></i></div>
+                                <h3>Inclusiveness and Equity</h3>
+                                <p>Promoting equal opportunities for students from diverse socio-economic and tribal
+                                    backgrounds.</p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-icon"><i class="fas fa-user-tie"></i></div>
+                                <h3>Respect and Discipline</h3>
+                                <p>Fostering a culture of mutual respect, professionalism, and disciplined work habits.
+                                </p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-icon"><i class="fas fa-hands-helping"></i></div>
+                                <h3>Social Responsibility</h3>
+                                <p>Serving society through sustainable engineering practices and community-oriented
+                                    initiatives.
+                                </p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                                <h3>Collaboration and Teamwork</h3>
+                                <p>Building strong partnerships with industry, academia, and government, while nurturing
+                                    teamwork among students and staff.</p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-icon"><i class="fas fa-user-check"></i></div>
+                                <h3>Accountability and Responsibility</h3>
+                                <p>Being accountable for all the actions and deliver the duty with greater responsivity
+                                    in the
+                                    larger interest of the institute.</p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-icon"><i class="fas fa-thumbs-up"></i></div>
+                                <h3>Peer Appreciation and Cooperation</h3>
+                                <p>Inculcating the habit of peer appreciation and mutual cooperation amongst the
+                                    faculty/staff
+                                    members in curricular/co-curricular activities and research work.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.glass-card, .value-card, .sidebar-card');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

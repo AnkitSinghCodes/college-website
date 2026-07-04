@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webmail - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .webmail-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.2rem;
+            font-size: 0.92rem;
+        }
+
+        .webmail-table th {
+            background: rgba(0, 74, 173, 0.09);
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 0.7rem 1rem;
+            text-align: left;
+            border: 1px solid rgba(0, 74, 173, 0.15);
+        }
+
+        .webmail-table td {
+            padding: 0.65rem 1rem;
+            border: 1px solid rgba(0, 74, 173, 0.1);
+            color: var(--text-dark);
+            vertical-align: middle;
+        }
+
+        .webmail-table tr:nth-child(even) td {
+            background: rgba(0, 74, 173, 0.03);
+        }
+
+        .webmail-table td:first-child {
+            text-align: center;
+            width: 55px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .webmail-table a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .webmail-table a:hover {
+            text-decoration: underline;
+        }
+
+        .webmail-note {
+            background: rgba(0, 74, 173, 0.06);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 5px;
+            padding: 0.75rem 1.1rem;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .webmail-note i {
+            color: var(--primary-color);
+            margin-right: 0.4rem;
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-contact">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Webmail</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Webmail Content -->
+        <section class="page-container">
+            <div class="glass-card">
+                <h2
+                    style="font-size:1.4rem;font-weight:700;color:var(--primary-color);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:2px solid rgba(0,74,173,0.1);">
+                    <i class="fas fa-envelope-open-text"></i>&nbsp; Faculty Webmail Directory
+                </h2>
+
+                <div class="webmail-note">
+                    <i class="fas fa-info-circle"></i>
+                    Webmail for all the faculties listed below. Login using your webmail ID with the system generated /
+                    general password at
+                    <strong><a href="https://mail.gpcziro.ac.in" target="_blank"
+                            style="color:var(--primary-color);">mail.gpcziro.ac.in</a></strong>.
+                </div>
+
+                <table class="webmail-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th><i class="fas fa-user"></i>&nbsp; Name</th>
+                            <th><i class="fas fa-briefcase"></i>&nbsp; Designation</th>
+                            <th><i class="fas fa-envelope"></i>&nbsp; Webmail ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Dr. D. Devarasiddappa</td>
+                            <td>Principal</td>
+                            <td><a href="mailto:devarasiddappa@gpcziro.ac.in">devarasiddappa@gpcziro.ac.in</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Sh. N. Pumbo</td>
+                            <td>HoD (CSE)</td>
+                            <td><a href="mailto:npumbo@gpcziro.ac.in">npumbo@gpcziro.ac.in</a></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Sh. Getu Yoka</td>
+                            <td>HoD (CE)</td>
+                            <td><a href="mailto:getuyoka@gpcziro.ac.in">getuyoka@gpcziro.ac.in</a></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Dr. Jitu Saikia</td>
+                            <td>HoD (S&amp;H)</td>
+                            <td><a href="mailto:jitusaikia@gpcziro.ac.in">jitusaikia@gpcziro.ac.in</a></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Sh. Nani Chobin</td>
+                            <td>Lect. (Physics)</td>
+                            <td><a href="mailto:nanichobin@gpcziro.ac.in">nanichobin@gpcziro.ac.in</a></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Mrs. Seemapari</td>
+                            <td>Lect. (Mathematics)</td>
+                            <td><a href="mailto:seemapari@gpcziro.ac.in">seemapari@gpcziro.ac.in</a></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Ms. Millo Aruni</td>
+                            <td>Lect. (Comm. Skills)</td>
+                            <td><a href="mailto:milloaruni@gpcziro.ac.in">milloaruni@gpcziro.ac.in</a></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Ms. Hage Kanya</td>
+                            <td>Guest Lect. (EEE)</td>
+                            <td><a href="mailto:hagekanya@gpcziro.ac.in">hagekanya@gpcziro.ac.in</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <button id="backToTop" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.glass-card');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+

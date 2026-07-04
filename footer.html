@@ -1,0 +1,225 @@
+<footer>
+    <style>
+        /* Variables & Global Resets */
+        :root {
+            --primary-color: #004aAD;
+            --secondary-color: #6c757d;
+            --white: #ffffff;
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --transition-speed: 0.25s;
+        }
+
+        footer {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 60px 0 0;
+            background-color: var(--white);
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+        }
+
+        .footer-content {
+            margin: 0 auto;
+            padding: 0 15px;
+            max-width: 1400px;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 40px;
+            grid-template-columns: repeat(5, 1fr);
+            padding-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-dark);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-col ul li a {
+            transition: color var(--transition-speed) ease;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            font-weight: 400;
+            text-decoration: none;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-socials {
+            align-items: center;
+            display: flex;
+            gap: 16px;
+            margin-top: 4px;
+        }
+
+        .footer-socials a {
+            transition: color var(--transition-speed) ease;
+            color: var(--text-dim);
+            font-size: 1.15rem;
+            text-decoration: none;
+        }
+
+        .footer-socials a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(0, 0, 0, 0.07);
+            padding: 20px 0;
+        }
+
+        .footer-bottom-content {
+            align-items: center;
+            color: var(--text-dim);
+            display: flex;
+            font-size: 0.82rem;
+            justify-content: space-between;
+            margin: 0 auto;
+            padding: 0 15px;
+            max-width: 1400px;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-bottom-links a {
+            transition: color var(--transition-speed) ease;
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            text-decoration: none;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive menu styling rules */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                gap: 30px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-bottom-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <div class="footer-content container">
+        <div class="footer-grid">
+
+            <!-- EXPLORE -->
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="about/about-us.html">About</a></li>
+                    <li><a href="contact/contact-us.html">Contact Us</a></li>
+                    <li><a href="academics/courses-offered.html">Department</a></li>
+                    <li><a href="clubs/activities.html">Events &amp; Retreats</a></li>
+                </ul>
+            </div>
+
+            <!-- IMPORTANT LINKS -->
+            <div class="footer-col">
+                <h4>Important Links</h4>
+                <ul>
+                    <li><a href="https://www.education.gov.in/" target="_blank">Ministry of Education</a></li>
+                    <li><a href="https://www.aicte-india.org/" target="_blank">AICTE</a></li>
+                    <li><a href="https://www.ugc.gov.in/" target="_blank">UGC</a></li>
+                    <li><a href="https://swayam.gov.in/" target="_blank">SWAYAM</a></li>
+                    <li><a href="https://www.vlab.co.in/" target="_blank">Virtual Labs</a></li>
+                    <li><a href="https://nad.digilocker.gov.in/" target="_blank">National Academic Depository</a></li>
+                    <li><a href="https://apdhte.nic.in" target="_blank">APDHTE</a></li>
+                    <li><a href="https://apdhte.nic.in/apscte.htm" target="_blank">APSCTE</a></li>
+                    <li><a href="https://facilities.aicte-india.org/feedback" target="_blank">AICTE-Feedback System</a></li>
+                </ul>
+            </div>
+
+            <!-- DOWNLOADS -->
+            <div class="footer-col">
+                <h4>Downloads</h4>
+                <ul>
+                    <li><a href="examination/downloads.html">Downloads</a></li>
+                    <li><a href="admissions/admission-process.html">Student Forms</a></li>
+                    <li><a href="academic%20section%20download/1_Rules%20%26%20Regulations%202021-22.pdf" target="_blank">Rules & Regulations</a></li>
+                    <li><a href="academic%20section%20download/2_Notification%20Hand%20book.pdf" target="_blank">Notification Handbook</a></li>
+                    <li><a href="academic%20section%20download/3_Academic%20calendar%202025-26.pdf" target="_blank">Academic Calendar 2025-26</a></li>
+                    <li><a href="academic%20section%20download/4_Academic%20planner%202025-26.pdf" target="_blank">Academic Planner 2025-26</a></li>
+                </ul>
+            </div>
+
+            <!-- COMMITTEES -->
+            <div class="footer-col">
+                <h4>Committees</h4>
+                <ul>
+                    <li><a href="about/administration.html#anti-ragging-committee">Anti Ragging Committee</a></li>
+                    <li><a href="about/administration.html#anti-ragging-squad">Anti Ragging Squad</a></li>
+                    <li><a href="about/administration.html#grievance-students">Grievance Redressal (Students)</a></li>
+                    <li><a href="about/administration.html#grievance-faculty">Grievance Redressal (Faculty)</a></li>
+                    <li><a href="about/administration.html#sc-st-committee">SC/ST Committee</a></li>
+                    <li><a href="about/administration.html#iqac">Internal Quality Assurance Cell (IQAC)</a></li>
+                    <li><a href="about/administration.html#industry-institute-cell">Industry Institute Interaction Cell</a></li>
+                    <li><a href="about/administration.html#internal-complaint-committee">Internal Complaint Committee (ICC)</a></li>
+                    <li><a href="about/administration.html#student-counselor">Student Counseling Cell</a></li>
+                    <li><a href="about/administration.html#equal-opportunity-cell">Equal Opportunity Cell</a></li>
+                    <li><a href="about/administration.html#anti-ragging-form">Anti Ragging Form</a></li>
+                    <li><a href="about/administration.html#anti-ragging-affidavit">Submit Affidavit</a></li>
+                    <li><a href="about/administration.html#grievance-form">Online Grievance Form</a></li>
+                </ul>
+            </div>
+
+            <!-- FOLLOW US -->
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container footer-bottom-content">
+            <p>&copy; 2025 Government Polytechnic College Ziro. All Rights Reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="about/rti.html">RTI</a>
+                <a href="contact/contact-us.html">Privacy Policy</a>
+                <a href="contact/contact-us.html">Terms of Use</a>
+            </div>
+        </div>
+    </div>
+</footer>

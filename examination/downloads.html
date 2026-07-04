@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CORE VARIABLES & GLOBAL STYLES --- */
+        :root {
+            --bg-light: #fbfbfd;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-blur: blur(20px) saturate(180%);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --primary-color: #004aAD;
+            --primary-glass: rgba(0, 74, 173, 0.7);
+            --secondary-color: #6c757d;
+            --secondary-glass: rgba(108, 117, 125, 0.1);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --text-light: #f5f5f7;
+            --transition-speed: 0.4s;
+            --white: #ffffff;
+        }
+
+        .page-container {
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            max-width: 1200px;
+        }
+
+        .about-page-wrapper {
+            align-items: flex-start;
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 280px 1fr;
+        }
+
+        .about-sidebar {
+            position: sticky;
+            top: 40px;
+        }
+
+        .sidebar-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-title {
+            border-bottom: 2px solid rgba(0, 74, 173, 0.1);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-nav li a {
+            border-left: 4px solid transparent;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+            align-items: center;
+            border-radius: 12px;
+            color: var(--text-dark);
+            display: flex;
+            font-size: 0.95rem;
+            font-weight: 500;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .sidebar-nav li a i {
+            color: var(--primary-color);
+            font-size: 1rem;
+            opacity: 0.7;
+            text-align: center;
+            width: 20px;
+        }
+
+        .sidebar-nav li a:hover {
+            background: rgba(0, 74, 173, 0.05);
+            color: var(--primary-color);
+            padding-left: 20px;
+        }
+
+        .sidebar-nav li a.active {
+            background: var(--primary-color);
+            border-left-color: #c5a059;
+            box-shadow: 0 8px 15px rgba(0, 74, 173, 0.2);
+            color: var(--white);
+        }
+
+        .sidebar-nav li a.active i {
+            color: var(--white);
+            opacity: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- DOWNLOADS PAGE SPECIFIC STYLES --- */
+        .downloads-container {
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .download-group {
+            margin-bottom: 3rem;
+        }
+
+        .download-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .download-group h2 {
+            border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+            color: var(--primary-color);
+            display: inline-block;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .download-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            align-items: center;
+            border-radius: 12px;
+            display: flex;
+        }
+
+        .download-card:hover {
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .file-icon {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-right: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .file-icon .fa-file-pdf {
+            color: #e50914;
+        }
+
+        .file-icon .fa-file-word {
+            color: #2b579a;
+        }
+
+        .file-icon .fa-file-excel {
+            color: #217346;
+        }
+
+        .file-info h3 {
+            margin: 0 0 0.3rem;
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        .file-meta {
+            color: #777;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .btn-download-sm {
+            background: rgba(26, 74, 142, 0.1);
+            padding: 6px 16px;
+            transition: all 0.3s ease;
+            border-radius: 20px;
+            color: var(--primary-color);
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn-download-sm:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-download-sm i {
+            margin-left: 5px;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 992px) {
+            .about-page-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .about-sidebar {
+                margin-bottom: 30px;
+                position: static;
+            }
+            .sidebar-nav {
+                display: grid;
+                gap: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .sidebar-nav li {
+                margin-bottom: 0;
+            }
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-examination">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Downloads</h1>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Examination Section</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="rules.html"><i class="fas fa-info-circle"></i> Rules &amp; Regulations</a></li>
+                            <li><a href="schedule.html"><i class="fas fa-calendar-alt"></i> Exam Schedule</a></li>
+                            <li><a href="results.html"><i class="fas fa-poll-h"></i> Results</a></li>
+                            <li><a href="downloads.html" class="active"><i class="fas fa-download"></i> Downloads</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                        <div class="downloads-container">
+
+                            <!-- Student Registration & Admission Forms -->
+                            <div class="download-group">
+                                <h2>Student Registration &amp; Admission Forms</h2>
+                                <div class="download-grid">
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+                                        <div class="file-info">
+                                            <h3>REG Form – APSCTE</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <a href="../3_REG%20FORM%20APSCTE.pdf" download class="btn-download-sm">Download <i class="fas fa-download"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+                                        <div class="file-info">
+                                            <h3>REG Form – College (First Sem)</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <a href="../REG%20FORM%20COLLEGE-FIRST%20SEM.pdf" download class="btn-download-sm">Download <i class="fas fa-download"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+                                        <div class="file-info">
+                                            <h3>REG Form – College (Sem III CE)</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <a href="../REG%20FORM%20COLLEGE-SEM%203%20CE.pdf" download class="btn-download-sm">Download <i class="fas fa-download"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+                                        <div class="file-info">
+                                            <h3>REG Form – College (Sem III to VI)</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <a href="../REG%20FORM%20COLLEGE-SEMESTER%203%20TO%206-GENERAL.pdf" download class="btn-download-sm">Download <i class="fas fa-download"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+                                        <div class="file-info">
+                                            <h3>NSS Registration Form</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <a href="../NSS%20REG%20form.pdf" download class="btn-download-sm">Download <i class="fas fa-download"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+                                        <div class="file-info">
+                                            <h3>Check List &amp; Undertaking</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <a href="../2_DOCS%20REQ.pdf" download class="btn-download-sm">Download <i class="fas fa-download"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+                                        <div class="file-info">
+                                            <h3>Fee Details (Final)</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <a href="../1_fee%20details.pdf" download class="btn-download-sm">Download <i class="fas fa-download"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Anti Ragging Affidavits -->
+                            <div class="download-group">
+                                <h2>Anti Ragging Affidavits</h2>
+                                <div class="download-grid">
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+                                        <div class="file-info">
+                                            <h3>Anti Ragging Affidavit – Student (Stamp Paper)</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <span style="font-size:0.82rem;color:#888;font-style:italic;"><i class="fas fa-clock"></i> Coming Soon</span>
+                                        </div>
+                                    </div>
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+                                        <div class="file-info">
+                                            <h3>Anti Ragging Affidavit – Student (Court Paper)</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <a href="../8_anti%20ragging-student-1-for%20affidavit%20paper.pdf" download class="btn-download-sm">Download <i class="fas fa-download"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+                                        <div class="file-info">
+                                            <h3>Anti Ragging Affidavit – Parent (Stamp Paper)</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <span style="font-size:0.82rem;color:#888;font-style:italic;"><i class="fas fa-clock"></i> Coming Soon</span>
+                                        </div>
+                                    </div>
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+                                        <div class="file-info">
+                                            <h3>Anti Ragging Affidavit – Parent (Court Paper)</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <a href="../9_anti%20ragging-parent-1-for%20affidavit%20paper.pdf" download class="btn-download-sm">Download <i class="fas fa-download"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Lab Manuals -->
+                            <div class="download-group">
+                                <h2>Lab Manuals</h2>
+                                <div class="download-grid">
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-book"></i></div>
+                                        <div class="file-info">
+                                            <h3>Lab Manual (CE)</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <span style="font-size:0.82rem;color:#888;font-style:italic;"><i class="fas fa-clock"></i> Coming Soon</span>
+                                        </div>
+                                    </div>
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-book"></i></div>
+                                        <div class="file-info">
+                                            <h3>Lab Manual (CSE)</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <span style="font-size:0.82rem;color:#888;font-style:italic;"><i class="fas fa-clock"></i> Coming Soon</span>
+                                        </div>
+                                    </div>
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-book"></i></div>
+                                        <div class="file-info">
+                                            <h3>Lab Manual (EEE)</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <span style="font-size:0.82rem;color:#888;font-style:italic;"><i class="fas fa-clock"></i> Coming Soon</span>
+                                        </div>
+                                    </div>
+                                    <div class="download-card">
+                                        <div class="file-icon"><i class="fas fa-book"></i></div>
+                                        <div class="file-info">
+                                            <h3>Lab Manual (S&amp;H)</h3>
+                                            <p class="file-meta">PDF</p>
+                                            <span style="font-size:0.82rem;color:#888;font-style:italic;"><i class="fas fa-clock"></i> Coming Soon</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .download-group');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

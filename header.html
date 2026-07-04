@@ -1,0 +1,888 @@
+<header>
+    <!-- ==========================================
+       SECTION 1: TOP BAR (Styles & HTML)
+       ========================================== -->
+    <style>
+        /* Variables & Global Resets */
+        :root {
+            --bg-light: #fbfbfd;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-blur: blur(20px) saturate(180%);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --primary-color: #004aAD;
+            --primary-glass: rgba(0, 74, 173, 0.7);
+            --secondary-color: #6c757d;
+            --secondary-glass: rgba(108, 117, 125, 0.1);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --text-light: #f5f5f7;
+            --transition-speed: 0.4s;
+            --white: #ffffff;
+        }
+
+        #header-placeholder {
+            display: contents;
+        }
+
+        header {
+            display: contents;
+        }
+
+        .container {
+            margin: 0 auto;
+            padding: 0 15px;
+            max-width: 1400px;
+        }
+
+        /* Top Bar specific styles */
+        .top-bar {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 8px 0;
+            background-color: var(--bg-light);
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .top-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-nav a {
+            transition: color 0.3s ease;
+            color: var(--text-dim);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .top-nav a:hover, 
+        .top-nav a.active-nav-link {
+            color: var(--primary-color);
+        }
+
+        .top-utils {
+            align-items: center;
+            display: flex;
+            gap: 15px;
+        }
+
+        .top-contact {
+            transition: color 0.3s ease;
+            align-items: center;
+            color: var(--text-dark);
+            display: flex;
+            font-weight: 500;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .top-contact i {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icons a {
+            transition: color 0.3s ease;
+            color: var(--text-dim);
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <nav class="top-nav">
+                <a href="about/institute-reports.html">Institute Report</a>
+                <a href="admissions/online-payment.html">Online Payment</a>
+                <a href="about/rti.html">RTI</a>
+                <a href="examination/results.html">Result</a>
+                <a href="contact/webmail.html">Webmail</a>
+                <a href="examination/downloads.html">Download</a>
+            </nav>
+            <div class="top-utils">
+                <a href="mailto:info.gpc.ziro@gmail.com" class="top-contact">
+                    <i class="fas fa-envelope"></i> info.gpc.ziro@gmail.com
+                </a>
+                <div class="social-icons">
+                    <a href="#"><i class="fas fa-play"></i></a>
+                    <a href="#"><i class="fas fa-camera"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+       SECTION 2: MAIN HEADER (Styles & HTML)
+       ========================================== -->
+    <style>
+        .main-header {
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-section img {
+            height: 120px;
+            object-fit: contain;
+            width: auto;
+        }
+
+        .logo-ticker {
+            background: var(--primary-color);
+            padding: 3px 0;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 5px;
+            overflow: hidden;
+            text-transform: uppercase;
+            white-space: nowrap;
+            width: 150px;
+        }
+
+        .logo-ticker span {
+            animation: logo-marquee 10s linear infinite;
+            display: inline-block;
+            padding-left: 100%;
+        }
+
+        @keyframes logo-marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        .text-section {
+            padding: 0 20px;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .hindi-name {
+            color: #000;
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-top: 5px;
+        }
+
+        .english-name {
+            color: #0044cc;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            white-space: wrap;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .address {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .right-logos {
+            align-items: center;
+            display: flex;
+            gap: 25px;
+        }
+
+        .g20-logo, 
+        .azadi-logo {
+            height: 90px;
+            width: auto;
+        }
+
+        .logo-item {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .logo-label {
+            color: #444;
+            font-size: 0.7rem;
+            font-weight: 700;
+            line-height: 1.2;
+            text-align: center;
+        }
+    </style>
+    <div class="main-header">
+        <div class="container header-content">
+            <div class="logo-section">
+                <img src="images/logo.jpeg" alt="Government Polytechnic College Ziro Logo" class="college-logo">
+                <div class="logo-ticker">
+                    <span>Engineering the budding technocrats</span>
+                </div>
+            </div>
+            <div class="text-section">
+                <p class="subtitle">Government of Arunachal Pradesh</p>
+                <h1 class="english-name">GOVERNMENT POLYTECHNIC COLLEGE ZIRO</h1>
+                <h2 class="hindi-name">राजकीय पॉलिटेक्निक कॉलेज जीरो, लोअर सुबनसिरी</h2>
+                <p class="address">Village: Jugo, Tajang, PO: Ziro-791120,
+                    Lower Subansiri District, 
+                    Arunachal Pradesh, India.
+                </p>
+            </div>
+            <div class="right-logos">
+                <div class="logo-item">
+                    <img src="images/aicte.jpeg" alt="AICTE Logo" class="azadi-logo">
+                    <span class="logo-label">Approved by AICTE</span>
+                </div>
+                <div class="logo-item">
+                    <img src="images/APSCTE_logo.jpg" alt="APSCTE Logo" class="g20-logo">
+                    <span class="logo-label">Affiliated to APSCTE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+       SECTION 3: MAIN NAVBAR (Styles, HTML & JS)
+       ========================================== -->
+    <style>
+        .main-navbar {
+            background-color: var(--primary-color);
+            box-shadow: var(--shadow-md);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .mobile-quick-nav {
+            display: none;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .mobile-nav-btn {
+            color: var(--white) !important;
+            font-size: 1.1rem;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .mobile-nav-btn:hover,
+        .mobile-nav-btn:active {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 992px) {
+            .mobile-quick-nav {
+                display: flex;
+            }
+            .desktop-only-link {
+                display: none !important;
+            }
+        }
+
+        .nav-container {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links>li {
+            position: relative;
+        }
+
+        .nav-links>li>a {
+            padding: 15px 12px;
+            transition: background-color 0.3s ease;
+            color: var(--white);
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-links>li>a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links .fa-chevron-down {
+            font-size: 0.75rem;
+            margin-left: 5px;
+            opacity: 0.8;
+        }
+
+        .has-mega-menu {
+            position: static !important;
+        }
+
+        .mega-menu {
+            border-top: 3px solid var(--primary-color);
+            padding: 40px max(15px, calc((100% - 1400px) / 2 + 15px));
+            transition: all 0.3s ease;
+            background-color: var(--white);
+            box-shadow: var(--shadow-lg);
+            display: grid;
+            gap: 40px;
+            grid-template-columns: repeat(4, 1fr);
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            transform: translateY(10px);
+            visibility: hidden;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        /* Hover gap bridge for mega menu and dropdowns */
+        .dropdown-menu::before, 
+        .mega-menu::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: transparent;
+        }
+
+        .has-mega-menu:hover .mega-menu, 
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        .mega-col h4 {
+            border-bottom: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            min-height: 52px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .mega-col:hover h4 {
+            color: var(--primary-color);
+            letter-spacing: 1.2px;
+        }
+
+        .mega-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mega-links li {
+            margin-bottom: 8px;
+        }
+
+        .mega-links li a {
+            padding: 2px 0;
+            transition: color 0.2s;
+            color: #555;
+            display: block;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .mega-links li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .dropdown-menu {
+            border-top: 3px solid var(--primary-color);
+            list-style: none;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+            background-color: var(--white);
+            border-radius: 0 0 4px 4px;
+            box-shadow: var(--shadow-lg);
+            left: 0;
+            min-width: 220px;
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            transform: translateY(10px);
+            visibility: hidden;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown-menu li a {
+            border-left: 3px solid transparent;
+            padding: 8px 20px;
+            transition: all 0.2s ease;
+            color: var(--text-dark);
+            display: block;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .dropdown-menu li a:hover {
+            border-left: 3px solid var(--primary-color);
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            padding-left: 25px;
+        }
+
+        .hamburger-menu {
+            padding: 10px;
+            color: var(--white);
+            cursor: pointer;
+            display: none;
+            font-size: 1.5rem;
+        }
+
+        /* Active navigation link styling */
+        .top-nav a.active-nav-link {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+
+        .nav-links>li>a.active-nav-link {
+            background-color: rgba(255, 255, 255, 0.15);
+            font-weight: 700;
+            border-radius: 4px;
+        }
+
+        .dropdown-menu li a.active-nav-link {
+            border-left: 3px solid var(--primary-color);
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            padding-left: 25px;
+            font-weight: 600;
+        }
+
+        .mega-links li a.active-nav-link {
+            color: var(--secondary-color);
+            font-weight: 600;
+            padding-left: 5px;
+        }
+
+        /* Responsive menu styling rules */
+        @media (max-width: 1430px) {
+            .mega-menu {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .top-nav {
+                display: none;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .right-logos {
+                justify-content: center;
+            }
+
+            .mega-menu {
+                padding: 15px;
+                display: none;
+                grid-template-columns: 1fr;
+                position: relative;
+                box-shadow: none;
+                border-top: none;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .has-mega-menu.active .mega-menu {
+                display: block;
+            }
+
+            .nav-links {
+                padding: 10px 0;
+                background-color: var(--primary-color);
+                box-shadow: var(--shadow-lg);
+                display: none;
+                flex-direction: column;
+                left: 0;
+                position: absolute;
+                top: 100%;
+                width: 100%;
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links>li {
+                width: 100%;
+            }
+
+            .nav-links>li>a {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 12px 20px;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+
+            .dropdown-menu,
+            .mega-menu {
+                border-top: none;
+                background-color: rgba(255, 255, 255, 0.05);
+                box-shadow: none;
+                display: none;
+                opacity: 1;
+                padding-left: 20px;
+                position: static;
+                transform: none;
+                visibility: visible;
+                width: 100%;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-menu li a,
+            .mega-links li a {
+                color: var(--white);
+                border-left: none;
+            }
+
+            .dropdown-menu li a:hover,
+            .mega-links li a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: var(--white);
+                padding-left: 20px;
+            }
+        }
+    </style>
+    <nav class="main-navbar">
+        <div class="container nav-container">
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#">About <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about/about-us.html">About Us</a></li>
+                        <li><a href="about/vision-mission.html">Vision & Mission</a></li>
+                        <li><a href="about/principal-message.html">Principal's Message</a></li>
+                        <li><a href="about/principal-profile.html">Principal's Profile</a></li>
+                        <li><a href="about/administration.html">Administration</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Academics <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics/courses-offered.html">Programs Offered</a></li>
+                        <li><a href="academics/academic-calendar.html">Academic Calendar</a></li>
+                        <li><a href="academics/syllabus.html">Syllabus</a></li>
+                        <li><a href="academics/time-table.html">Time Table</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Admissions <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="admissions/admission-process.html">Admission Section</a></li>
+                        <li><a href="admissions/eligibility.html">Eligibility</a></li>
+                        <li><a href="admissions/fee-structure.html">Fee Structure</a></li>
+                        <li><a href="admissions/online-payment.html">Online Payment</a>
+                        </li>
+                        <li><a href="admissions/prospectus.html">Prospectus (PDF)</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-mega-menu">
+                    <a href="#">Departments <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <div class="mega-col">
+                            <h4>Civil Engineering</h4>
+                            <ul class="mega-links">
+                                <li><a href="departments/ce/profile.html">Department Profile</a></li>
+                                <li><a href="departments/ce/labs.html">Laboratories</a></li>
+                                <li><a href="departments/ce/faculties.html">Our Faculty</a></li>
+                                <li><a href="departments/ce/staff.html">Technical Staff</a></li>
+                                <li><a href="departments/ce/students.html">Students</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-col">
+                            <h4>Computer Science and Engineering</h4>
+                            <ul class="mega-links">
+                                <li><a href="departments/cse/profile.html">Department Profile</a></li>
+                                <li><a href="departments/cse/labs.html">Laboratories</a></li>
+                                <li><a href="departments/cse/faculties.html">Our Faculty</a></li>
+                                <li><a href="departments/cse/staff.html">Technical Staff</a></li>
+                                <li><a href="departments/cse/students.html">Students</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-col">
+                            <h4>Electrical and Electronics Engineering</h4>
+                            <ul class="mega-links">
+                                <li><a href="departments/eee/profile.html">Department Profile</a></li>
+                                <li><a href="departments/eee/labs.html">Laboratories</a></li>
+                                <li><a href="departments/eee/faculties.html">Our Faculty</a></li>
+                                <li><a href="departments/eee/staff.html">Technical Staff</a></li>
+                                <li><a href="departments/eee/students.html">Students</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-col">
+                            <h4>Science & Humanities</h4>
+                            <ul class="mega-links">
+                                <li><a href="departments/sh/profile.html">Department Profile</a></li>
+                                <li><a href="departments/sh/labs.html">Laboratories</a></li>
+                                <li><a href="departments/sh/faculties.html">Our Faculty</a></li>
+                                <li><a href="departments/sh/staff.html">Technical Staff</a></li>
+                                <li><a href="departments/sh/students.html">Students</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Examination <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="examination/rules.html">Rules & Regulations</a></li>
+                        <li><a href="examination/schedule.html">Exam Schedule</a></li>
+                        <li><a href="examination/results.html">Results</a></li>
+                        <li><a href="examination/downloads.html">Downloads</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Facilities <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="facilities/library.html">Library</a></li>
+                        <li><a href="facilities/hostel.html">Hostel</a></li>
+                        <li><a href="facilities/laboratory.html">Laboratory</a></li>
+                        <li><a href="facilities/sports.html">Sports</a></li>
+                        <li><a href="facilities/canteen.html">Canteen</a></li>
+                        <li><a href="facilities/medical-facility.html">Medical Facility</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Cells <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="clubs/nss.html">NSS</a></li>
+                        <li><a href="clubs/activities.html">Activities</a></li>
+                        <li><a href="clubs/student-council.html">Student Council</a></li>
+                        <li><a href="clubs/clubs.html">Clubs</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">T&P <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="tp/placement-cell.html">Training & Placement Cell</a></li>
+                        <li><a href="tp/training-partners.html">Training Partners</a></li>
+                        <li><a href="tp/placement-records.html">Placement Records</a></li>
+                        <li><a href="tp/training-programs.html">Training Programs</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Gallery <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="gallery/photos.html">Photo Gallery</a></li>
+                        <li><a href="gallery/videos.html">Video Gallery</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contact/contact-us.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize header functionality for statically inlined instances (e.g. WordPress, static inclusions)
+            const initHeader = () => {
+                const header = document.querySelector('header');
+                if (!header) return;
+
+                // 1. Hamburger menu toggling for mobile view
+                const hamburger = header.querySelector('.hamburger-menu');
+                const navLinks = header.querySelector('.nav-links');
+
+                if (hamburger && navLinks) {
+                    // Clone node to clear prior event listeners in case of duplicate runs
+                    const newHamburger = hamburger.cloneNode(true);
+                    hamburger.parentNode.replaceChild(newHamburger, hamburger);
+
+                    newHamburger.addEventListener('click', () => {
+                        navLinks.classList.toggle('active');
+                        const icon = newHamburger.querySelector('i');
+                        if (icon) {
+                            icon.classList.toggle('fa-bars');
+                            icon.classList.toggle('fa-times');
+                        }
+                    });
+
+                    document.addEventListener('click', (e) => {
+                        if (!newHamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                            navLinks.classList.remove('active');
+                            const icon = newHamburger.querySelector('i');
+                            if (icon) {
+                                icon.classList.add('fa-bars');
+                                icon.classList.remove('fa-times');
+                            }
+                        }
+                    });
+                }
+
+                // 2. Mobile click expansion for dropdowns & mega-menus
+                const dropdowns = header.querySelectorAll('.dropdown');
+                dropdowns.forEach(drop => {
+                    const trigger = drop.querySelector('a');
+                    if (trigger) {
+                        trigger.addEventListener('click', (e) => {
+                            if (window.innerWidth <= 992) {
+                                e.preventDefault();
+                                drop.classList.toggle('active');
+                            }
+                        });
+                    }
+                });
+
+                const megamenu = header.querySelector('.has-mega-menu');
+                if (megamenu) {
+                    const trigger = megamenu.querySelector('a');
+                    if (trigger) {
+                        trigger.addEventListener('click', (e) => {
+                            if (window.innerWidth <= 992) {
+                                e.preventDefault();
+                                megamenu.classList.toggle('active');
+                            }
+                        });
+                    }
+                }
+
+                // 3. Dynamic active link highlighting
+                try {
+                    const currentPath = window.location.pathname;
+                    const navLinksList = header.querySelectorAll('.nav-links a, .top-nav a');
+
+                    const normalizeUrl = (urlStr) => {
+                        let u = urlStr.split('#')[0].split('?')[0];
+                        if (u.endsWith('/index.html')) {
+                            u = u.slice(0, -10);
+                        }
+                        if (u.endsWith('/')) {
+                            u = u.slice(0, -1);
+                        }
+                        return u;
+                    };
+
+                    const currentNormalized = normalizeUrl(window.location.href);
+
+                    navLinksList.forEach(link => {
+                        const rawHref = link.getAttribute('href');
+                        if (rawHref && rawHref !== '#') {
+                            const tempAnchor = document.createElement('a');
+                            tempAnchor.href = link.href;
+                            const linkNormalized = normalizeUrl(tempAnchor.href);
+
+                            if (currentNormalized === linkNormalized) {
+                                link.classList.add('active-nav-link');
+
+                                // Highlight parent categories
+                                const parentDropdown = link.closest('.dropdown');
+                                if (parentDropdown) {
+                                    const dropdownTrigger = parentDropdown.querySelector('a');
+                                    if (dropdownTrigger) dropdownTrigger.classList.add('active-nav-link');
+                                }
+
+                                const parentMega = link.closest('.has-mega-menu');
+                                if (parentMega) {
+                                    const megaTrigger = parentMega.querySelector('a');
+                                    if (megaTrigger) megaTrigger.classList.add('active-nav-link');
+                                }
+                            }
+                        }
+                    });
+                } catch (err) {
+                    console.error('Error in header active navigation:', err);
+                }
+            };
+
+            initHeader();
+        });
+    </script>
+</header>

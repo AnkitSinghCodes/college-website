@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Section - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #004aAD;
+            --white: #ffffff;
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+        }
+
+        .text-lead,
+        .text-body {
+            text-align: justify;
+        }
+
+        /* Container and Layout */
+        .container { margin: 0 auto; padding: 0 15px; max-width: 1400px; }
+        .page-container { margin: 0 auto; padding: 0 20px 80px; max-width: 1200px; }
+        
+        .about-page-wrapper { 
+            align-items: flex-start; 
+            display: grid; 
+            gap: 40px; 
+            grid-template-columns: 280px 1fr; 
+        }
+        
+        @media (max-width: 992px) { 
+            .about-page-wrapper { grid-template-columns: 1fr; } 
+        }
+
+        /* Sidebar Styles */
+        .about-sidebar { position: sticky; top: 20px; }
+        .sidebar-card { 
+            background: var(--white); 
+            border-radius: 12px; 
+            padding: 1.5rem; 
+            box-shadow: var(--shadow-md); 
+        }
+        .sidebar-title { 
+            font-size: 1.25rem; 
+            font-weight: 600; 
+            margin-bottom: 1rem; 
+            border-bottom: 2px solid #e5e7eb; 
+            padding-bottom: 0.5rem; 
+            color: var(--text-dark); 
+        }
+        .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin-bottom: 0.5rem; }
+        .sidebar-nav a { 
+            text-decoration: none; 
+            color: var(--text-dim); 
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem; 
+            padding: 0.75rem; 
+            border-radius: 8px; 
+            transition: all 0.3s ease; 
+        }
+        .sidebar-nav a:hover, .sidebar-nav a.active { 
+            background: rgba(0, 74, 173, 0.05); 
+            color: var(--primary-color); 
+        }
+
+        /* Main Content Layout */
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 40px; 
+            backdrop-filter: blur(10px); 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+            width: 100%; 
+        }
+
+        /* Timeline Process Styles */
+        .admission-intro-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-dark);
+            text-align: justify;
+            margin-bottom: 2rem;
+        }
+
+        .process-timeline {
+            margin: 0 auto; 
+            padding: 20px 0; 
+            max-width: 800px; 
+            position: relative;
+        }
+
+        .process-timeline::before {
+            background: #e0e0e0; 
+            bottom: 20px; 
+            content: ''; 
+            left: 30px; 
+            position: absolute; 
+            top: 20px; 
+            width: 2px; 
+            z-index: 0;
+        }
+
+        .process-step {
+            display: flex; 
+            gap: 30px; 
+            margin-bottom: 40px; 
+            position: relative;
+        }
+
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            background: var(--primary-color); 
+            align-items: center; 
+            border-radius: 50%; 
+            box-shadow: 0 4px 10px rgba(0, 51, 153, 0.3); 
+            color: var(--white); 
+            display: flex; 
+            flex-shrink: 0; 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            height: 60px; 
+            justify-content: center; 
+            width: 60px; 
+            z-index: 1;
+        }
+
+        .step-content {
+            background: #fdfdfd; 
+            border: 1px solid rgba(0, 0, 0, 0.05); 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
+            flex-grow: 1;
+        }
+
+        .step-content h3 {
+            color: var(--primary-color); 
+            font-size: 1.2rem; 
+            margin-bottom: 10px;
+        }
+
+        .step-content p {
+            color: var(--text-dark); 
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        @media (max-width: 600px) {
+            .process-timeline::before { left: 20px; }
+            .step-number { font-size: 1rem; height: 40px; width: 40px; }
+            .process-step { gap: 15px; }
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="page-admissions">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Admission Section</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admission Steps -->
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Admissions Section</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="admission-process.html" class="active"><i class="fas fa-info-circle"></i>
+                                    Admission Section</a></li>
+                            <li><a href="eligibility.html"><i class="fas fa-check-circle"></i> Eligibility</a></li>
+                            <li><a href="fee-structure.html"><i class="fas fa-money-bill-wave"></i> Fee Structure</a>
+                            </li>
+                            <li><a href="online-payment.html"><i class="fas fa-credit-card"></i> Online Payment</a></li>
+                            <li><a href="prospectus.html"><i class="fas fa-file-pdf"></i> Prospectus (PDF)</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                        <p class="admission-intro-text">
+                            Admission to Government Polytechnic College Ziro is governed by the rules and regulations laid down by the Arunachal Pradesh State Council for Technical Education (APSCTE) under the Directorate of Higher &amp; Technical Education (DHTE), Government of Arunachal Pradesh.
+                        </p>
+
+                        <div class="process-timeline">
+                            <!-- Step 1 -->
+                            <div class="process-step">
+                                <div class="step-number">01</div>
+                                <div class="step-content">
+                                    <h3>Check Eligibility</h3>
+                                    <p>Ensure you meet the minimum academic requirements for the diploma course you wish
+                                        to apply for.</p>
+                                </div>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="process-step">
+                                <div class="step-number">02</div>
+                                <div class="step-content">
+                                    <h3>Fill Online Application</h3>
+                                    <p>Visit the DHTE admission portal and fill out the online application form with
+                                        personal and academic details.</p>
+                                </div>
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="process-step">
+                                <div class="step-number">03</div>
+                                <div class="step-content">
+                                    <h3>Entrance Exam (APJEE) / Merit Selection</h3>
+                                    <p>Conduct of APJEE (Diploma) is kept in abeyance w.e.f. the Academic Year 2026-27 till further orders vide Govt. Notification No. HTE-18/1/2023-HTE-BR-HTE dated 11-03-2026.</p>
+                                    <p style="margin-top: 10px;">Selection and nomination of eligible candidates for admission in the various DIPLOMA programmes shall be done on the basis of merit in the qualifying examination i.e. Class X or Class XII as the case may be.</p>
+                                </div>
+                            </div>
+                            <!-- Step 4 -->
+                            <div class="process-step">
+                                <div class="step-number">04</div>
+                                <div class="step-content">
+                                    <h3>Counselling &amp; Seat Allotment</h3>
+                                    <p>Qualified candidates must attend the counselling session for seat allotment based
+                                        on their rank and preference.</p>
+                                </div>
+                            </div>
+                            <!-- Step 5 -->
+                            <div class="process-step">
+                                <div class="step-number">05</div>
+                                <div class="step-content">
+                                    <h3>Document Verification &amp; Admission</h3>
+                                    <p>Report to the college with original documents for verification and pay the
+                                        admission fees to confirm your seat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .process-step');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

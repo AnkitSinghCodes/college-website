@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Resources Engineering Lab - Civil Engineering - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../../css/main-bundle.css">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+        /* --- CORE VARIABLES & GLOBAL STYLES --- */
+        :root {
+            --bg-light: #fbfbfd;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-blur: blur(20px) saturate(180%);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --primary-color: #004aAD;
+            --primary-glass: rgba(0, 74, 173, 0.7);
+            --secondary-color: #6c757d;
+            --secondary-glass: rgba(108, 117, 125, 0.1);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --text-light: #f5f5f7;
+            --transition-speed: 0.4s;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fbfbfd;
+        }
+
+        /* Container and Layout */
+        .container { margin: 0 auto; padding: 0 15px; max-width: 1400px; }
+        .page-container { margin: 0 auto; padding: 0 20px 80px; max-width: 1200px; }
+        
+        .about-page-wrapper { 
+            align-items: flex-start; 
+            display: grid; 
+            gap: 40px; 
+            grid-template-columns: 280px 1fr; 
+        }
+
+        /* Sidebar Styles */
+        .about-sidebar { position: sticky; top: 40px; }
+        .sidebar-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 30px; 
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+        }
+        .sidebar-title { 
+            border-bottom: 2px solid rgba(0, 74, 173, 0.1); 
+            color: var(--primary-color); 
+            font-size: 1.2rem; 
+            font-weight: 700; 
+            margin-bottom: 20px; 
+            padding-bottom: 10px; 
+        }
+        .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin-bottom: 10px; }
+        .sidebar-nav li a { 
+            border-left: 4px solid transparent;
+            padding: 12px 15px; 
+            transition: all 0.3s ease; 
+            align-items: center; 
+            border-radius: 12px; 
+            color: var(--text-dark); 
+            display: flex; 
+            font-size: 0.95rem; 
+            font-weight: 500; 
+            gap: 12px; 
+            text-decoration: none; 
+        }
+        .sidebar-nav li a i { 
+            color: var(--primary-color); 
+            font-size: 1rem; 
+            opacity: 0.7; 
+            text-align: center; 
+            width: 20px; 
+        }
+        .sidebar-nav li a:hover { 
+            background: rgba(0, 74, 173, 0.05); 
+            color: var(--primary-color); 
+            padding-left: 20px; 
+        }
+        .sidebar-nav li a.active { 
+            background: var(--primary-color); 
+            border-left-color: #c5a059; 
+            box-shadow: 0 8px 15px rgba(0, 74, 173, 0.2); 
+            color: var(--white); 
+        }
+        .sidebar-nav li a.active i { 
+            color: var(--white); 
+            opacity: 1; 
+        }
+
+        /* Main Content Layout */
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 40px; 
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px); 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+            width: 100%; 
+        }
+
+        .dept-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .dept-header h2 {
+            color: #1a4a8e;
+            font-size: 2.5rem;
+            margin: 0 0 10px;
+        }
+        .dept-header p {
+            color: var(--text-dim);
+            margin: 0;
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        /* Table Styles */
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .data-table {
+            background: var(--white);
+            border-collapse: collapse;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            margin-top: 15px;
+            overflow: hidden;
+            width: 100%;
+        }
+        .data-table th,
+        .data-table td {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            text-align: left;
+        }
+        .data-table th {
+            background: var(--primary-color);
+            color: var(--white);
+            font-weight: 600;
+        }
+        .data-table tr:hover {
+            background: rgba(0, 74, 173, 0.02);
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- LAB GRID, CARDS, & GALLERIES --- */
+        .labs-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 30px !important;
+            margin-top: 20px;
+        }
+        .lab-card {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .lab-card:hover {
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        .lab-card.horizontal-layout {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            display: grid;
+            gap: 30px;
+            grid-template-areas: "image content" "actions actions";
+            grid-template-columns: 40% 1fr;
+            margin-bottom: 25px;
+            flex-direction: row;
+        }
+        .lab-card.horizontal-layout:nth-child(even) {
+            grid-template-areas: "content image" "actions actions";
+            grid-template-columns: 1fr 40%;
+        }
+        .lab-image-container {
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            grid-area: image;
+            height: 250px;
+            overflow: hidden;
+        }
+        .lab-image-container img {
+            display: block;
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+        .lab-content-container {
+            display: flex;
+            flex-direction: column;
+            grid-area: content;
+        }
+        .lab-info {
+            padding: 30px;
+            flex-grow: 1;
+        }
+        .lab-info h3 {
+            border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+            align-items: center;
+            color: var(--primary-color);
+            display: flex;
+            font-size: 1.5rem;
+            gap: 10px;
+            margin: 0 0 15px;
+            padding-bottom: 12px;
+            font-weight: 700;
+        }
+        .lab-info p {
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0 0 15px;
+        }
+        .lab-actions {
+            border-top: 1px solid rgba(0, 74, 173, 0.05);
+            display: flex;
+            grid-area: actions;
+            justify-content: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .view-more-btn {
+            background: #1a4a8e;
+            border: none;
+            padding: 10px 20px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            align-self: center;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 15px;
+            text-decoration: none;
+        }
+        .view-more-btn:hover {
+            background: #123466;
+            transform: translateY(-2px);
+        }
+        .lab-outcomes {
+            background: rgba(26, 74, 142, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 2px 30px 25px;
+        }
+        .lab-outcomes h4 {
+            color: var(--primary-color);
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+        .lab-card-gallery {
+            display: grid;
+            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            margin-top: 2rem;
+        }
+        .lab-card-gallery img {
+            border: 2px solid white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            height: 100px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .lab-card-gallery img:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+        .experiment-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 992px) {
+            .about-page-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .about-sidebar {
+                margin-bottom: 30px;
+                position: static;
+            }
+            .sidebar-nav {
+                display: grid;
+                gap: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .sidebar-nav li {
+                margin-bottom: 0;
+            }
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-departments-ce">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                <h1 class="page-title">Water Resources Engineering Lab</h1>
+            </div>
+            </div>
+        </section>
+
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Civil Engineering</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="profile.html"><i class="fas fa-info-circle"></i> Department Profile</a></li>
+                            <li><a href="labs.html" class="active"><i class="fas fa-flask"></i> Laboratories</a></li>
+                            <li><a href="faculties.html"><i class="fas fa-chalkboard-teacher"></i> Our Faculty</a></li>
+                            <li><a href="staff.html"><i class="fas fa-cogs"></i> Technical Staff</a></li>
+                            <li><a href="students.html"><i class="fas fa-user-graduate"></i> Students</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                <div class="dept-header">
+<h2>Water Resources Engineering Lab</h2>
+<p>Civil Engineering</p>
+</div>
+
+                <div class="lab-details-container">
+
+
+<div class="lab-details-page">
+    
+    <div class="lab-info-header" style="margin-bottom: 30px;">
+        <h3>Overview</h3>
+        <p>The Civil Engineering profession is much concerned with subjects like water supply and Irrigation Engineering, which need a sound knowledge of water resource engineering. Therefore, water resources engineering lab is a very important basic subject for students of civil engineering.</p>
+    </div>
+    <div class="lab-outcomes-section" style="margin-bottom: 30px;">
+        <h3>Expected Outcomes</h3>
+        <ul style="list-style-type: disc; margin-left: 20px;">
+            <li>Calculate average rainfall, reservoir capacity and control levels.</li><li>Estimate crop water requirement and capacity of canal.</li><li>Draw labelled sketch of earthen dam, diversion headworks, cross drainage work, theoretical and practical profile of gravity dam.</li><li>Prepare model of irrigation structure and maintenance report.</li><li>Design canal section.</li>
+        </ul>
+    </div>
+    
+
+    <!-- Actions -->
+    <div class="lab-actions" style="margin-bottom: 40px; display: flex; gap: 15px; flex-wrap: wrap;">
+        <a href="#" class="btn btn-info" style="background: #ccc; color: #666; padding: 10px 20px; border-radius: 5px; text-decoration: none; cursor: not-allowed;">Gallery (Coming Soon)</a>
+        <a href="#" class="btn btn-primary" style="background: #ccc; color: #666; padding: 10px 20px; border-radius: 5px; text-decoration: none; cursor: not-allowed;">Major Equipments (Coming Soon)</a>
+        <a href="#" class="btn btn-secondary" style="background: #ccc; color: #666; padding: 10px 20px; border-radius: 5px; text-decoration: none; cursor: not-allowed;">List of Experiments (Coming Soon)</a>
+        <a href="#" class="btn btn-outline" style="border: 1px solid var(--primary-color); color: var(--primary-color); padding: 10px 20px; border-radius: 5px; text-decoration: none;">Lab Manual (PDF - Coming Soon)</a>
+    </div>
+
+    
+
+</div>
+            </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+
+        <script src="../../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .lab-card');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

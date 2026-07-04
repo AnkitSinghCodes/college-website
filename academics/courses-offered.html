@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs Offered - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #004aAD;
+            --white: #ffffff;
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+        }
+
+        .text-lead,
+        .text-body {
+            text-align: justify;
+        }
+
+        /* Container and Layout */
+        .container { margin: 0 auto; padding: 0 15px; max-width: 1400px; }
+        .page-container { margin: 0 auto; padding: 0 20px 80px; max-width: 1200px; }
+        
+        .about-page-wrapper { 
+            align-items: flex-start; 
+            display: grid; 
+            gap: 40px; 
+            grid-template-columns: 280px 1fr; 
+        }
+        
+        @media (max-width: 992px) { 
+            .about-page-wrapper { grid-template-columns: 1fr; } 
+        }
+
+        /* Sidebar Styles */
+        .about-sidebar { position: sticky; top: 20px; }
+        .sidebar-card { 
+            background: var(--white); 
+            border-radius: 12px; 
+            padding: 1.5rem; 
+            box-shadow: var(--shadow-md); 
+        }
+        .sidebar-title { 
+            font-size: 1.25rem; 
+            font-weight: 600; 
+            margin-bottom: 1rem; 
+            border-bottom: 2px solid #e5e7eb; 
+            padding-bottom: 0.5rem; 
+            color: var(--text-dark); 
+        }
+        .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin-bottom: 0.5rem; }
+        .sidebar-nav a { 
+            text-decoration: none; 
+            color: var(--text-dim); 
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem; 
+            padding: 0.75rem; 
+            border-radius: 8px; 
+            transition: all 0.3s ease; 
+        }
+        .sidebar-nav a:hover, .sidebar-nav a.active { 
+            background: rgba(0, 74, 173, 0.05); 
+            color: var(--primary-color); 
+        }
+
+        /* Main Content Layout */
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 40px; 
+            backdrop-filter: blur(10px); 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+            width: 100%; 
+        }
+
+        .section-title { 
+            border-bottom: 2px solid #e0e0e0; 
+            color: var(--primary-color); 
+            font-size: 2rem; 
+            margin-bottom: 30px; 
+            padding-bottom: 15px; 
+        }
+
+        /* Courses Layout and Cards */
+        .courses-grid {
+            display: flex; 
+            flex-direction: column; 
+            gap: 30px;
+        }
+
+        .course-card {
+            background: var(--white); 
+            border: 1px solid rgba(0, 0, 0, 0.05); 
+            padding: 30px; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            align-items: flex-start; 
+            border-radius: 12px; 
+            box-shadow: var(--shadow-sm); 
+            display: flex; 
+            gap: 25px;
+        }
+
+        .course-card:hover {
+            border-color: var(--primary-color); 
+            box-shadow: var(--shadow-md); 
+            transform: translateY(-5px);
+        }
+
+        .course-icon {
+            background: #f0f7ff; 
+            align-items: center; 
+            border-radius: 12px; 
+            color: var(--primary-color); 
+            display: flex; 
+            flex-shrink: 0; 
+            font-size: 2rem; 
+            height: 70px; 
+            justify-content: center; 
+            width: 70px;
+        }
+
+        .course-info h3 {
+            color: var(--text-dark); 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            margin-bottom: 5px;
+        }
+
+        .course-code {
+            color: var(--primary-color); 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            letter-spacing: 0.5px; 
+            margin-bottom: 10px; 
+            text-transform: uppercase;
+        }
+
+        .course-desc {
+            color: var(--text-dim); 
+            line-height: 1.6; 
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .course-meta {
+            display: flex; 
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .course-meta span {
+            background: #f8f9fa; 
+            padding: 8px 15px; 
+            align-items: center; 
+            border-radius: 30px; 
+            color: var(--text-dim); 
+            display: flex; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            gap: 8px;
+        }
+        
+        .course-meta span i {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .course-card {
+                align-items: center; 
+                flex-direction: column; 
+                text-align: center;
+            }
+            .course-meta {
+                justify-content: center;
+            }
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="page-academics">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Programs Offered</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Content -->
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Academic Section</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="courses-offered.html" class="active"><i class="fas fa-book"></i> Programs
+                                    Offered</a></li>
+                            <li><a href="academic-calendar.html"><i class="fas fa-calendar-alt"></i> Academic
+                                    Calendar</a></li>
+                            <li><a href="syllabus.html"><i class="fas fa-file-alt"></i> Syllabus</a></li>
+                            <li><a href="time-table.html"><i class="fas fa-clock"></i> Time Table</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                        <div class="courses-grid">
+                            <!-- CE -->
+                            <div class="course-card">
+                                <div class="course-icon"><i class="fas fa-city"></i></div>
+                                <div class="course-info">
+                                    <h3>Civil Engineering</h3>
+                                    <p class="course-code">Program Code: CE</p>
+                                    <p class="course-desc">A comprehensive 3-year diploma covering structural
+                                        engineering,
+                                        surveying, and construction management.</p>
+                                    <div class="course-meta">
+                                        <span><i class="fas fa-clock"></i> 3 Years</span>
+                                        <span><i class="fas fa-users"></i> 30 Seats</span>
+                                    </div>
+                                    <a href="../departments/ce/profile.html" style="display: inline-block; margin-top: 15px; color: #1a3a6c; font-weight: 600; text-decoration: none;">View Department <i class="fas fa-arrow-right" style="font-size: 0.85em; margin-left: 5px;"></i></a>
+                                </div>
+                            </div>
+
+                            <!-- CSE -->
+                            <div class="course-card">
+                                <div class="course-icon"><i class="fas fa-laptop-code"></i></div>
+                                <div class="course-info">
+                                    <h3>Computer Science & Engineering</h3>
+                                    <p class="course-code">Program Code: CSE</p>
+                                    <p class="course-desc">A 3-year diploma program focusing on software development,
+                                        computer
+                                        networks, and modern computing technologies.</p>
+                                    <div class="course-meta">
+                                        <span><i class="fas fa-clock"></i> 3 Years</span>
+                                        <span><i class="fas fa-users"></i> 30 Seats</span>
+                                    </div>
+                                    <a href="../departments/cse/profile.html" style="display: inline-block; margin-top: 15px; color: #1a3a6c; font-weight: 600; text-decoration: none;">View Department <i class="fas fa-arrow-right" style="font-size: 0.85em; margin-left: 5px;"></i></a>
+                                </div>
+                            </div>
+
+                            <!-- EEE -->
+                            <div class="course-card">
+                                <div class="course-icon"><i class="fas fa-microchip"></i></div>
+                                <div class="course-info">
+                                    <h3>Electrical and Electronics Engineering</h3>
+                                    <p class="course-code">Program Code: ECE</p>
+                                    <p class="course-desc">A 3-year diploma program focusing on electronic circuits,
+                                        communication systems, digital electronics, and microprocessors.</p>
+                                    <div class="course-meta">
+                                        <span><i class="fas fa-clock"></i> 3 Years</span>
+                                        <span><i class="fas fa-users"></i> 30 Seats</span>
+                                    </div>
+                                    <a href="../departments/eee/profile.html" style="display: inline-block; margin-top: 15px; color: #1a3a6c; font-weight: 600; text-decoration: none;">View Department <i class="fas fa-arrow-right" style="font-size: 0.85em; margin-left: 5px;"></i></a>
+                                </div>
+                            </div>
+
+                            <!-- S&H -->
+                            <div class="course-card">
+                                <div class="course-icon"><i class="fas fa-flask"></i></div>
+                                <div class="course-info">
+                                    <h3>Science & Humanities</h3>
+                                    <p class="course-code">Program Code: S&H</p>
+                                    <p class="course-desc">Supports the first year of the diploma program with a strong
+                                        foundation
+                                        in basic sciences, mathematics, and communication skills.</p>
+                                    <div class="course-meta">
+                                        <span><i class="fas fa-clock"></i> 1st Year Support</span>
+                                        <span><i class="fas fa-book-reader"></i> Foundation</span>
+                                    </div>
+                                    <a href="../departments/sh/profile.html" style="display: inline-block; margin-top: 15px; color: #1a3a6c; font-weight: 600; text-decoration: none;">View Department <i class="fas fa-arrow-right" style="font-size: 0.85em; margin-left: 5px;"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .course-card');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+

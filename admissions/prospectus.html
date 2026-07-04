@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prospectus - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #004aAD;
+            --white: #ffffff;
+            --text-dark: #1d1d1f;
+            --text-dim: #86868b;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+        }
+
+        .page-admissions {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fbfbfd;
+        }
+
+        /* Container and Layout */
+        .container { margin: 0 auto; padding: 0 15px; max-width: 1400px; }
+        .page-container { margin: 0 auto; padding: 0 20px 80px; max-width: 1200px; }
+        
+        .about-page-wrapper { 
+            align-items: flex-start; 
+            display: grid; 
+            gap: 40px; 
+            grid-template-columns: 280px 1fr; 
+        }
+        
+        @media (max-width: 992px) { 
+            .about-page-wrapper { grid-template-columns: 1fr; } 
+        }
+
+        /* Sidebar Styles */
+        .about-sidebar { position: sticky; top: 20px; }
+        .sidebar-card { 
+            background: var(--white); 
+            border-radius: 12px; 
+            padding: 1.5rem; 
+            box-shadow: var(--shadow-md); 
+        }
+        .sidebar-title { 
+            font-size: 1.25rem; 
+            font-weight: 600; 
+            margin-bottom: 1rem; 
+            border-bottom: 2px solid #e5e7eb; 
+            padding-bottom: 0.5rem; 
+            color: var(--text-dark); 
+        }
+        .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin-bottom: 0.5rem; }
+        .sidebar-nav a { 
+            text-decoration: none; 
+            color: var(--text-dim); 
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem; 
+            padding: 0.75rem; 
+            border-radius: 8px; 
+            transition: all 0.3s ease; 
+        }
+        .sidebar-nav a:hover, .sidebar-nav a.active { 
+            background: rgba(0, 74, 173, 0.05); 
+            color: var(--primary-color); 
+        }
+
+        /* Main Content Layout */
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 40px; 
+            backdrop-filter: blur(10px); 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+            width: 100%; 
+        }
+
+        /* Prospectus specific styles */
+        .page-admissions .prospectus-layout {
+            align-items: center;
+            display: flex;
+            gap: 50px;
+        }
+
+        .page-admissions .prospectus-preview {
+            flex: 0 0 300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-admissions .pdf-cover,
+        .prospectus-cover {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2980b9 100%);
+            padding: 30px;
+            transition: transform 0.3s;
+            border-radius: 5px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+            justify-content: space-between;
+            position: relative;
+            text-align: center;
+            width: 280px;
+            box-sizing: border-box;
+        }
+
+        .page-admissions .pdf-cover:hover,
+        .prospectus-cover:hover {
+            transform: translateY(-5px);
+        }
+
+        .page-admissions .cover-logo {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            height: 80px;
+            width: 80px;
+        }
+
+        .page-admissions .pdf-cover h3,
+        .prospectus-cover h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            color: var(--white);
+        }
+
+        .page-admissions .pdf-cover p,
+        .prospectus-cover p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+            color: var(--white);
+        }
+
+        .page-admissions .cover-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.9rem;
+            padding-top: 15px;
+            color: var(--white);
+        }
+
+        .page-admissions .prospectus-details {
+            flex: 1;
+            text-align: left;
+        }
+
+        .page-admissions .prospectus-details h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .page-admissions .desc {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .page-admissions .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .page-admissions .feature-list li {
+            color: #555;
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .page-admissions .feature-list li::before {
+            color: var(--primary-color);
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            left: 0;
+            position: absolute;
+            top: 2px;
+        }
+
+        .page-admissions .download-action {
+            margin-top: 30px;
+        }
+
+        .page-admissions .download-btn-large {
+            background: var(--primary-color);
+            padding: 15px 35px;
+            transition: all 0.3s;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 74, 173, 0.4);
+            color: var(--white);
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .page-admissions .download-btn-large:hover {
+            background: #c0392b;
+            box-shadow: 0 8px 20px rgba(0, 74, 173, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .page-admissions .file-info {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .pdf-tooltip-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        .pdf-tooltip-wrapper .coming-soon-tip {
+            visibility: hidden;
+            opacity: 0;
+            background: #1a3a6c;
+            color: #fff;
+            text-align: center;
+            padding: 6px 18px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            transition: opacity 0.25s ease;
+            pointer-events: none;
+            z-index: 10;
+            box-shadow: 0 4px 14px rgba(26,58,108,0.18);
+        }
+        .pdf-tooltip-wrapper .coming-soon-tip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: #1a3a6c;
+        }
+        .pdf-tooltip-wrapper:hover .coming-soon-tip {
+            visibility: visible;
+            opacity: 1;
+        }
+        .pdf-tooltip-wrapper .download-btn-large {
+            pointer-events: none;
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .page-admissions .prospectus-layout {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-admissions">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Prospectus</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prospectus Content -->
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Admissions Section</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="admission-process.html"><i class="fas fa-info-circle"></i> Admission
+                                    Section</a></li>
+                            <li><a href="eligibility.html"><i class="fas fa-check-circle"></i> Eligibility</a></li>
+                            <li><a href="fee-structure.html"><i class="fas fa-money-bill-wave"></i> Fee Structure</a>
+                            </li>
+                            <li><a href="online-payment.html"><i class="fas fa-credit-card"></i> Online Payment</a></li>
+                            <li><a href="prospectus.html" class="active"><i class="fas fa-file-pdf"></i> Prospectus
+                                    (PDF)</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                        <div class="prospectus-layout">
+                            <div class="prospectus-cover">
+                                <div class="cover-content">
+                                    <img src="../images/logo.jpeg" alt="Logo" class="cover-logo">
+                                    <h3>PROSPECTUS</h3>
+                                    <p>2026-2027</p>
+                                    <div class="cover-footer">Government Polytechnic College Ziro</div>
+                                </div>
+                            </div>
+                            <div class="prospectus-details">
+                                <h2 style="white-space: nowrap; font-size: 1.7rem;">Information Brochure 2026-27</h2>
+                                <p class="desc">
+                                    The college prospectus provides detailed information about:
+                                </p>
+                                <ul class="feature-list">
+                                    <li>Academic Regulations & Curriculum</li>
+                                    <li>Department Profiles & Faculty Details</li>
+                                    <li>Campus Infrastructure & Facilities</li>
+                                    <li>Student Code of Conduct & Anti-Ragging Policies</li>
+                                    <li>Fee Structure & Scholarship Schemes</li>
+                                    <li>Placement Records & Industry collaborations</li>
+                                </ul>
+
+                                <div class="download-action">
+                                    <div class="pdf-tooltip-wrapper">
+                                        <span class="coming-soon-tip">🕐 Coming Soon</span>
+                                        <a href="#" class="download-btn-large" onclick="return false;">
+                                            <i class="fas fa-file-pdf"></i> Download Prospectus (PDF)
+                                        </a>
+                                    </div>
+                                    <p class="file-info">Format: PDF | Size: 1.5 MB</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .prospectus-layout');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+

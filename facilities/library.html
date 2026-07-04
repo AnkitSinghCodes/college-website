@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library - Government Polytechnic College Ziro</title>
+    <link rel="stylesheet" href="../css/main-bundle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Page Hero Styles */
+        .page-hero {
+            background: url('../images/clg photo.jpg');
+            padding: 80px 20px;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Library Staff Styles */
+        .staff-card {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 30px;
+            transition: transform 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        .staff-card:hover {
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        .staff-header {
+            align-items: flex-start;
+            display: flex;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        .staff-img {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            height: 220px;
+            overflow: hidden;
+            width: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+        .staff-img img {
+            height: 100%;
+            object-fit: contain;
+            width: 100%;
+            background: #fff;
+        }
+        .staff-basic-info h3 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            margin-top: 0;
+        }
+        .staff-basic-info .designation {
+            color: var(--secondary-color);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .staff-contact {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 15px;
+            border-radius: 8px;
+            color: #444;
+            font-size: 0.95rem;
+        }
+        .staff-contact p {
+            align-items: center;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 6px;
+            margin-top: 0;
+        }
+        .staff-contact p:last-child {
+            margin-bottom: 0;
+        }
+        .staff-detail-section {
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            margin-top: 25px;
+            padding-top: 20px;
+        }
+        .staff-detail-section h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .page-hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .staff-header {
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+            }
+            .staff-contact p {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-facilities">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Library</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <section class="page-container">
+            <div class="about-page-wrapper">
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Facilities</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="library.html" class="active"><i class="fas fa-book"></i> Library</a></li>
+                            <li><a href="hostel.html"><i class="fas fa-hotel"></i> Hostel</a></li>
+                            <li><a href="laboratory.html"><i class="fas fa-flask"></i> Laboratory</a></li>
+                            <li><a href="sports.html"><i class="fas fa-running"></i> Sports</a></li>
+                            <li><a href="canteen.html"><i class="fas fa-utensils"></i> Canteen</a></li>
+                            <li><a href="medical-facility.html"><i class="fas fa-hand-holding-medical"></i> Medical
+                                    Facility</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="about-main-content">
+                    <div class="glass-card">
+                        <div class="about-content verbatim-layout">
+                            <h2 class="section-title">ABOUT THE COLLEGE LIBRARY</h2>
+
+                            <div class="text-block" style="text-align: justify;">
+                                <p>The library of the instittue was established the year 2025 to cater the academic
+                                    needs and requirements of the students, faculty and non-teaching staff. It has
+                                    adequate space with all basic infrastructure facility. The library has all necessary
+                                    books and learning materials needed to enrich the knowledge and skills of the
+                                    students/learners.</p>
+
+                                <p>The library has a collection of adequate number of printed books catering to the
+                                    needs of students and fauclty memebers. The book shelves are organized
+                                    department-wise and books are arranged by subject.</p>
+
+                                <p>At present, the library has a separate reading arena equiped with dedicated reading
+                                    tables having a seating capacity of 20-30 persons. Following an open access system,
+                                    students can borrow up to 4 books for 15 days, while faculty and other staff can
+                                    borrow up to 5 books for 30 days.</p>
+
+                                <p>The library shares the computers of the Langauage Laboratory with 24/7 internet
+                                    connectivity and is accessible to the students as per their convenience/demand.</p>
+
+                                <p>Library induction program is carried out every year for new students in which details
+                                    about the library collection, services and timing are briefed. The queries of the
+                                    students regarding the use of learning resoucers of the library are also attended
+                                    during the program.</p>
+
+                                <p>In the coming years, the library of the institute aims to have vast collection of
+                                    wide range of books for the all the Diploma Engineering Programs offered. Also,
+                                    plans to provide the students with online books and other library services as deemed
+                                    necessary time to time with the use of technology.</p>
+                            </div>
+
+                            <div class="stats-container verbatim-stats" style="margin-top: 30px;">
+                                <h3>Key statistics as on Feb 2026</h3>
+                                <div class="table-responsive">
+                                    <table class="data-table verbatim-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Number of</th>
+                                                <th>First Year</th>
+                                                <th>CE</th>
+                                                <th>CSE</th>
+                                                <th>EEE</th>
+                                                <th>Others</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Book titles</td>
+                                                <td>35</td>
+                                                <td>17</td>
+                                                <td>-</td>
+                                                <td>3</td>
+                                                <td>15</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Book volumes</td>
+                                                <td>167</td>
+                                                <td>85</td>
+                                                <td>-</td>
+                                                <td>13</td>
+                                                <td>69</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Magazines</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Journals</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>E-books</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="facilities-verbatim" style="margin-top: 20px;">
+                                <p><strong>Internet facility:</strong> 150mbps; 24/7 Wi-Fi internet facility.</p>
+                                <p><strong>Reprographic Fcility:</strong> Zerox machine; Printer</p>
+                            </div>
+
+
+
+                            <div class="sections-verbatim" style="margin-top: 30px;">
+                                <h3>Different Sections of the Library:</h3>
+                                <div class="library-sections-grid">
+                                    <div class="section-card">
+                                        <div class="section-text">1. Acquisition cum Technical Section.</div>
+                                        <div class="section-img-wrapper"><img src="../library/4.jpeg"
+                                                alt="Acquisition Section"></div>
+                                    </div>
+                                    <div class="section-card">
+                                        <div class="section-text">2. Circulation Section.</div>
+                                        <div class="section-img-wrapper"><img src="../library/2.jpeg"
+                                                alt="Circulation Section"></div>
+                                    </div>
+                                    <div class="section-card">
+                                        <div class="section-text">3. Reading Section</div>
+                                        <div class="section-img-wrapper"><img src="../library/5.jpeg"
+                                                alt="Reading Section"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="library-gallery" style="margin-top: 40px;">
+                                <h3>Library Photo Gallery</h3>
+                                <div class="gallery-grid">
+
+                                    <div class="gallery-item">
+                                        <img src="../library/4.jpeg" alt="Library View 4">
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../library/5.jpeg" alt="Library View 5">
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="../library/6.jpeg" alt="Library View 6">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Library Staff Section -->
+                            <div id="library-staff" class="library-staff-section" style="margin-top:40px; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 30px; text-align: center;">
+                                <h3 style="color:var(--primary-color); margin-bottom:1.5rem; font-weight: 700;">
+                                    Library Staff
+                                </h3>
+                                <div class="staff-grid" style="display: flex; justify-content: center;">
+                                    <div class="staff-card" style="width: 100%; max-width: 500px;">
+                                        <div class="staff-header">
+                                            <div class="staff-img">
+                                                <img src="../library/1.jpeg" alt="Sh. Bito Lego">
+                                            </div>
+                                            <div class="staff-basic-info">
+                                                <h3>Sh. Bito Lego</h3>
+                                                <p class="designation">Library Assistant</p>
+                                                <div class="staff-contact">
+                                                    <p><i class="fas fa-envelope"></i> bitolego@gmail.com</p>
+                                                    <p><i class="fas fa-phone"></i> +91 9774159031</p>
+                                                    <p><strong>Joining:</strong> 24th Oct 2025</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="staff-detail-section">
+                                            <h4>Responsibilities</h4>
+                                            <p>Managing library resources, circulation services, and providing technical support to students and researchers.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../js/script.js?v=2.0"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation observer
+            const fadeElements = document.querySelectorAll('.sidebar-card, .glass-card, .sections-verbatim, .library-gallery, .library-staff-section');
+            
+            fadeElements.forEach(el => el.classList.add('fade-in'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        let autoScrolling = true;
+        
+        // Stop auto-scrolling if the user scrolls manually
+        const stopAutoScroll = () => {
+            if (autoScrolling) {
+                console.log('[HashScroll] User scrolled manually, stopping auto-scroll.');
+                autoScrolling = false;
+                clearInterval(scrollInterval);
+            }
+        };
+
+        window.addEventListener('wheel', stopAutoScroll, { passive: true });
+        window.addEventListener('touchmove', stopAutoScroll, { passive: true });
+        window.addEventListener('keydown', (e) => {
+            const keys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
+            if (keys.includes(e.key)) {
+                stopAutoScroll();
+            }
+        }, { passive: true });
+
+        // Direct scroll to library staff if requested in hash, countering dynamic header height shifts
+        const handleHashScroll = () => {
+            if (autoScrolling && window.location.hash === '#library-staff') {
+                const target = document.getElementById('library-staff');
+                if (target) {
+                    target.scrollIntoView({ block: 'start' });
+                    const navbar = document.querySelector('.main-navbar');
+                    const navbarHeight = navbar ? navbar.offsetHeight : 60;
+                    window.scrollBy(0, -navbarHeight - 20);
+                }
+            }
+        };
+        
+        // Poll for 2.5 seconds (every 250ms) to ensure correct position after all dynamic layouts/images load
+        let pollCount = 0;
+        const scrollInterval = setInterval(() => {
+            handleHashScroll();
+            pollCount++;
+            if (pollCount >= 10) {
+                clearInterval(scrollInterval);
+            }
+        }, 250);
+
+        window.addEventListener('load', handleHashScroll);
+        // Capture load events from all images as they render to adjust scroll position dynamically
+        window.addEventListener('load', handleHashScroll, true);
+    </script>
+</body>
+
+</html>
+
+
