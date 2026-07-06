@@ -2,7 +2,7 @@
 
 * {margin: 0; padding: 0; -webkit-font-smoothing: antialiased; box-sizing: border-box;}
 
-body {background-color: var(--bg-light); color: var(--text-dark); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: -0.01em; line-height: 1.6; overflow-x: hidden;}
+body {background-color: var(--bg-light); color: var(--text-dark); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: -0.01em; line-height: 1.6; overflow-x: clip;}
 
 header {display: contents;}
 
@@ -1912,7 +1912,7 @@ body:has(.nav-links.active) #backToTop {
 }
 
 @media (max-width: 992px) {
-.nav-links {padding: 10px 0; background-color: var(--primary-color); box-shadow: var(--shadow-lg); display: none; flex-direction: column; left: 0; position: absolute; top: 100%; width: 100%; z-index: 99;}
+.nav-links {padding: 10px 0; background-color: var(--primary-color); box-shadow: var(--shadow-lg); display: none; flex-direction: column; left: 0; position: absolute; top: 100%; width: 100%; z-index: 99; max-height: calc(100vh - 100%); overflow-y: auto;}
 .nav-links.active {display: flex;}
 .nav-links>li {width: 100%;}
 .nav-links>li>a {border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 12px 20px;}
@@ -2292,7 +2292,7 @@ body:has(.nav-links.active) #backToTop {
 
 /* Prevent horizontal overflow on html as well */
 html {
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 /* Adjust floating action buttons position and size in mobile view */
