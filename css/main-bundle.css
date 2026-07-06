@@ -159,6 +159,13 @@ footer {border-top: 1px solid rgba(0, 0, 0, 0.08); padding: 60px 0 0; background
 
 #backToTop:hover {background-color: #00337d; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); transform: translateY(-5px);}
 
+body:has(.nav-links.active) #floating-navigation-controls,
+body:has(.nav-links.active) #backToTop {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
 .page-hero {background: url('../images/clg photo.jpg'); padding: 80px 20px; align-items: center; background-attachment: fixed; background-position: center; background-size: cover; color: var(--white); display: flex; justify-content: center; margin-bottom: 60px; min-height: 300px; overflow: hidden; position: relative; text-align: center; width: 100%;}
 
 .page-hero {overflow: hidden; position: relative;}
@@ -2282,3 +2289,29 @@ footer {border-top: 1px solid rgba(0, 0, 0, 0.08); padding: 60px 0 0; background
 }
 
 @media (max-width: 992px) { .mobile-quick-nav {display: flex;} .desktop-only-link {display: none !important;} }
+
+/* Prevent horizontal overflow on html as well */
+html {
+    overflow-x: hidden;
+}
+
+/* Adjust floating action buttons position and size in mobile view */
+@media (max-width: 768px) {
+    #backToTop {
+        right: 15px !important;
+        bottom: 15px !important;
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.1rem !important;
+    }
+    #floating-navigation-controls {
+        left: 15px !important;
+        bottom: 15px !important;
+    }
+    #floating-navigation-controls button,
+    #floating-navigation-controls a {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.1rem !important;
+    }
+}
