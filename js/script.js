@@ -35,22 +35,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Hamburger menu logic has been relocated inside the loadComponent callback 
     // to execute correctly after the dynamic header content is loaded.
-    // Hero Slider Logic
+    // Hero Slider Logic with Manual Controls
     const slides = document.querySelectorAll('.hero-image');
-    if (slides.length > 0) {
+    const sliderWrapper = document.querySelector('.hero-section');
+    if (slides.length > 0 && sliderWrapper) {
         let currentSlide = 0;
+        let slideIntervalId;
         const slideInterval = 4000; // Change slide every 4 seconds
 
-        setInterval(() => {
-            // Remove active class from current slide
+        let dotsContainer = sliderWrapper.querySelector('.slider-dots');
+
+        if (!dotsContainer) {
+            dotsContainer = document.createElement('div');
+            dotsContainer.className = 'slider-dots';
+            sliderWrapper.appendChild(dotsContainer);
+        }
+
+        // Generate Dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                resetInterval();
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+
+        function goToSlide(index) {
             slides[currentSlide].classList.remove('active');
-
-            // Move to next slide
-            currentSlide = (currentSlide + 1) % slides.length;
-
-            // Add active class to new slide
+            dots[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
-        }, slideInterval);
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        function startInterval() {
+            slideIntervalId = setInterval(nextSlide, slideInterval);
+        }
+
+        function resetInterval() {
+            clearInterval(slideIntervalId);
+            startInterval();
+        }
+
+        startInterval();
     }
 
 
@@ -1385,10 +1424,10 @@ document.addEventListener("DOMContentLoaded", async function() {
                 <ul>
                     <li><a href="examination/downloads.html">Downloads</a></li>
                     <li><a href="admissions/admission-process.html">Student Forms</a></li>
-                    <li><a href="https://files.catbox.moe/j06xdb.pdf" target="_blank">Rules & Regulations</a></li>
+                    <li><a href="examination/rules-regulations-2021-22.pdf" target="_blank">Rules & Regulations</a></li>
                     <li><a href="https://files.catbox.moe/j06xdb.pdf" target="_blank">Notification Handbook</a></li>
-                    <li><a href="https://files.catbox.moe/j06xdb.pdf" target="_blank">Academic Calendar 2025-26</a></li>
-                    <li><a href="https://files.catbox.moe/j06xdb.pdf" target="_blank">Academic Planner 2025-26</a></li>
+                    <li><a href="academic-section-download/academic-calendar/academic-calendar-2025-26.pdf" target="_blank">Academic Calendar 2025-26</a></li>
+                    <li><a href="academic-section-download/academic-calendar/academic-planner-2025-26.pdf" target="_blank">Academic Planner 2025-26</a></li>
                 </ul>
             </div>
 
