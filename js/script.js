@@ -878,6 +878,8 @@ document.addEventListener("DOMContentLoaded", async function() {
             top: 100%;
             width: 100%;
             z-index: 99;
+            max-height: calc(100vh - 100%);
+            overflow-y: auto;
         }
 
         .nav-links.active {
@@ -1149,6 +1151,8 @@ document.addEventListener("DOMContentLoaded", async function() {
 
                 newHamburger.addEventListener('click', () => {
                     navLinks.classList.toggle('active');
+                    const isActive = navLinks.classList.contains('active');
+                    document.body.style.overflow = isActive ? 'hidden' : '';
                     const icon = newHamburger.querySelector('i');
                     if (icon) {
                         icon.classList.toggle('fa-bars');
@@ -1158,11 +1162,14 @@ document.addEventListener("DOMContentLoaded", async function() {
 
                 document.addEventListener('click', (e) => {
                     if (!newHamburger.contains(e.target) && !navLinks.contains(e.target)) {
-                        navLinks.classList.remove('active');
-                        const icon = newHamburger.querySelector('i');
-                        if (icon) {
-                            icon.classList.add('fa-bars');
-                            icon.classList.remove('fa-times');
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            document.body.style.overflow = '';
+                            const icon = newHamburger.querySelector('i');
+                            if (icon) {
+                                icon.classList.add('fa-bars');
+                                icon.classList.remove('fa-times');
+                            }
                         }
                     }
                 });
@@ -1512,6 +1519,8 @@ document.addEventListener("DOMContentLoaded", async function() {
                         hamburger.addEventListener('click', () => {
                             console.log('Hamburger clicked');
                             navLinks.classList.toggle('active');
+                            const isActive = navLinks.classList.contains('active');
+                            document.body.style.overflow = isActive ? 'hidden' : '';
                             const icon = hamburger.querySelector('i');
                             if (icon) {
                                 icon.classList.toggle('fa-bars');
@@ -1522,11 +1531,14 @@ document.addEventListener("DOMContentLoaded", async function() {
                         // Close menu when clicking outside
                         document.addEventListener('click', (e) => {
                             if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-                                navLinks.classList.remove('active');
-                                const icon = hamburger.querySelector('i');
-                                if (icon) {
-                                    icon.classList.add('fa-bars');
-                                    icon.classList.remove('fa-times');
+                                if (navLinks.classList.contains('active')) {
+                                    navLinks.classList.remove('active');
+                                    document.body.style.overflow = '';
+                                    const icon = hamburger.querySelector('i');
+                                    if (icon) {
+                                        icon.classList.add('fa-bars');
+                                        icon.classList.remove('fa-times');
+                                    }
                                 }
                             }
                         });

@@ -2,7 +2,7 @@
 
 * {margin: 0; padding: 0; -webkit-font-smoothing: antialiased; box-sizing: border-box;}
 
-body {background-color: var(--bg-light); color: var(--text-dark); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: -0.01em; line-height: 1.6; overflow-x: hidden;}
+body {background-color: var(--bg-light); color: var(--text-dark); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: -0.01em; line-height: 1.6; overflow-x: clip;}
 
 header {display: contents;}
 
@@ -158,6 +158,13 @@ footer {border-top: 1px solid rgba(0, 0, 0, 0.08); padding: 60px 0 0; background
 #backToTop {border: none; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); align-items: center; background-color: var(--primary-color); border-radius: 50%; bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); color: var(--white); cursor: pointer; display: flex; font-size: 1.5rem; height: 55px; justify-content: center; opacity: 0; position: fixed; right: 30px; transform: translateY(20px); visibility: hidden; width: 55px; z-index: 1000;}
 
 #backToTop:hover {background-color: #00337d; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); transform: translateY(-5px);}
+
+body:has(.nav-links.active) #floating-navigation-controls,
+body:has(.nav-links.active) #backToTop {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
 
 .page-hero {background: url('../images/clg photo.jpg'); padding: 80px 20px; align-items: center; background-attachment: fixed; background-position: center; background-size: cover; color: var(--white); display: flex; justify-content: center; margin-bottom: 60px; min-height: 300px; overflow: hidden; position: relative; text-align: center; width: 100%;}
 
@@ -1897,7 +1904,7 @@ footer {border-top: 1px solid rgba(0, 0, 0, 0.08); padding: 60px 0 0; background
 }
 
 @media (max-width: 992px) {
-.nav-links {padding: 10px 0; background-color: var(--primary-color); box-shadow: var(--shadow-lg); display: none; flex-direction: column; left: 0; position: absolute; top: 100%; width: 100%; z-index: 99;}
+.nav-links {padding: 10px 0; background-color: var(--primary-color); box-shadow: var(--shadow-lg); display: none; flex-direction: column; left: 0; position: absolute; top: 100%; width: 100%; z-index: 99; max-height: calc(100vh - 100%); overflow-y: auto;}
 .nav-links.active {display: flex;}
 .nav-links>li {width: 100%;}
 .nav-links>li>a {border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 12px 20px;}
@@ -2302,3 +2309,28 @@ footer {border-top: 1px solid rgba(0, 0, 0, 0.08); padding: 60px 0 0; background
     transform: scale(1.2);
 }
 
+/* Prevent horizontal overflow on html as well */
+html {
+    overflow-x: clip;
+}
+
+/* Adjust floating action buttons position and size in mobile view */
+@media (max-width: 768px) {
+    #backToTop {
+        right: 15px !important;
+        bottom: 15px !important;
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.1rem !important;
+    }
+    #floating-navigation-controls {
+        left: 15px !important;
+        bottom: 15px !important;
+    }
+    #floating-navigation-controls button,
+    #floating-navigation-controls a {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.1rem !important;
+    }
+}
