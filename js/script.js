@@ -1432,7 +1432,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                     <li><a href="examination/downloads.html">Downloads</a></li>
                     <li><a href="admissions/admission-process.html">Student Forms</a></li>
                     <li><a href="examination/rules-regulations-2021-22.pdf" target="_blank">Rules & Regulations</a></li>
-                    <li><a href="https://files.catbox.moe/j06xdb.pdf" target="_blank">Notification Handbook</a></li>
+                    <li><a href="academic-section-download/2_Notification-Hand-book.pdf" target="_blank">Notification Handbook</a></li>
                     <li><a href="academic-section-download/academic-calendar/academic-calendar-2025-26.pdf" target="_blank">Academic Calendar 2025-26</a></li>
                     <li><a href="academic-section-download/academic-calendar/academic-planner-2025-26.pdf" target="_blank">Academic Planner 2025-26</a></li>
                 </ul>

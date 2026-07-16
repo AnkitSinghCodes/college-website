@@ -88,6 +88,21 @@
             background: #ca6f1e;
         }
 
+        .sem-link.inactive,
+        .sem-link.backlog.inactive {
+            background: var(--secondary-color);
+            box-shadow: 0 2px 6px rgba(108, 117, 125, 0.2);
+            cursor: not-allowed;
+            opacity: 0.65;
+        }
+
+        .sem-link.inactive:hover,
+        .sem-link.backlog.inactive:hover {
+            background: var(--secondary-color);
+            transform: none;
+            box-shadow: 0 2px 6px rgba(108, 117, 125, 0.2);
+        }
+
         .section-divider {
             border: none;
             border-top: 1px solid rgba(0, 74, 173, 0.1);
@@ -216,8 +231,8 @@
                                 <h4><i class="fas fa-hard-hat"></i> Civil Engineering (CE)</h4>
                                 <div class="sem-links">
                                     <a href="1-Result-regular-CE-Sem-1-jul-dec-25.pdf" target="_blank" class="sem-link"><i class="fas fa-file-alt"></i> Sem-I (Regular)</a>
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-III (Regular)</a>
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-V (Regular)</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-III (Regular) (Coming Soon)</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-V (Regular) (Coming Soon)</a>
                                     <a href="#" class="sem-link backlog"><i class="fas fa-redo"></i> Backlog – All Semesters</a>
                                 </div>
                             </div>
@@ -225,20 +240,20 @@
                             <div class="dept-block">
                                 <h4><i class="fas fa-laptop-code"></i> Computer Science &amp; Engineering (CSE)</h4>
                                 <div class="sem-links">
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-I (Regular)</a>
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-III (Regular)</a>
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-V (Regular)</a>
-                                    <a href="#" class="sem-link backlog"><i class="fas fa-redo"></i> Backlog – All Semesters</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-I (Regular)</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-III (Regular)</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-V (Regular)</a>
+                                    <a href="#" onclick="return false;" class="sem-link backlog inactive"><i class="fas fa-redo"></i> Backlog – All Semesters</a>
                                 </div>
                             </div>
 
                             <div class="dept-block">
                                 <h4><i class="fas fa-bolt"></i> Electrical &amp; Electronics Engineering (EEE)</h4>
                                 <div class="sem-links">
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-I (Regular)</a>
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-III (Regular)</a>
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-V (Regular)</a>
-                                    <a href="#" class="sem-link backlog"><i class="fas fa-redo"></i> Backlog – All Semesters</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-I (Regular)</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-III (Regular)</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-V (Regular)</a>
+                                    <a href="#" onclick="return false;" class="sem-link backlog inactive"><i class="fas fa-redo"></i> Backlog – All Semesters</a>
                                 </div>
                             </div>
 
@@ -249,8 +264,8 @@
                                 <h4><i class="fas fa-hard-hat"></i> Civil Engineering (CE)</h4>
                                 <div class="sem-links">
                                     <a href="1-result-regular-CE-Sem-II-Jan-Jun-2026.pdf" target="_blank" class="sem-link"><i class="fas fa-file-alt"></i> Sem-II (Regular)</a>
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-IV (Regular)</a>
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-VI (Regular)</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-IV (Regular) (Coming Soon)</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-VI (Regular) (Coming Soon)</a>
                                     <a href="2-result-backlog-CE-Jan-Jun-2026.pdf" target="_blank" class="sem-link backlog"><i class="fas fa-redo"></i> Backlog – All Semesters</a>
                                 </div>
                             </div>
@@ -258,20 +273,20 @@
                             <div class="dept-block">
                                 <h4><i class="fas fa-laptop-code"></i> Computer Science &amp; Engineering (CSE)</h4>
                                 <div class="sem-links">
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-II (Regular)</a>
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-IV (Regular)</a>
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-VI (Regular)</a>
-                                    <a href="#" class="sem-link backlog"><i class="fas fa-redo"></i> Backlog – All Semesters</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-II (Regular)</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-IV (Regular)</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-VI (Regular)</a>
+                                    <a href="#" onclick="return false;" class="sem-link backlog inactive"><i class="fas fa-redo"></i> Backlog – All Semesters</a>
                                 </div>
                             </div>
 
                             <div class="dept-block">
                                 <h4><i class="fas fa-bolt"></i> Electrical &amp; Electronics Engineering (EEE)</h4>
                                 <div class="sem-links">
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-II (Regular)</a>
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-IV (Regular)</a>
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Sem-VI (Regular)</a>
-                                    <a href="#" class="sem-link backlog"><i class="fas fa-redo"></i> Backlog – All Semesters</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-II (Regular)</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-IV (Regular)</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Sem-VI (Regular)</a>
+                                    <a href="#" onclick="return false;" class="sem-link backlog inactive"><i class="fas fa-redo"></i> Backlog – All Semesters</a>
                                 </div>
                             </div>
                         </div>
@@ -283,7 +298,7 @@
                             <h3><i class="fas fa-search"></i>&nbsp; Result of Rechecking</h3>
                             <div class="dept-block">
                                 <div class="sem-links">
-                                    <a href="#" class="sem-link"><i class="fas fa-file-alt"></i> Rechecking Result</a>
+                                    <a href="#" onclick="return false;" class="sem-link inactive"><i class="fas fa-file-alt"></i> Rechecking Result</a>
                                 </div>
                             </div>
 
